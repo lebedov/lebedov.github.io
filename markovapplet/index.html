@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+
+<head>
+<title>Lev's Web Site</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Author" content="Lev Givon" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<h1 id="logo-text"><a href="index.html">Lev Givon</a></h1>
+<p id="slogan">@ Columbia University</p>
+</div> <!-- header -->
+
+<div id="menu">
+<ul>
+  <li><a href="../index.html">Home</a></li>
+  <li><a href="../research.html">Research</a></li>
+  <li id="current"><a href="../projects.html">Projects</a></li>
+  <li><a href="../art.html">Art</a></li>
+  <li><a href="../contact.html">Contact</a></li>
+</ul>
+</div> <!-- menu -->
+
+<div id="content-wrap">
+<div id="main">
+
+<h2>Java M/M/s Queue Simulation</h2>
+
+<p></p>
+
+<div class="applet">
+<object codetype="application/x-java-applet"
+classid="java:MarkovApplet.class"
+archive="markovapplet.jar, jcommon-0.5.2.jar, jfreechart-0.7.0.jar"
+width="510" height="420"></object>
+</div>
+
+<p>This applet provides a simple simulation of an M/M/s queue.</p>
+
+<ul>
+  <li><b>Number of Visits per State</b> tallies the number of times the number of
+      entries in the queue (i.e., the queue state) has achieved a certain
+      value.</li>
+  <li><b>Queue State Evolution</b> plots the evolving number of entries in the
+      queue as time progresses.</li>
+  <li><b>Arrival Distribution</b> plots the probability that a certain number
+      of new entries arrive in the queue.</li>
+  <li><b>Service Length Distribution</b> plots the probability that the queue
+      takes a particular amount of time (i.e., the service length) to
+      process an entry.</li>
+</ul>
+
+</div> <!-- main -->
+
+<div id="sidebar">
+
+<h2>Download</h2>
+
+<ul class="sidemenu">
+<li><a href="markovapplet-0.2.tar.gz">Source code</a></li>
+</ul>
+
+</div> <!-- sidebar -->
+
+</div> <!-- content-wrap -->
+
+<div id="footer">
+<p>
+&copy; 2010 <a href="contact.html">Lev Givon</a> |
+Design by <a href="http://www.styleshout.com/">styleshout</a> |
+Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a> |
+<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+</p>
+</div> <!-- footer -->
+
+</div> <!-- wrap -->
+
+</body>
+
+</html>
