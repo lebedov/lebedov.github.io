@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasCgeru
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasCgeru

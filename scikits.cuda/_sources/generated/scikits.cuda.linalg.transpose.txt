@@ -1,0 +1,6 @@
+scikits.cuda.linalg.transpose
+=============================
+
+.. currentmodule:: scikits.cuda.linalg
+
+.. autofunction:: transpose

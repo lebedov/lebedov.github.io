@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasChpmv
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasChpmv

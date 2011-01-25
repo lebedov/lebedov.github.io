@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasCherk
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasCherk

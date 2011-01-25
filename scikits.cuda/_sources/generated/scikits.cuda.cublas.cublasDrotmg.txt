@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasDrotmg
+================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasDrotmg

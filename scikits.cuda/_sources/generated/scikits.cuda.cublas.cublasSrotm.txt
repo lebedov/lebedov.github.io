@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasSrotm
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasSrotm

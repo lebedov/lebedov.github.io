@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasDgemm
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasDgemm

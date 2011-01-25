@@ -1,0 +1,22 @@
+scikits.cuda.fft.Plan
+=====================
+
+.. currentmodule:: scikits.cuda.fft
+
+.. autoclass:: Plan
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Plan.__init__
+   
+   
+
+   
+   
+   

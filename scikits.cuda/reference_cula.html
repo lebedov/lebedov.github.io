@@ -1,0 +1,305 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CULA Routines &mdash; scikits.cuda v0.4.dev documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.4.dev',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="scikits.cuda v0.4.dev documentation" href="index.html" />
+    <link rel="up" title="Reference" href="reference.html" />
+    <link rel="next" title="scikits.cuda.cula.culaCheckStatus" href="generated/scikits.cuda.cula.culaCheckStatus.html" />
+    <link rel="prev" title="scikits.cuda.cublas.cublasZtrsm" href="generated/scikits.cuda.cublas.cublasZtrsm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cula.culaCheckStatus.html" title="scikits.cuda.cula.culaCheckStatus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cublas.cublasZtrsm.html" title="scikits.cuda.cublas.cublasZtrsm"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="reference.html" accesskey="U">Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cula-routines">
+<h1>CULA Routines<a class="headerlink" href="#cula-routines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="helper-routines">
+<h2>Helper Routines<a class="headerlink" href="#helper-routines" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaCheckStatus.html#scikits.cuda.cula.culaCheckStatus" title="scikits.cuda.cula.culaCheckStatus"><tt class="xref py py-obj docutils literal"><span class="pre">culaCheckStatus</span></tt></a></td>
+<td>Raise an exception corresponding to the specified CULA status</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetErrorInfo.html#scikits.cuda.cula.culaGetErrorInfo" title="scikits.cuda.cula.culaGetErrorInfo"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetErrorInfo</span></tt></a></td>
+<td>Returns extended information about the last CULA error.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetLastStatus.html#scikits.cuda.cula.culaGetLastStatus" title="scikits.cuda.cula.culaGetLastStatus"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetLastStatus</span></tt></a></td>
+<td>Returns the last status code returned from a CULA function.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetStatusString.html#scikits.cuda.cula.culaGetStatusString" title="scikits.cuda.cula.culaGetStatusString"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetStatusString</span></tt></a></td>
+<td>Get string associated with the specified CULA error status code.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaInitialize.html#scikits.cuda.cula.culaInitialize" title="scikits.cuda.cula.culaInitialize"><tt class="xref py py-obj docutils literal"><span class="pre">culaInitialize</span></tt></a></td>
+<td>Must be called before using any other CULA function.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaSelectDevice.html#scikits.cuda.cula.culaSelectDevice" title="scikits.cuda.cula.culaSelectDevice"><tt class="xref py py-obj docutils literal"><span class="pre">culaSelectDevice</span></tt></a></td>
+<td>Selects a device with which CULA will operate. Must be called</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaShutdown.html#scikits.cuda.cula.culaShutdown" title="scikits.cuda.cula.culaShutdown"><tt class="xref py py-obj docutils literal"><span class="pre">culaShutdown</span></tt></a></td>
+<td>Shuts down CULA.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="linear-algebra-routines">
+<h2>Linear Algebra Routines<a class="headerlink" href="#linear-algebra-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-precision-real">
+<h3>Single Precision Real<a class="headerlink" href="#single-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgels.html#scikits.cuda.cula.culaDeviceSgels" title="scikits.cuda.cula.culaDeviceSgels"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgels</span></tt></a></td>
+<td>Solve linear system with QR or LQ factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgeqrf.html#scikits.cuda.cula.culaDeviceSgeqrf" title="scikits.cuda.cula.culaDeviceSgeqrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgeqrf</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgesv.html#scikits.cuda.cula.culaDeviceSgesv" title="scikits.cuda.cula.culaDeviceSgesv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgesv</span></tt></a></td>
+<td>Solve linear system with LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgesvd.html#scikits.cuda.cula.culaDeviceSgesvd" title="scikits.cuda.cula.culaDeviceSgesvd"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgesvd</span></tt></a></td>
+<td>SVD decomposition.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgetrf.html#scikits.cuda.cula.culaDeviceSgetrf" title="scikits.cuda.cula.culaDeviceSgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgetrf</span></tt></a></td>
+<td>LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgglse.html#scikits.cuda.cula.culaDeviceSgglse" title="scikits.cuda.cula.culaDeviceSgglse"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgglse</span></tt></a></td>
+<td>Solve linear equality-constrained least squares problem.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSposv.html#scikits.cuda.cula.culaDeviceSposv" title="scikits.cuda.cula.culaDeviceSposv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSposv</span></tt></a></td>
+<td>Solve positive definite linear system with Cholesky factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSpotrf.html#scikits.cuda.cula.culaDeviceSpotrf" title="scikits.cuda.cula.culaDeviceSpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSpotrf</span></tt></a></td>
+<td>Cholesky factorization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="single-precision-complex">
+<h3>Single Precision Complex<a class="headerlink" href="#single-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgels.html#scikits.cuda.cula.culaDeviceCgels" title="scikits.cuda.cula.culaDeviceCgels"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgels</span></tt></a></td>
+<td>Solve linear system with QR or LQ factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeqrf.html#scikits.cuda.cula.culaDeviceCgeqrf" title="scikits.cuda.cula.culaDeviceCgeqrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeqrf</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgesv.html#scikits.cuda.cula.culaDeviceCgesv" title="scikits.cuda.cula.culaDeviceCgesv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgesv</span></tt></a></td>
+<td>Solve linear system with LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgesvd.html#scikits.cuda.cula.culaDeviceCgesvd" title="scikits.cuda.cula.culaDeviceCgesvd"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgesvd</span></tt></a></td>
+<td>SVD decomposition.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgetrf.html#scikits.cuda.cula.culaDeviceCgetrf" title="scikits.cuda.cula.culaDeviceCgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgetrf</span></tt></a></td>
+<td>LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgglse.html#scikits.cuda.cula.culaDeviceCgglse" title="scikits.cuda.cula.culaDeviceCgglse"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgglse</span></tt></a></td>
+<td>Solve linear equality-constrained least squares problem.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCposv.html#scikits.cuda.cula.culaDeviceCposv" title="scikits.cuda.cula.culaDeviceCposv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCposv</span></tt></a></td>
+<td>Solve positive definite linear system with Cholesky factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCpotrf.html#scikits.cuda.cula.culaDeviceCpotrf" title="scikits.cuda.cula.culaDeviceCpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCpotrf</span></tt></a></td>
+<td>Cholesky factorization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-real">
+<h3>Double Precision Real<a class="headerlink" href="#double-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgels.html#scikits.cuda.cula.culaDeviceDgels" title="scikits.cuda.cula.culaDeviceDgels"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgels</span></tt></a></td>
+<td>Solve linear system with QR or LQ factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgeqrf.html#scikits.cuda.cula.culaDeviceDgeqrf" title="scikits.cuda.cula.culaDeviceDgeqrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgeqrf</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgesv.html#scikits.cuda.cula.culaDeviceDgesv" title="scikits.cuda.cula.culaDeviceDgesv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgesv</span></tt></a></td>
+<td>Solve linear system with LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgesvd.html#scikits.cuda.cula.culaDeviceDgesvd" title="scikits.cuda.cula.culaDeviceDgesvd"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgesvd</span></tt></a></td>
+<td>SVD decomposition.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgetrf.html#scikits.cuda.cula.culaDeviceDgetrf" title="scikits.cuda.cula.culaDeviceDgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgetrf</span></tt></a></td>
+<td>LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgglse.html#scikits.cuda.cula.culaDeviceDgglse" title="scikits.cuda.cula.culaDeviceDgglse"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgglse</span></tt></a></td>
+<td>Solve linear equality-constrained least squares problem.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDposv.html#scikits.cuda.cula.culaDeviceDposv" title="scikits.cuda.cula.culaDeviceDposv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDposv</span></tt></a></td>
+<td>Solve positive definite linear system with Cholesky factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDpotrf.html#scikits.cuda.cula.culaDeviceDpotrf" title="scikits.cuda.cula.culaDeviceDpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDpotrf</span></tt></a></td>
+<td>Cholesky factorization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-complex">
+<h3>Double Precision Complex<a class="headerlink" href="#double-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgels.html#scikits.cuda.cula.culaDeviceZgels" title="scikits.cuda.cula.culaDeviceZgels"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgels</span></tt></a></td>
+<td>Solve linear system with QR or LQ factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeqrf.html#scikits.cuda.cula.culaDeviceZgeqrf" title="scikits.cuda.cula.culaDeviceZgeqrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeqrf</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgesv.html#scikits.cuda.cula.culaDeviceZgesv" title="scikits.cuda.cula.culaDeviceZgesv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgesv</span></tt></a></td>
+<td>Solve linear system with LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgesvd.html#scikits.cuda.cula.culaDeviceZgesvd" title="scikits.cuda.cula.culaDeviceZgesvd"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgesvd</span></tt></a></td>
+<td>SVD decomposition.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgetrf.html#scikits.cuda.cula.culaDeviceZgetrf" title="scikits.cuda.cula.culaDeviceZgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgetrf</span></tt></a></td>
+<td>LU factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgglse.html#scikits.cuda.cula.culaDeviceZgglse" title="scikits.cuda.cula.culaDeviceZgglse"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgglse</span></tt></a></td>
+<td>Solve linear equality-constrained least squares problem.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZposv.html#scikits.cuda.cula.culaDeviceZposv" title="scikits.cuda.cula.culaDeviceZposv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZposv</span></tt></a></td>
+<td>Solve positive definite linear system with Cholesky factorization.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZpotrf.html#scikits.cuda.cula.culaDeviceZpotrf" title="scikits.cuda.cula.culaDeviceZpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZpotrf</span></tt></a></td>
+<td>Cholesky factorization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">CULA Routines</a><ul>
+<li><a class="reference internal" href="#helper-routines">Helper Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#linear-algebra-routines">Linear Algebra Routines</a><ul>
+<li><a class="reference internal" href="#single-precision-real">Single Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-complex">Single Precision Complex</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-real">Double Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-complex">Double Precision Complex</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/reference_cula.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cula.culaCheckStatus.html" title="scikits.cuda.cula.culaCheckStatus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cublas.cublasZtrsm.html" title="scikits.cuda.cublas.cublasZtrsm"
+             >previous</a> |</li>
+        <li><a href="index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="reference.html" >Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009-2011, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

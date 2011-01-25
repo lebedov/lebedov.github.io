@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.fft.Plan &mdash; scikits.cuda v0.4.dev documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.dev',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="scikits.cuda v0.4.dev documentation" href="../index.html" />
+    <link rel="up" title="Fast Fourier Transform" href="../reference_fft.html" />
+    <link rel="next" title="Linear Algebra Routines" href="../reference_linalg.html" />
+    <link rel="prev" title="scikits.cuda.fft.ifft" href="scikits.cuda.fft.ifft.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference_linalg.html" title="Linear Algebra Routines"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.fft.ifft.html" title="scikits.cuda.fft.ifft"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_fft.html" accesskey="U">Fast Fourier Transform</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scikits-cuda-fft-plan">
+<h1>scikits.cuda.fft.Plan<a class="headerlink" href="#scikits-cuda-fft-plan" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="scikits.cuda.fft.Plan">
+<em class="property">class </em><tt class="descclassname">scikits.cuda.fft.</tt><tt class="descname">Plan</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>CUFFT plan class.</p>
+<p>This class represents an FFT plan for CUFFT.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>shape</strong> : tuple of ints</p>
+<blockquote>
+<p>Transform size. Must contain no more than 3 elements.</p>
+</blockquote>
+<p><strong>in_dtype</strong> : { numpy.float32, numpy.float64, numpy.complex64, numpy.complex128 }</p>
+<blockquote>
+<p>Type of input data.</p>
+</blockquote>
+<p><strong>out_dtype</strong> : { numpy.float32, numpy.float64, numpy.complex64, numpy.complex128 }</p>
+<blockquote class="last">
+<p>Type of output data.</p>
+</blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Transform plan configurations of dimensions higher than 3 are
+supported by CUFFT, but have not yet been exposed in this
+function.</p>
+<dl class="method">
+<dt id="scikits.cuda.fft.Plan.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#scikits.cuda.fft.Plan.__init__" title="scikits.cuda.fft.Plan.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(shape,&nbsp;in_dtype,&nbsp;out_dtype)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/generated/scikits.cuda.fft.Plan.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference_linalg.html" title="Linear Algebra Routines"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.fft.ifft.html" title="scikits.cuda.fft.ifft"
+             >previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_fft.html" >Fast Fourier Transform</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009-2011, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

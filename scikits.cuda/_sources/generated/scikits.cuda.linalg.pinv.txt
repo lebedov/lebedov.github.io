@@ -1,0 +1,6 @@
+scikits.cuda.linalg.pinv
+========================
+
+.. currentmodule:: scikits.cuda.linalg
+
+.. autofunction:: pinv

@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaCheckStatus
+=================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaCheckStatus

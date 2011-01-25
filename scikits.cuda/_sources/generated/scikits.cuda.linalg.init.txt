@@ -1,0 +1,6 @@
+scikits.cuda.linalg.init
+========================
+
+.. currentmodule:: scikits.cuda.linalg
+
+.. autofunction:: init

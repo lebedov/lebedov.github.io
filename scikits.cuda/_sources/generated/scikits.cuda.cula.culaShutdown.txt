@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaShutdown
+==============================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaShutdown

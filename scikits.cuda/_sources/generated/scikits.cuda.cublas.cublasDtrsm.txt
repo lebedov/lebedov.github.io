@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasDtrsm
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasDtrsm

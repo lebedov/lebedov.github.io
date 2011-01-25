@@ -1,0 +1,6 @@
+scikits.cuda.linalg.hermitian
+=============================
+
+.. currentmodule:: scikits.cuda.linalg
+
+.. autofunction:: hermitian

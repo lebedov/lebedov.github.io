@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasIdamax
+================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasIdamax

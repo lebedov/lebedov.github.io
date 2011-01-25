@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasZhpr
+==============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasZhpr

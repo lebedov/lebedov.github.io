@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasChemv
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasChemv

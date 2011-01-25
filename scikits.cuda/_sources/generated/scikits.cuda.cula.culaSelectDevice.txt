@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaSelectDevice
+==================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaSelectDevice

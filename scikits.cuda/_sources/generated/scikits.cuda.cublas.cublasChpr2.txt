@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasChpr2
+===============================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasChpr2
