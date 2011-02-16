@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceSpotrf
 ==================================
 
-.. currentmodule:: scikits.cuda.cula
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: culaDeviceSpotrf
+.. automethod:: cula.culaDeviceSpotrf

@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-linalg-pinv">
 <h1>scikits.cuda.linalg.pinv<a class="headerlink" href="#scikits-cuda-linalg-pinv" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.linalg.pinv">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">pinv</tt><big>(</big><em>a_gpu</em>, <em>dev</em>, <em>rcond=1.0000000000000001e-15</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.pinv" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">pinv</tt><big>(</big><em>a_gpu</em>, <em>rcond=1.0000000000000001e-15</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.pinv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moore-Penrose pseudoinverse.</p>
 <p>Compute the Moore-Penrose pseudoinverse of the specified matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -63,23 +63,19 @@
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input matrix of shape <cite>(m, n)</cite>.</p>
-</blockquote>
-<p><strong>dev</strong> : pycuda.driver.Device</p>
-<blockquote>
-<p>Device object to be used.</p>
-</blockquote>
+<div><p>Input matrix of shape <cite>(m, n)</cite>.</p>
+</div></blockquote>
 <p><strong>rcond</strong> : float</p>
 <blockquote>
-<p>Singular values smaller than <cite>rcond`*max(singular_values)</cite>
+<div><p>Singular values smaller than <cite>rcond`*max(singular_values)</cite>
 are set to zero.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a_inv_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote class="last">
-<p>Pseudoinverse of input matrix.</p>
-</blockquote>
+<div><p>Pseudoinverse of input matrix.</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -96,12 +92,12 @@ CULA toolkit is installed.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a_inv_gpu</span> <span class="o">=</span> <span class="n">pinv</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_inv_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">a_inv_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="mf">1e-4</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b_inv_gpu</span> <span class="o">=</span> <span class="n">pinv</span><span class="p">(</span><span class="n">b_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_inv_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">b_gpu</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">b_inv_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="mf">1e-4</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
@@ -157,7 +153,7 @@ CULA toolkit is installed.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

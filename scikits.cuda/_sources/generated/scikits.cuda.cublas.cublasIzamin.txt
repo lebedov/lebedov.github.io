@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasIzamin
 ================================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasIzamin
+.. automethod:: cublas.cublasIzamin

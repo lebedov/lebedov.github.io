@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCsrot
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCsrot
+.. automethod:: cublas.cublasCsrot

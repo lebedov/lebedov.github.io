@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasInit
 ==============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasInit
+.. automethod:: cublas.cublasInit

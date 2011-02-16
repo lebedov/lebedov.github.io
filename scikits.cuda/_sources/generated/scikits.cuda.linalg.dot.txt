@@ -1,6 +1,6 @@
 scikits.cuda.linalg.dot
 =======================
 
-.. currentmodule:: scikits.cuda.linalg
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: dot
+.. automethod:: linalg.dot

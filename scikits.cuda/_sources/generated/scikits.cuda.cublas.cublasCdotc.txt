@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCdotc
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCdotc
+.. automethod:: cublas.cublasCdotc

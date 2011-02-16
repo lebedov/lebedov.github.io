@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-special-e1z">
 <h1>scikits.cuda.special.e1z<a class="headerlink" href="#scikits-cuda-special-e1z" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.special.e1z">
-<tt class="descclassname">scikits.cuda.special.</tt><tt class="descname">e1z</tt><big>(</big><em>z_gpu</em>, <em>dev</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.e1z" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">special.</tt><tt class="descname">e1z</tt><big>(</big><em>z_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.e1z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exponential integral with <cite>n = 1</cite> of complex arguments.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -62,19 +62,15 @@
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : GPUArray</p>
 <blockquote>
-<p>Input matrix of shape <cite>(m, n)</cite>.</p>
-</blockquote>
-<p><strong>dev</strong> : pycuda.driver.Device</p>
-<blockquote>
-<p>Device object to be used.</p>
-</blockquote>
+<div><p>Input matrix of shape <cite>(m, n)</cite>.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>e_gpu</strong> : GPUArray</p>
 <blockquote class="last">
-<p>GPUarrays containing the exponential integrals of
+<div><p>GPUarrays containing the exponential integrals of
 the entries of <cite>z_gpu</cite>.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -144,7 +140,7 @@ the entries of <cite>z_gpu</cite>.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

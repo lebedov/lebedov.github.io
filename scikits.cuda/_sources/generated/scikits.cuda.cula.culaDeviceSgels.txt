@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceSgels
 =================================
 
-.. currentmodule:: scikits.cuda.cula
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: culaDeviceSgels
+.. automethod:: cula.culaDeviceSgels

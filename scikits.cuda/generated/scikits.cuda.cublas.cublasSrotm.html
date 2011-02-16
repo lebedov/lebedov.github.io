@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-cublas-cublassrotm">
 <h1>scikits.cuda.cublas.cublasSrotm<a class="headerlink" href="#scikits-cuda-cublas-cublassrotm" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.cublas.cublasSrotm">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSrotm</tt><big>(</big><em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em>, <em>sparam</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotm" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSrotm</tt><big>(</big><em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em>, <em>sparam</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a real modified Givens rotation.</p>
 <p>Applies the modified Givens rotation <cite>h</cite> to the 2 x <cite>n</cite>
 matrix <cite>[[x.T], [y.T]]</cite>.</p>
@@ -64,30 +64,30 @@ matrix <cite>[[x.T], [y.T]]</cite>.</p>
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
 <blockquote>
-<p>Number of elements in input vectors.</p>
-</blockquote>
+<div><p>Number of elements in input vectors.</p>
+</div></blockquote>
 <p><strong>x</strong> : ctypes.c_void_p</p>
 <blockquote>
-<p>Pointer to single-precision input/output vector.</p>
-</blockquote>
+<div><p>Pointer to single-precision input/output vector.</p>
+</div></blockquote>
 <p><strong>incx</strong> : int</p>
 <blockquote>
-<p>Storage spacing between elements of <cite>x</cite>.</p>
-</blockquote>
+<div><p>Storage spacing between elements of <cite>x</cite>.</p>
+</div></blockquote>
 <p><strong>y</strong> : ctypes.c_void_p</p>
 <blockquote>
-<p>Pointer to single-precision input/output vector.</p>
-</blockquote>
+<div><p>Pointer to single-precision input/output vector.</p>
+</div></blockquote>
 <p><strong>incy</strong> : int</p>
 <blockquote>
-<p>Storage spacing between elements of <cite>y</cite>.</p>
-</blockquote>
+<div><p>Storage spacing between elements of <cite>y</cite>.</p>
+</div></blockquote>
 <p><strong>sparam</strong> : numpy.ndarray</p>
 <blockquote class="last">
-<p>sparam[0] contains the <cite>sflag</cite> described below;
+<div><p>sparam[0] contains the <cite>sflag</cite> described below;
 sparam[1:5] contains the values <cite>[sh00, sh10, sh01, sh11]</cite>
 that determine the rotation matrix <cite>h</cite>.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -150,7 +150,7 @@ for <cite>sflag</cite> == -2.0, <cite>h</cite> == <cite>[[1.0, 0.0], [0.0, 1.0]]
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

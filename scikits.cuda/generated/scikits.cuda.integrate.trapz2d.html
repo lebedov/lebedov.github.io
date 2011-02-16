@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.integrate.trapz2d &mdash; scikits.cuda v0.4.dev documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.dev',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="scikits.cuda v0.4.dev documentation" href="../index.html" />
+    <link rel="up" title="Integration Routines" href="../reference_integrate.html" />
+    <link rel="next" title="Linear Algebra Routines" href="../reference_linalg.html" />
+    <link rel="prev" title="scikits.cuda.integrate.trapz" href="scikits.cuda.integrate.trapz.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference_linalg.html" title="Linear Algebra Routines"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.integrate.trapz.html" title="scikits.cuda.integrate.trapz"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_integrate.html" accesskey="U">Integration Routines</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scikits-cuda-integrate-trapz2d">
+<h1>scikits.cuda.integrate.trapz2d<a class="headerlink" href="#scikits-cuda-integrate-trapz2d" title="Permalink to this headline">¶</a></h1>
+<dl class="staticmethod">
+<dt id="scikits.cuda.integrate.trapz2d">
+<em class="property">static </em><tt class="descclassname">integrate.</tt><tt class="descname">trapz2d</tt><big>(</big><em>x_gpu</em>, <em>dx=1.0</em>, <em>dy=1.0</em><big>)</big><a class="headerlink" href="#scikits.cuda.integrate.trapz2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>2D trapezoidal integration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<blockquote>
+<div><p>Input matrix to integrate.</p>
+</div></blockquote>
+<p><strong>dx</strong> : float</p>
+<blockquote>
+<div><p>X-axis spacing.</p>
+</div></blockquote>
+<p><strong>dy</strong> : float</p>
+<blockquote>
+<div><p>Y-axis spacing</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>result</strong> : float</p>
+<blockquote class="last">
+<div><p>Definite double integral as approximated by the trapezoidal rule.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">integrate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">integrate</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">trapz2d</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">z</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/generated/scikits.cuda.integrate.trapz2d.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference_linalg.html" title="Linear Algebra Routines"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.integrate.trapz.html" title="scikits.cuda.integrate.trapz"
+             >previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_integrate.html" >Integration Routines</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009-2011, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 scikits.cuda.linalg.hermitian
 =============================
 
-.. currentmodule:: scikits.cuda.linalg
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: hermitian
+.. automethod:: linalg.hermitian

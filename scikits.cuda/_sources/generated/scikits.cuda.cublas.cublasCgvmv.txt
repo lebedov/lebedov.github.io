@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCgvmv
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCgvmv
+.. automethod:: cublas.cublasCgvmv

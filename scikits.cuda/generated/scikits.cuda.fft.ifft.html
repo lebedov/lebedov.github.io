@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-fft-ifft">
 <h1>scikits.cuda.fft.ifft<a class="headerlink" href="#scikits-cuda-fft-ifft" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.fft.ifft">
-<tt class="descclassname">scikits.cuda.fft.</tt><tt class="descname">ifft</tt><big>(</big><em>x_gpu</em>, <em>y_gpu</em>, <em>plan</em>, <em>scale=False</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.ifft" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">fft.</tt><tt class="descname">ifft</tt><big>(</big><em>x_gpu</em>, <em>y_gpu</em>, <em>plan</em>, <em>scale=False</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.ifft" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inverse Fast Fourier Transform.</p>
 <p>Compute the inverse FFT of some data in device memory using the
 specified plan.</p>
@@ -64,21 +64,21 @@ specified plan.</p>
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input array.</p>
-</blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
 <p><strong>y_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Inverse FFT of input array.</p>
-</blockquote>
+<div><p>Inverse FFT of input array.</p>
+</div></blockquote>
 <p><strong>plan</strong> : Plan</p>
 <blockquote>
-<p>FFT plan.</p>
-</blockquote>
+<div><p>FFT plan.</p>
+</div></blockquote>
 <p><strong>scale</strong> : bool, optional</p>
 <blockquote class="last">
-<p>If True, scale the computed inverse FFT by the number of
+<div><p>If True, scale the computed inverse FFT by the number of
 elements in the output array.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -153,7 +153,7 @@ length N.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCher
 ==============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCher
+.. automethod:: cublas.cublasCher

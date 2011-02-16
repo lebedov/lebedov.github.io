@@ -52,10 +52,10 @@
             
   <div class="section" id="scikits-cuda-linalg-dot">
 <h1>scikits.cuda.linalg.dot<a class="headerlink" href="#scikits-cuda-linalg-dot" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.linalg.dot">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">dot</tt><big>(</big><em>a_gpu</em>, <em>b_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matrix product of two arrays.</p>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">dot</tt><big>(</big><em>a_gpu</em>, <em>b_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dot product of two arrays.</p>
 <p>For 1D arrays, this function computes the inner product. For 2D
 arrays of shapes <cite>(m, k)</cite> and <cite>(k, n)</cite>, it computes the matrix
 product; the result has shape <cite>(m, n)</cite>.</p>
@@ -65,18 +65,19 @@ product; the result has shape <cite>(m, n)</cite>.</p>
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input array.</p>
-</blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
 <p><strong>b_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input array.</p>
-</blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>c_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>c_gpu</strong> : pycuda.gpuarray.GPUArray, float{32,64}, or complex{64,128}</p>
 <blockquote class="last">
-<p>Dot product of <cite>a_gpu</cite> and <cite>b_gpu</cite>.</p>
-</blockquote>
+<div><p>Dot product of <cite>a_gpu</cite> and <cite>b_gpu</cite>. When the inputs are 1D
+arrays, the result will be returned as a scalar.</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -157,7 +158,7 @@ product; the result has shape <cite>(m, n)</cite>.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

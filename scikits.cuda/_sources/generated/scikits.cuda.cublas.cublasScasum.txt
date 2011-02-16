@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasScasum
 ================================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasScasum
+.. automethod:: cublas.cublasScasum

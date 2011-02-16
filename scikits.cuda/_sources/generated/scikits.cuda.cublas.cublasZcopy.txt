@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasZcopy
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasZcopy
+.. automethod:: cublas.cublasZcopy

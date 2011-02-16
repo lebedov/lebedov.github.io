@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDspr2
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasDspr2
+.. automethod:: cublas.cublasDspr2

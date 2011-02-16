@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCrot
 ==============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCrot
+.. automethod:: cublas.cublasCrot

@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-linalg-diag">
 <h1>scikits.cuda.linalg.diag<a class="headerlink" href="#scikits-cuda-linalg-diag" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.linalg.diag">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">diag</tt><big>(</big><em>v_gpu</em>, <em>dev</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.diag" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">diag</tt><big>(</big><em>v_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.diag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a diagonal matrix.</p>
 <p>Constructs a matrix in device memory whose diagonal elements
 correspond to the elements in the specified array; all
@@ -65,18 +65,14 @@ non-diagonal elements are set to 0.</p>
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>v_obj</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input array of length <cite>n</cite>.</p>
-</blockquote>
-<p><strong>dev</strong> : pycuda.driver.Device</p>
-<blockquote>
-<p>Device object to be used.</p>
-</blockquote>
+<div><p>Input array of length <cite>n</cite>.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>d_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote class="last">
-<p>Diagonal matrix of dimensions <cite>[n, n]</cite>.</p>
-</blockquote>
+<div><p>Diagonal matrix of dimensions <cite>[n, n]</cite>.</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -90,12 +86,12 @@ non-diagonal elements are set to 0.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d_gpu</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">d_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="n">j</span><span class="p">,</span> <span class="mi">4</span><span class="n">j</span><span class="p">,</span> <span class="mi">5</span><span class="n">j</span><span class="p">,</span> <span class="mi">6</span><span class="n">j</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d_gpu</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">d_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 <span class="go">True</span>
 </pre></div>
@@ -151,7 +147,7 @@ non-diagonal elements are set to 0.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

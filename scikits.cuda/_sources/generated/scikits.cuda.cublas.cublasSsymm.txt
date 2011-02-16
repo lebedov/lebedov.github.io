@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasSsymm
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasSsymm
+.. automethod:: cublas.cublasSsymm

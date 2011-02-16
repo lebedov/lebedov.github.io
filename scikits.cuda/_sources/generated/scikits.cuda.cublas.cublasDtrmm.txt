@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDtrmm
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasDtrmm
+.. automethod:: cublas.cublasDtrmm

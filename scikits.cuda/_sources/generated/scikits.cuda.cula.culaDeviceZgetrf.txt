@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceZgetrf
 ==================================
 
-.. currentmodule:: scikits.cuda.cula
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: culaDeviceZgetrf
+.. automethod:: cula.culaDeviceZgetrf

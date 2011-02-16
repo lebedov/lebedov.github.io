@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDscal
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasDscal
+.. automethod:: cublas.cublasDscal

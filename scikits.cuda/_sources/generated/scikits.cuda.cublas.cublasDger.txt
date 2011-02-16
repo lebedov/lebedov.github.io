@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDger
 ==============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasDger
+.. automethod:: cublas.cublasDger

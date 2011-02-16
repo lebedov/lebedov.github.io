@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-special-sici">
 <h1>scikits.cuda.special.sici<a class="headerlink" href="#scikits-cuda-special-sici" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.special.sici">
-<tt class="descclassname">scikits.cuda.special.</tt><tt class="descname">sici</tt><big>(</big><em>x_gpu</em>, <em>dev</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.sici" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">special.</tt><tt class="descname">sici</tt><big>(</big><em>x_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.sici" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sine/Cosine integral.</p>
 <p>Computes the sine and cosine integral of every element in the
 input matrix.</p>
@@ -64,19 +64,15 @@ input matrix.</p>
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : GPUArray</p>
 <blockquote>
-<p>Input matrix of shape <cite>(m, n)</cite>.</p>
-</blockquote>
-<p><strong>dev</strong> : pycuda.driver.Device</p>
-<blockquote>
-<p>Device object to be used.</p>
-</blockquote>
+<div><p>Input matrix of shape <cite>(m, n)</cite>.</p>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>(si_gpu, ci_gpu)</strong> : tuple of GPUArrays</p>
 <blockquote class="last">
-<p>Tuple of GPUarrays containing the sine integrals and cosine
+<div><p>Tuple of GPUarrays containing the sine integrals and cosine
 integrals of the entries of <cite>x_gpu</cite>.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -148,7 +144,7 @@ integrals of the entries of <cite>x_gpu</cite>.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

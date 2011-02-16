@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasShutdown
 ==================================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasShutdown
+.. automethod:: cublas.cublasShutdown

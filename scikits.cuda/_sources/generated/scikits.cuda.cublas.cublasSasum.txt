@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasSasum
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasSasum
+.. automethod:: cublas.cublasSasum

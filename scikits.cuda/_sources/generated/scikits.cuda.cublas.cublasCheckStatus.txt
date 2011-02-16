@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCheckStatus
 =====================================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasCheckStatus
+.. automethod:: cublas.cublasCheckStatus

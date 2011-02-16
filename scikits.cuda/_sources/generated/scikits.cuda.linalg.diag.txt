@@ -1,6 +1,6 @@
 scikits.cuda.linalg.diag
 ========================
 
-.. currentmodule:: scikits.cuda.linalg
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: diag
+.. automethod:: linalg.diag

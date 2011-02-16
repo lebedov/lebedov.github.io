@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDcopy
 ===============================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasDcopy
+.. automethod:: cublas.cublasDcopy

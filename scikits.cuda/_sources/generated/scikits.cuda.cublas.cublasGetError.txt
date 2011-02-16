@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasGetError
 ==================================
 
-.. currentmodule:: scikits.cuda.cublas
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: cublasGetError
+.. automethod:: cublas.cublasGetError

@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceDgglse
 ==================================
 
-.. currentmodule:: scikits.cuda.cula
+.. currentmodule:: scikits.cuda
 
-.. autofunction:: culaDeviceDgglse
+.. automethod:: cula.culaDeviceDgglse

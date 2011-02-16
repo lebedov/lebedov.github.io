@@ -52,9 +52,9 @@
             
   <div class="section" id="scikits-cuda-linalg-tril">
 <h1>scikits.cuda.linalg.tril<a class="headerlink" href="#scikits-cuda-linalg-tril" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="staticmethod">
 <dt id="scikits.cuda.linalg.tril">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">tril</tt><big>(</big><em>a_gpu</em>, <em>dev</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.tril" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">tril</tt><big>(</big><em>a_gpu</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.tril" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower triangle of a matrix.</p>
 <p>Return the lower triangle of a square matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -63,23 +63,19 @@
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
-<p>Input matrix of shape <cite>(m, m)</cite></p>
-</blockquote>
-<p><strong>dev</strong> : pycuda.driver.Device</p>
-<blockquote>
-<p>Device object to be used.</p>
-</blockquote>
+<div><p>Input matrix of shape <cite>(m, m)</cite></p>
+</div></blockquote>
 <p><strong>overwrite</strong> : boolean</p>
 <blockquote>
-<p>If true (default), zero out the upper triangle of the matrix.
+<div><p>If true (default), zero out the upper triangle of the matrix.
 If false, return the result in a newly allocated matrix.</p>
-</blockquote>
+</div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>l_gpu</strong> : pycuda.gpuarray</p>
 <blockquote class="last">
-<p>The lower triangle of the original matrix.</p>
-</blockquote>
+<div><p>The lower triangle of the original matrix.</p>
+</div></blockquote>
 </td>
 </tr>
 </tbody>
@@ -93,7 +89,7 @@ If false, return the result in a newly allocated matrix.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">l_gpu</span> <span class="o">=</span> <span class="n">tril</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">l_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 <span class="go">True</span>
 </pre></div>
@@ -149,7 +145,7 @@ If false, return the result in a newly allocated matrix.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>
