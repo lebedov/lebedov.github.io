@@ -1,0 +1,6 @@
+scikits.cuda.misc.select_block_grid_sizes
+=========================================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.select_block_grid_sizes

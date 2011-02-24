@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.fft.Plan &mdash; scikits.cuda v0.4.dev documentation</title>
+    <title>scikits.cuda.misc.init_device &mdash; scikits.cuda v0.4.dev documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,9 +22,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="scikits.cuda v0.4.dev documentation" href="../index.html" />
-    <link rel="up" title="Fast Fourier Transform" href="../reference_fft.html" />
-    <link rel="next" title="Integration Routines" href="../reference_integrate.html" />
-    <link rel="prev" title="scikits.cuda.fft.ifft" href="scikits.cuda.fft.ifft.html" /> 
+    <link rel="up" title="Miscellaneous Routines" href="../reference_misc.html" />
+    <link rel="next" title="scikits.cuda.misc.iscomplextype" href="scikits.cuda.misc.iscomplextype.html" />
+    <link rel="prev" title="scikits.cuda.misc.init" href="scikits.cuda.misc.init.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,14 +34,14 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../reference_integrate.html" title="Integration Routines"
+          <a href="scikits.cuda.misc.iscomplextype.html" title="scikits.cuda.misc.iscomplextype"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.fft.ifft.html" title="scikits.cuda.fft.ifft"
+          <a href="scikits.cuda.misc.init.html" title="scikits.cuda.misc.init"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
-          <li><a href="../reference_fft.html" accesskey="U">Fast Fourier Transform</a> &raquo;</li> 
+          <li><a href="../reference_misc.html" accesskey="U">Miscellaneous Routines</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,51 +50,29 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="scikits-cuda-fft-plan">
-<h1>scikits.cuda.fft.Plan<a class="headerlink" href="#scikits-cuda-fft-plan" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="scikits.cuda.fft.Plan">
-<em class="property">class </em><tt class="descclassname">scikits.cuda.fft.</tt><tt class="descname">Plan</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan" title="Permalink to this definition">¶</a></dt>
-<dd><p>CUFFT plan class.</p>
-<p>This class represents an FFT plan for CUFFT.</p>
+  <div class="section" id="scikits-cuda-misc-init-device">
+<h1>scikits.cuda.misc.init_device<a class="headerlink" href="#scikits-cuda-misc-init-device" title="Permalink to this headline">¶</a></h1>
+<dl class="staticmethod">
+<dt id="scikits.cuda.misc.init_device">
+<em class="property">static </em><tt class="descclassname">misc.</tt><tt class="descname">init_device</tt><big>(</big><em>n=0</em><big>)</big><a class="headerlink" href="#scikits.cuda.misc.init_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize PyCUDA using a specified device.</p>
+<p>Initialize PyCUDA using a specified device rather than the default
+device found by pycuda.autoinit.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>shape</strong> : tuple of ints</p>
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
 <blockquote>
-<div><p>Transform size. Must contain no more than 3 elements.</p>
-</div></blockquote>
-<p><strong>in_dtype</strong> : { numpy.float32, numpy.float64, numpy.complex64, numpy.complex128 }</p>
-<blockquote>
-<div><p>Type of input data.</p>
-</div></blockquote>
-<p><strong>out_dtype</strong> : { numpy.float32, numpy.float64, numpy.complex64, numpy.complex128 }</p>
-<blockquote>
-<div><p>Type of output data.</p>
-</div></blockquote>
-<p><strong>batch</strong> : int</p>
-<blockquote class="last">
-<div><p>Number of FFTs to configure in parallel (default is 1).</p>
+<div><p>Device number.</p>
 </div></blockquote>
 </td>
 </tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="scikits.cuda.fft.Plan.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p class="rubric">Methods</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr><td><a class="reference internal" href="#scikits.cuda.fft.Plan.__init__" title="scikits.cuda.fft.Plan.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(shape,&nbsp;in_dtype,&nbsp;out_dtype[,&nbsp;batch])</td>
-<td></td>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>dev</strong> : pycuda.driver.Device</p>
+<blockquote class="last">
+<div><p>Initialized device.</p>
+</div></blockquote>
+</td>
 </tr>
 </tbody>
 </table>
@@ -110,7 +88,7 @@
         <div class="sphinxsidebarwrapper">
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../_sources/generated/scikits.cuda.fft.Plan.txt"
+              <li><a href="../_sources/generated/scikits.cuda.misc.init_device.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -137,14 +115,14 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../reference_integrate.html" title="Integration Routines"
+          <a href="scikits.cuda.misc.iscomplextype.html" title="scikits.cuda.misc.iscomplextype"
              >next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.fft.ifft.html" title="scikits.cuda.fft.ifft"
+          <a href="scikits.cuda.misc.init.html" title="scikits.cuda.misc.init"
              >previous</a> |</li>
         <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
-          <li><a href="../reference_fft.html" >Fast Fourier Transform</a> &raquo;</li> 
+          <li><a href="../reference_misc.html" >Miscellaneous Routines</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

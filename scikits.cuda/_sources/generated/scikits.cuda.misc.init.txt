@@ -1,0 +1,6 @@
+scikits.cuda.misc.init
+======================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.init

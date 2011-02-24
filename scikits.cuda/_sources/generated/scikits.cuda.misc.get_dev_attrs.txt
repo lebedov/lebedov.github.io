@@ -1,0 +1,6 @@
+scikits.cuda.misc.get_dev_attrs
+===============================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.get_dev_attrs
