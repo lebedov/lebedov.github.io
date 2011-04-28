@@ -9,11 +9,15 @@ Miscellaneous Routines
    :toctree: generated/
    :nosignatures:
 
+   cumsum
    diff
+   done_context
    get_compute_capability
    get_current_device
    get_dev_attrs
+   inf
    init
+   init_context
    init_device
    iscomplextype
    isdoubletype

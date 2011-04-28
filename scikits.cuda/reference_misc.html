@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="scikits.cuda v0.4.dev documentation" href="index.html" />
     <link rel="up" title="Reference" href="reference.html" />
-    <link rel="next" title="scikits.cuda.misc.diff" href="generated/scikits.cuda.misc.diff.html" />
+    <link rel="next" title="scikits.cuda.misc.cumsum" href="generated/scikits.cuda.misc.cumsum.html" />
     <link rel="prev" title="scikits.cuda.special.sici" href="generated/scikits.cuda.special.sici.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="generated/scikits.cuda.misc.diff.html" title="scikits.cuda.misc.diff"
+          <a href="generated/scikits.cuda.misc.cumsum.html" title="scikits.cuda.misc.cumsum"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="generated/scikits.cuda.special.sici.html" title="scikits.cuda.special.sici"
@@ -57,8 +57,14 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.misc.cumsum.html#scikits.cuda.misc.cumsum" title="scikits.cuda.misc.cumsum"><tt class="xref py py-obj docutils literal"><span class="pre">cumsum</span></tt></a></td>
+<td>Cumulative sum.</td>
+</tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.diff.html#scikits.cuda.misc.diff" title="scikits.cuda.misc.diff"><tt class="xref py py-obj docutils literal"><span class="pre">diff</span></tt></a></td>
 <td>Calculate the discrete difference.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.misc.done_context.html#scikits.cuda.misc.done_context" title="scikits.cuda.misc.done_context"><tt class="xref py py-obj docutils literal"><span class="pre">done_context</span></tt></a></td>
+<td>Detach from a context cleanly.</td>
 </tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.get_compute_capability.html#scikits.cuda.misc.get_compute_capability" title="scikits.cuda.misc.get_compute_capability"><tt class="xref py py-obj docutils literal"><span class="pre">get_compute_capability</span></tt></a></td>
 <td>Get the compute capability of the specified device.</td>
@@ -69,11 +75,17 @@
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.get_dev_attrs.html#scikits.cuda.misc.get_dev_attrs" title="scikits.cuda.misc.get_dev_attrs"><tt class="xref py py-obj docutils literal"><span class="pre">get_dev_attrs</span></tt></a></td>
 <td>Get select CUDA device attributes.</td>
 </tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.misc.inf.html#scikits.cuda.misc.inf" title="scikits.cuda.misc.inf"><tt class="xref py py-obj docutils literal"><span class="pre">inf</span></tt></a></td>
+<td>Return an array of the given shape and dtype filled with infs.</td>
+</tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.init.html#scikits.cuda.misc.init" title="scikits.cuda.misc.init"><tt class="xref py py-obj docutils literal"><span class="pre">init</span></tt></a></td>
-<td>Initialize scikits.cuda utilities.</td>
+<td>Initialize libraries used by scikits.cuda.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.misc.init_context.html#scikits.cuda.misc.init_context" title="scikits.cuda.misc.init_context"><tt class="xref py py-obj docutils literal"><span class="pre">init_context</span></tt></a></td>
+<td>Create a context that will be cleaned up properly.</td>
 </tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.init_device.html#scikits.cuda.misc.init_device" title="scikits.cuda.misc.init_device"><tt class="xref py py-obj docutils literal"><span class="pre">init_device</span></tt></a></td>
-<td>Initialize PyCUDA using a specified device.</td>
+<td>Initialize a GPU device.</td>
 </tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.misc.iscomplextype.html#scikits.cuda.misc.iscomplextype" title="scikits.cuda.misc.iscomplextype"><tt class="xref py py-obj docutils literal"><span class="pre">iscomplextype</span></tt></a></td>
 <td>Check whether a type is complex.</td>
@@ -132,7 +144,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="generated/scikits.cuda.misc.diff.html" title="scikits.cuda.misc.diff"
+          <a href="generated/scikits.cuda.misc.cumsum.html" title="scikits.cuda.misc.cumsum"
              >next</a> |</li>
         <li class="right" >
           <a href="generated/scikits.cuda.special.sici.html" title="scikits.cuda.special.sici"

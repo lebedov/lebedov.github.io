@@ -51,8 +51,8 @@
             
   <div class="section" id="cula-routines">
 <h1>CULA Routines<a class="headerlink" href="#cula-routines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="helper-routines">
-<h2>Helper Routines<a class="headerlink" href="#helper-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="framework-routines">
+<h2>Framework Routines<a class="headerlink" href="#framework-routines" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -62,8 +62,17 @@
 <tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaCheckStatus.html#scikits.cuda.cula.culaCheckStatus" title="scikits.cuda.cula.culaCheckStatus"><tt class="xref py py-obj docutils literal"><span class="pre">culaCheckStatus</span></tt></a></td>
 <td>Raise an exception corresponding to the specified CULA status</td>
 </tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaFreeBuffers.html#scikits.cuda.cula.culaFreeBuffers" title="scikits.cuda.cula.culaFreeBuffers"><tt class="xref py py-obj docutils literal"><span class="pre">culaFreeBuffers</span></tt></a></td>
+<td>Releases any memory buffers stored internally by CULA.</td>
+</tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetErrorInfo.html#scikits.cuda.cula.culaGetErrorInfo" title="scikits.cuda.cula.culaGetErrorInfo"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetErrorInfo</span></tt></a></td>
 <td>Returns extended information code for the last CULA error.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetErrorInfoString.html#scikits.cuda.cula.culaGetErrorInfoString" title="scikits.cuda.cula.culaGetErrorInfoString"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetErrorInfoString</span></tt></a></td>
+<td>Returns a readable CULA error string.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetExecutingDevice.html#scikits.cuda.cula.culaGetExecutingDevice" title="scikits.cuda.cula.culaGetExecutingDevice"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetExecutingDevice</span></tt></a></td>
+<td>Reports the id of the GPU device used by CULA.</td>
 </tr>
 <tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaGetLastStatus.html#scikits.cuda.cula.culaGetLastStatus" title="scikits.cuda.cula.culaGetLastStatus"><tt class="xref py py-obj docutils literal"><span class="pre">culaGetLastStatus</span></tt></a></td>
 <td>Returns the last status code returned from a CULA function.</td>
@@ -83,10 +92,182 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="linear-algebra-routines">
-<h2>Linear Algebra Routines<a class="headerlink" href="#linear-algebra-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auxiliary-routines">
+<h2>Auxiliary Routines<a class="headerlink" href="#auxiliary-routines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="single-precision-real">
 <h3>Single Precision Real<a class="headerlink" href="#single-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgeNancheck.html#scikits.cuda.cula.culaDeviceSgeNancheck" title="scikits.cuda.cula.culaDeviceSgeNancheck"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgeNancheck</span></tt></a></td>
+<td>Check a real general matrix for invalid entries</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgeTranspose.html#scikits.cuda.cula.culaDeviceSgeTranspose" title="scikits.cuda.cula.culaDeviceSgeTranspose"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgeTranspose</span></tt></a></td>
+<td>Transpose of real general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgeTransposeInplace.html#scikits.cuda.cula.culaDeviceSgeTransposeInplace" title="scikits.cuda.cula.culaDeviceSgeTransposeInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgeTransposeInplace</span></tt></a></td>
+<td>Inplace transpose of real square matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="single-precision-complex">
+<h3>Single Precision Complex<a class="headerlink" href="#single-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeConjugate.html#scikits.cuda.cula.culaDeviceCgeConjugate" title="scikits.cuda.cula.culaDeviceCgeConjugate"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeConjugate</span></tt></a></td>
+<td>Conjugate of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeNancheck.html#scikits.cuda.cula.culaDeviceCgeNancheck" title="scikits.cuda.cula.culaDeviceCgeNancheck"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeNancheck</span></tt></a></td>
+<td>Check a complex general matrix for invalid entries</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeTranspose.html#scikits.cuda.cula.culaDeviceCgeTranspose" title="scikits.cuda.cula.culaDeviceCgeTranspose"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeTranspose</span></tt></a></td>
+<td>Transpose of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeTransposeConjugate.html#scikits.cuda.cula.culaDeviceCgeTransposeConjugate" title="scikits.cuda.cula.culaDeviceCgeTransposeConjugate"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeTransposeConjugate</span></tt></a></td>
+<td>Conjugate transpose of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeTransposeInplace.html#scikits.cuda.cula.culaDeviceCgeTransposeInplace" title="scikits.cuda.cula.culaDeviceCgeTransposeInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeTransposeInplace</span></tt></a></td>
+<td>Inplace transpose of complex square matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgeTransposeConjugateInplace.html#scikits.cuda.cula.culaDeviceCgeTransposeConjugateInplace" title="scikits.cuda.cula.culaDeviceCgeTransposeConjugateInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgeTransposeConjugateInplace</span></tt></a></td>
+<td>Inplace conjugate transpose of complex square matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-real">
+<h3>Double Precision Real<a class="headerlink" href="#double-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgeNancheck.html#scikits.cuda.cula.culaDeviceDgeNancheck" title="scikits.cuda.cula.culaDeviceDgeNancheck"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgeNancheck</span></tt></a></td>
+<td>Check a real general matrix for invalid entries</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgeTranspose.html#scikits.cuda.cula.culaDeviceDgeTranspose" title="scikits.cuda.cula.culaDeviceDgeTranspose"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgeTranspose</span></tt></a></td>
+<td>Transpose of real general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgeTransposeInplace.html#scikits.cuda.cula.culaDeviceDgeTransposeInplace" title="scikits.cuda.cula.culaDeviceDgeTransposeInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgeTransposeInplace</span></tt></a></td>
+<td>Inplace transpose of real square matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-complex">
+<h3>Double Precision Complex<a class="headerlink" href="#double-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeConjugate.html#scikits.cuda.cula.culaDeviceZgeConjugate" title="scikits.cuda.cula.culaDeviceZgeConjugate"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeConjugate</span></tt></a></td>
+<td>Conjugate of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeNancheck.html#scikits.cuda.cula.culaDeviceZgeNancheck" title="scikits.cuda.cula.culaDeviceZgeNancheck"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeNancheck</span></tt></a></td>
+<td>Check a complex general matrix for invalid entries</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeTranspose.html#scikits.cuda.cula.culaDeviceZgeTranspose" title="scikits.cuda.cula.culaDeviceZgeTranspose"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeTranspose</span></tt></a></td>
+<td>Transpose of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeTransposeConjugate.html#scikits.cuda.cula.culaDeviceZgeTransposeConjugate" title="scikits.cuda.cula.culaDeviceZgeTransposeConjugate"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeTransposeConjugate</span></tt></a></td>
+<td>Conjugate transpose of complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeTransposeInplace.html#scikits.cuda.cula.culaDeviceZgeTransposeInplace" title="scikits.cuda.cula.culaDeviceZgeTransposeInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeTransposeInplace</span></tt></a></td>
+<td>Inplace transpose of complex square matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgeTransposeConjugateInplace.html#scikits.cuda.cula.culaDeviceZgeTransposeConjugateInplace" title="scikits.cuda.cula.culaDeviceZgeTransposeConjugateInplace"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgeTransposeConjugateInplace</span></tt></a></td>
+<td>Inplace conjugate transpose of complex square matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="blas-routines">
+<h2>BLAS Routines<a class="headerlink" href="#blas-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Single Precision Real<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgemm.html#scikits.cuda.cula.culaDeviceSgemm" title="scikits.cuda.cula.culaDeviceSgemm"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceSgemv.html#scikits.cuda.cula.culaDeviceSgemv" title="scikits.cuda.cula.culaDeviceSgemv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceSgemv</span></tt></a></td>
+<td>Matrix-vector product for real general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h3>Single Precision Complex<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgemm.html#scikits.cuda.cula.culaDeviceCgemm" title="scikits.cuda.cula.culaDeviceCgemm"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgemm</span></tt></a></td>
+<td>Matrix-matrix product for complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceCgemv.html#scikits.cuda.cula.culaDeviceCgemv" title="scikits.cuda.cula.culaDeviceCgemv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceCgemv</span></tt></a></td>
+<td>Matrix-vector product for complex general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>Double Precision Real<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgemm.html#scikits.cuda.cula.culaDeviceDgemm" title="scikits.cuda.cula.culaDeviceDgemm"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceDgemv.html#scikits.cuda.cula.culaDeviceDgemv" title="scikits.cuda.cula.culaDeviceDgemv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceDgemv</span></tt></a></td>
+<td>Matrix-vector product for real general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>Double Precision Complex<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgemm.html#scikits.cuda.cula.culaDeviceZgemm" title="scikits.cuda.cula.culaDeviceZgemm"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgemm</span></tt></a></td>
+<td>Matrix-matrix product for complex general matrix.</td>
+</tr>
+<tr><td><a class="reference internal" href="generated/scikits.cuda.cula.culaDeviceZgemv.html#scikits.cuda.cula.culaDeviceZgemv" title="scikits.cuda.cula.culaDeviceZgemv"><tt class="xref py py-obj docutils literal"><span class="pre">culaDeviceZgemv</span></tt></a></td>
+<td>Matrix-vector product for complex general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="lapack-routines">
+<h2>LAPACK Routines<a class="headerlink" href="#lapack-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Single Precision Real<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -120,8 +301,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="single-precision-complex">
-<h3>Single Precision Complex<a class="headerlink" href="#single-precision-complex" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Single Precision Complex<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -155,8 +336,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="double-precision-real">
-<h3>Double Precision Real<a class="headerlink" href="#double-precision-real" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Double Precision Real<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -190,8 +371,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="double-precision-complex">
-<h3>Double Precision Complex<a class="headerlink" href="#double-precision-complex" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Double Precision Complex<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -237,10 +418,10 @@
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference internal" href="#">CULA Routines</a><ul>
-<li><a class="reference internal" href="#helper-routines">Helper Routines</a><ul>
+<li><a class="reference internal" href="#framework-routines">Framework Routines</a><ul>
 </ul>
 </li>
-<li><a class="reference internal" href="#linear-algebra-routines">Linear Algebra Routines</a><ul>
+<li><a class="reference internal" href="#auxiliary-routines">Auxiliary Routines</a><ul>
 <li><a class="reference internal" href="#single-precision-real">Single Precision Real</a><ul>
 </ul>
 </li>
@@ -251,6 +432,36 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#double-precision-complex">Double Precision Complex</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#blas-routines">BLAS Routines</a><ul>
+<li><a class="reference internal" href="#id1">Single Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Single Precision Complex</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Double Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Double Precision Complex</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lapack-routines">LAPACK Routines</a><ul>
+<li><a class="reference internal" href="#id5">Single Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">Single Precision Complex</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">Double Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">Double Precision Complex</a><ul>
 </ul>
 </li>
 </ul>

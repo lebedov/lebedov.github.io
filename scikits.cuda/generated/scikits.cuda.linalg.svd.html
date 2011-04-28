@@ -54,7 +54,7 @@
 <h1>scikits.cuda.linalg.svd<a class="headerlink" href="#scikits-cuda-linalg-svd" title="Permalink to this headline">¶</a></h1>
 <dl class="staticmethod">
 <dt id="scikits.cuda.linalg.svd">
-<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">svd</tt><big>(</big><em>a_gpu</em>, <em>full_matrices=1</em>, <em>compute_uv=1</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.svd" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">svd</tt><big>(</big><em>a_gpu</em>, <em>jobu='A'</em>, <em>jobvt='A'</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.svd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Singular Value Decomposition.</p>
 <p>Factors the matrix <cite>a</cite> into two unitary matrices, <cite>u</cite> and <cite>vh</cite>,
 and a 1-dimensional array of real, non-negative singular values,
@@ -67,22 +67,28 @@ and a 1-dimensional array of real, non-negative singular values,
 <blockquote>
 <div><p>Input matrix of shape <cite>(m, n)</cite> to decompose.</p>
 </div></blockquote>
-<p><strong>full_matrices</strong> : bool, optional</p>
+<p><strong>jobu</strong> : {&#8216;A&#8217;, &#8216;S&#8217;, &#8216;O&#8217;, &#8216;N&#8217;}</p>
 <blockquote>
-<div><p>If True (default), <cite>u</cite> and <cite>vh</cite> have the shapes
-<cite>(m, m)</cite> and <cite>(n, n)</cite>, respectively.  Otherwise, the shapes
-are <cite>(m, k)</cite> and <cite>(k, n)</cite>, resp., where <cite>k = min(m, n)</cite>.</p>
+<div><p>If &#8216;A&#8217;, return the full <cite>u</cite> matrix with shape <cite>(m, m)</cite>.
+If &#8216;S&#8217;, return the <cite>u</cite> matrix with shape <cite>(m, k)</cite>.
+If &#8216;O&#8217;, return the <cite>u</cite> matrix with shape <cite>(m, k) without
+allocating a new matrix.
+If &#8216;N&#8217;, don&#8217;t return `u</cite>.</p>
 </div></blockquote>
-<p><strong>compute_uv</strong> : bool, optional</p>
+<p><strong>jobvt</strong> : {&#8216;A&#8217;, &#8216;S&#8217;, &#8216;O&#8217;, &#8216;N&#8217;}</p>
 <blockquote>
-<div><p>If True (default), compute <cite>u</cite> and <cite>vh</cite> in addition to <cite>s</cite>.</p>
+<div><p>If &#8216;A&#8217;, return the full <cite>vh</cite> matrix with shape <cite>(n, n)</cite>.
+If &#8216;S&#8217;, return the <cite>vh</cite> matrix with shape <cite>(k, n)</cite>.
+If &#8216;O&#8217;, return the <cite>vh</cite> matrix with shape <cite>(k, n) without
+allocating a new matrix.
+If &#8216;N&#8217;, don&#8217;t return `vh</cite>.</p>
 </div></blockquote>
 </td>
 </tr>
 <tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>u</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
 <div><p>Unitary matrix of shape <cite>(m, m)</cite> or <cite>(m, k)</cite> depending on
-value of <cite>full_matrices</cite>.</p>
+value of <cite>jobu</cite>.</p>
 </div></blockquote>
 <p><strong>s</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
@@ -92,7 +98,7 @@ value of <cite>full_matrices</cite>.</p>
 <p><strong>vh</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote class="last">
 <div><p>Unitary matrix of shape <cite>(n, n)</cite> or <cite>(k, n)</cite>, depending
-on <cite>full_matrices</cite>.</p>
+on <cite>jobvt</cite>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -101,7 +107,10 @@ on <cite>full_matrices</cite>.</p>
 <p class="rubric">Notes</p>
 <p>Double precision is only supported if the premium version of the
 CULA toolkit is installed.</p>
-<p>This function destroys the contents of the input matrix.</p>
+<p>This function destroys the contents of the input matrix regardless
+of the values of <cite>jobu</cite> and <cite>jobvt</cite>.</p>
+<p>Only one of <cite>jobu</cite> or <cite>jobvt</cite> may be set to <cite>O</cite>, and then only for
+a square matrix.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
@@ -111,7 +120,7 @@ CULA toolkit is installed.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">u_gpu</span><span class="p">,</span> <span class="n">s_gpu</span><span class="p">,</span> <span class="n">vh_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_gpu</span><span class="p">,</span> <span class="n">s_gpu</span><span class="p">,</span> <span class="n">vh_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span> <span class="n">vh_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">())),</span> <span class="mf">1e-4</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>

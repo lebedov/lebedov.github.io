@@ -83,6 +83,8 @@ are set to zero.</p>
 <p class="rubric">Notes</p>
 <p>Double precision is only supported if the premium version of the
 CULA toolkit is installed.</p>
+<p>This function destroys the contents of the input matrix.</p>
+<p>If the input matrix is square, the pseudoinverse uses less memory.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="kn">as</span> <span class="nn">drv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
