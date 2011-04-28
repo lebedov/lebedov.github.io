@@ -1,0 +1,6 @@
+scikits.cuda.misc.cumsum
+========================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.cumsum

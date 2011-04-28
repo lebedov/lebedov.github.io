@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaDeviceZgeTranspose
+========================================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: cula.culaDeviceZgeTranspose

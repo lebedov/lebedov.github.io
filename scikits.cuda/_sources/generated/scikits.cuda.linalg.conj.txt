@@ -1,0 +1,6 @@
+scikits.cuda.linalg.conj
+========================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: linalg.conj

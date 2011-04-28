@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaDeviceSgemm
+=================================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: cula.culaDeviceSgemm

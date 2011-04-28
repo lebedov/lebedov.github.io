@@ -1,0 +1,6 @@
+scikits.cuda.misc.done_context
+==============================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.done_context

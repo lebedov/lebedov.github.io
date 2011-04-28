@@ -1,0 +1,6 @@
+scikits.cuda.linalg.eye
+=======================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: linalg.eye

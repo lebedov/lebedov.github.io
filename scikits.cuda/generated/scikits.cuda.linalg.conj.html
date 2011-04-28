@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.linalg.conj &mdash; scikits.cuda v0.4.dev documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.4.dev',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="scikits.cuda v0.4.dev documentation" href="../index.html" />
+    <link rel="up" title="Linear Algebra Routines" href="../reference_linalg.html" />
+    <link rel="next" title="scikits.cuda.linalg.diag" href="scikits.cuda.linalg.diag.html" />
+    <link rel="prev" title="scikits.cuda.linalg.tril" href="scikits.cuda.linalg.tril.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scikits.cuda.linalg.diag.html" title="scikits.cuda.linalg.diag"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.linalg.tril.html" title="scikits.cuda.linalg.tril"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_linalg.html" accesskey="U">Linear Algebra Routines</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scikits-cuda-linalg-conj">
+<h1>scikits.cuda.linalg.conj<a class="headerlink" href="#scikits-cuda-linalg-conj" title="Permalink to this headline">¶</a></h1>
+<dl class="staticmethod">
+<dt id="scikits.cuda.linalg.conj">
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">conj</tt><big>(</big><em>a_gpu</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.conj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complex conjugate.</p>
+<p>Compute the complex conjugate of the array in device memory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<blockquote>
+<div><p>Input array of shape <cite>(m, n)</cite>.</p>
+</div></blockquote>
+<p><strong>overwrite</strong> : bool</p>
+<blockquote>
+<div><p>If true (default), save the result in the specified array.
+If false, return the result in a newly allocated array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>ac_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<blockquote class="last">
+<div><p>Conjugate of the input array. If <cite>overwrite</cite> is true, the
+returned matrix is the same as the input array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="kn">as</span> <span class="nn">drv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">linalg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="mi">4</span><span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="o">+</span><span class="mi">5</span><span class="n">j</span><span class="p">,</span> <span class="mi">6</span><span class="o">-</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span> <span class="mi">7</span><span class="o">+</span><span class="mi">7</span><span class="n">j</span><span class="p">,</span> <span class="mi">8</span><span class="o">-</span><span class="mi">8</span><span class="n">j</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">a_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/generated/scikits.cuda.linalg.conj.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scikits.cuda.linalg.diag.html" title="scikits.cuda.linalg.diag"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scikits.cuda.linalg.tril.html" title="scikits.cuda.linalg.tril"
+             >previous</a> |</li>
+        <li><a href="../index.html">scikits.cuda v0.4.dev documentation</a> &raquo;</li>
+          <li><a href="../reference.html" >Reference</a> &raquo;</li>
+          <li><a href="../reference_linalg.html" >Linear Algebra Routines</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009-2011, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
