@@ -1,0 +1,6 @@
+scikits.cuda.special.exp1
+=========================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: special.exp1

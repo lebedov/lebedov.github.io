@@ -1,6 +1,0 @@
-scikits.cuda.special.e1z
-========================
-
-.. currentmodule:: scikits.cuda
-
-.. automethod:: special.e1z

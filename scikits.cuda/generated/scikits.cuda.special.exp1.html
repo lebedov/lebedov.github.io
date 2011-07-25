@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.special.sici &mdash; scikits.cuda v0.042 documentation</title>
+    <title>scikits.cuda.special.exp1 &mdash; scikits.cuda v0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="scikits.cuda v0.042 documentation" href="../index.html" />
     <link rel="up" title="Special Math Functions" href="../reference_special.html" />
-    <link rel="next" title="Miscellaneous Routines" href="../reference_misc.html" />
-    <link rel="prev" title="scikits.cuda.special.expi" href="scikits.cuda.special.expi.html" /> 
+    <link rel="next" title="scikits.cuda.special.expi" href="scikits.cuda.special.expi.html" />
+    <link rel="prev" title="scikits.cuda.special.sici" href="scikits.cuda.special.sici.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../reference_misc.html" title="Miscellaneous Routines"
+          <a href="scikits.cuda.special.expi.html" title="scikits.cuda.special.expi"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.special.expi.html" title="scikits.cuda.special.expi"
+          <a href="scikits.cuda.special.sici.html" title="scikits.cuda.special.sici"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
@@ -50,28 +50,26 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="scikits-cuda-special-sici">
-<h1>scikits.cuda.special.sici<a class="headerlink" href="#scikits-cuda-special-sici" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="scikits-cuda-special-exp1">
+<h1>scikits.cuda.special.exp1<a class="headerlink" href="#scikits-cuda-special-exp1" title="Permalink to this headline">¶</a></h1>
 <dl class="staticmethod">
-<dt id="scikits.cuda.special.sici">
-<em class="property">static </em><tt class="descclassname">special.</tt><tt class="descname">sici</tt><big>(</big><em>x_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.sici" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sine/Cosine integral.</p>
-<p>Computes the sine and cosine integral of every element in the
-input matrix.</p>
+<dt id="scikits.cuda.special.exp1">
+<em class="property">static </em><tt class="descclassname">special.</tt><tt class="descname">exp1</tt><big>(</big><em>z_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.special.exp1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponential integral with <cite>n = 1</cite> of complex arguments.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : GPUArray</p>
+<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>z_gpu</strong> : GPUArray</p>
 <blockquote>
 <div><p>Input matrix of shape <cite>(m, n)</cite>.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>(si_gpu, ci_gpu)</strong> : tuple of GPUArrays</p>
+<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>e_gpu</strong> : GPUArray</p>
 <blockquote class="last">
-<div><p>Tuple of GPUarrays containing the sine integrals and cosine
-integrals of the entries of <cite>x_gpu</cite>.</p>
+<div><p>GPUarrays containing the exponential integrals of
+the entries of <cite>z_gpu</cite>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -83,13 +81,11 @@ integrals of the entries of <cite>x_gpu</cite>.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.special</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">special</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">si_gpu</span><span class="p">,</span> <span class="n">ci_gpu</span><span class="p">)</span> <span class="o">=</span> <span class="n">sici</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">ci</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">sici</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">si_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">ci</span><span class="p">,</span> <span class="n">ci_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e_gpu</span> <span class="o">=</span> <span class="n">exp1</span><span class="p">(</span><span class="n">z_gpu</span><span class="p">,</span> <span class="n">pycuda</span><span class="o">.</span><span class="n">autoinit</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e_sp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">exp1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">e_sp</span><span class="p">,</span> <span class="n">e_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -105,7 +101,7 @@ integrals of the entries of <cite>x_gpu</cite>.</p>
         <div class="sphinxsidebarwrapper">
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../_sources/generated/scikits.cuda.special.sici.txt"
+              <li><a href="../_sources/generated/scikits.cuda.special.exp1.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -132,10 +128,10 @@ integrals of the entries of <cite>x_gpu</cite>.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../reference_misc.html" title="Miscellaneous Routines"
+          <a href="scikits.cuda.special.expi.html" title="scikits.cuda.special.expi"
              >next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.special.expi.html" title="scikits.cuda.special.expi"
+          <a href="scikits.cuda.special.sici.html" title="scikits.cuda.special.sici"
              >previous</a> |</li>
         <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
