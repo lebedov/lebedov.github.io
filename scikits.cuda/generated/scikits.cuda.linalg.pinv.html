@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.linalg.pinv &mdash; scikits.cuda v0.042 documentation</title>
+    <title>scikits.cuda.linalg.pinv &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda v0.042 documentation" href="../index.html" />
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="../index.html" />
     <link rel="up" title="Linear Algebra Routines" href="../reference_linalg.html" />
     <link rel="next" title="scikits.cuda.linalg.svd" href="scikits.cuda.linalg.svd.html" />
     <link rel="prev" title="scikits.cuda.linalg.multiply" href="scikits.cuda.linalg.multiply.html" /> 
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="scikits.cuda.linalg.multiply.html" title="scikits.cuda.linalg.multiply"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_linalg.html" accesskey="U">Linear Algebra Routines</a> &raquo;</li> 
       </ul>
@@ -54,14 +54,14 @@
 <h1>scikits.cuda.linalg.pinv<a class="headerlink" href="#scikits-cuda-linalg-pinv" title="Permalink to this headline">¶</a></h1>
 <dl class="staticmethod">
 <dt id="scikits.cuda.linalg.pinv">
-<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">pinv</tt><big>(</big><em>a_gpu</em>, <em>rcond=1.0000000000000001e-15</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.pinv" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descclassname">linalg.</tt><tt class="descname">pinv</tt><big>(</big><em>a_gpu</em>, <em>rcond=1e-15</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.pinv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moore-Penrose pseudoinverse.</p>
 <p>Compute the Moore-Penrose pseudoinverse of the specified matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
 <div><p>Input matrix of shape <cite>(m, n)</cite>.</p>
 </div></blockquote>
@@ -72,7 +72,7 @@ are set to zero.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a_inv_gpu</strong> : pycuda.gpuarray.GPUArray</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a_inv_gpu</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote class="last">
 <div><p>Pseudoinverse of input matrix.</p>
 </div></blockquote>
@@ -148,14 +148,14 @@ CULA toolkit is installed.</p>
         <li class="right" >
           <a href="scikits.cuda.linalg.multiply.html" title="scikits.cuda.linalg.multiply"
              >previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_linalg.html" >Linear Algebra Routines</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

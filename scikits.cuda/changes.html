@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Change Log &mdash; scikits.cuda v0.042 documentation</title>
+    <title>Change Log &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda v0.042 documentation" href="index.html" />
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="index.html" />
     <link rel="prev" title="License" href="license.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="license.html" title="License"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">scikits.cuda v0.042 documentation</a> &raquo;</li> 
+        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,7 +50,10 @@
 <ul class="simple">
 <li>Add complex exponential integral.</li>
 <li>Fix typo in cublasCgbmv.</li>
-<li>Correctly load BLAS symbols on MacOSX.</li>
+<li>Correctly load BLAS symbols on MacOSX and with CUDA 4.0.</li>
+<li>Work around numpy bug #1898.</li>
+<li>Fix issues with pycuda installations done via easy_install/pip.</li>
+<li>Add support for specifying streams when creating FFT plans.</li>
 </ul>
 </div>
 <div class="section" id="release-0-041-may-22-2011">
@@ -153,12 +156,12 @@
         <li class="right" >
           <a href="license.html" title="License"
              >previous</a> |</li>
-        <li><a href="index.html">scikits.cuda v0.042 documentation</a> &raquo;</li> 
+        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

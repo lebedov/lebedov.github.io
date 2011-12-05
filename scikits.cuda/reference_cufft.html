@@ -1,0 +1,179 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CUFFT Routines &mdash; scikits.cuda 0.042 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.042',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="index.html" />
+    <link rel="up" title="Reference" href="reference.html" />
+    <link rel="next" title="scikits.cuda.cufft.cufftCheckStatus" href="generated/scikits.cuda.cufft.cufftCheckStatus.html" />
+    <link rel="prev" title="scikits.cuda.cublas.cublasZtrsm" href="generated/scikits.cuda.cublas.cublasZtrsm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cufft.cufftCheckStatus.html" title="scikits.cuda.cufft.cufftCheckStatus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cublas.cublasZtrsm.html" title="scikits.cuda.cublas.cublasZtrsm"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
+          <li><a href="reference.html" accesskey="U">Reference</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cufft-routines">
+<h1>CUFFT Routines<a class="headerlink" href="#cufft-routines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="helper-routines">
+<h2>Helper Routines<a class="headerlink" href="#helper-routines" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftCheckStatus.html#scikits.cuda.cufft.cufftCheckStatus" title="scikits.cuda.cufft.cufftCheckStatus"><tt class="xref py py-obj docutils literal"><span class="pre">cufftCheckStatus</span></tt></a></td>
+<td>Raise an exception if the specified CUBLAS status is an</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="wrapper-routines">
+<h2>Wrapper Routines<a class="headerlink" href="#wrapper-routines" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftPlan1d.html#scikits.cuda.cufft.cufftPlan1d" title="scikits.cuda.cufft.cufftPlan1d"><tt class="xref py py-obj docutils literal"><span class="pre">cufftPlan1d</span></tt></a></td>
+<td>Create 1D FFT plan configuration.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftPlan2d.html#scikits.cuda.cufft.cufftPlan2d" title="scikits.cuda.cufft.cufftPlan2d"><tt class="xref py py-obj docutils literal"><span class="pre">cufftPlan2d</span></tt></a></td>
+<td>Create 2D FFT plan configuration.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftPlan3d.html#scikits.cuda.cufft.cufftPlan3d" title="scikits.cuda.cufft.cufftPlan3d"><tt class="xref py py-obj docutils literal"><span class="pre">cufftPlan3d</span></tt></a></td>
+<td>Create 3D FFT plan configuration.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftPlanMany.html#scikits.cuda.cufft.cufftPlanMany" title="scikits.cuda.cufft.cufftPlanMany"><tt class="xref py py-obj docutils literal"><span class="pre">cufftPlanMany</span></tt></a></td>
+<td>Create batched FFT plan configuration.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftDestroy.html#scikits.cuda.cufft.cufftDestroy" title="scikits.cuda.cufft.cufftDestroy"><tt class="xref py py-obj docutils literal"><span class="pre">cufftDestroy</span></tt></a></td>
+<td>Destroy FFT plan.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecC2C.html#scikits.cuda.cufft.cufftExecC2C" title="scikits.cuda.cufft.cufftExecC2C"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecC2C</span></tt></a></td>
+<td>Execute single precision complex-to-complex transform plan as</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecR2C.html#scikits.cuda.cufft.cufftExecR2C" title="scikits.cuda.cufft.cufftExecR2C"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecR2C</span></tt></a></td>
+<td>Execute single precision real-to-complex forward transform plan.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecC2R.html#scikits.cuda.cufft.cufftExecC2R" title="scikits.cuda.cufft.cufftExecC2R"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecC2R</span></tt></a></td>
+<td>Execute single precision complex-to-real reverse transform plan.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecZ2Z.html#scikits.cuda.cufft.cufftExecZ2Z" title="scikits.cuda.cufft.cufftExecZ2Z"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecZ2Z</span></tt></a></td>
+<td>Execute double precision complex-to-complex transform plan as</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecD2Z.html#scikits.cuda.cufft.cufftExecD2Z" title="scikits.cuda.cufft.cufftExecD2Z"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecD2Z</span></tt></a></td>
+<td>Execute double precision real-to-complex forward transform plan.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftExecZ2D.html#scikits.cuda.cufft.cufftExecZ2D" title="scikits.cuda.cufft.cufftExecZ2D"><tt class="xref py py-obj docutils literal"><span class="pre">cufftExecZ2D</span></tt></a></td>
+<td>Execute double precision complex-to-real transform plan.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cufft.cufftSetStream.html#scikits.cuda.cufft.cufftSetStream" title="scikits.cuda.cufft.cufftSetStream"><tt class="xref py py-obj docutils literal"><span class="pre">cufftSetStream</span></tt></a></td>
+<td>Associate a CUDA stream with a CUFFT plan.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference internal" href="#">CUFFT Routines</a><ul>
+<li><a class="reference internal" href="#helper-routines">Helper Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#wrapper-routines">Wrapper Routines</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/reference_cufft.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cufft.cufftCheckStatus.html" title="scikits.cuda.cufft.cufftCheckStatus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="generated/scikits.cuda.cublas.cublasZtrsm.html" title="scikits.cuda.cublas.cublasZtrsm"
+             >previous</a> |</li>
+        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
+          <li><a href="reference.html" >Reference</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009-2011, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>

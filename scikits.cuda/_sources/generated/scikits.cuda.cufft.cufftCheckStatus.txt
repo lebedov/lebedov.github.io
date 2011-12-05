@@ -1,0 +1,6 @@
+scikits.cuda.cufft.cufftCheckStatus
+===================================
+
+.. currentmodule:: scikits.cuda.cufft
+
+.. autofunction:: cufftCheckStatus

@@ -1,0 +1,6 @@
+scikits.cuda.misc.zeros
+=======================
+
+.. currentmodule:: scikits.cuda
+
+.. automethod:: misc.zeros

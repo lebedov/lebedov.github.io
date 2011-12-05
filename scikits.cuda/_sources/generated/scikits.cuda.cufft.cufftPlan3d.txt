@@ -1,0 +1,6 @@
+scikits.cuda.cufft.cufftPlan3d
+==============================
+
+.. currentmodule:: scikits.cuda.cufft
+
+.. autofunction:: cufftPlan3d

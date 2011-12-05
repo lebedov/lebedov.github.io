@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.cublas.cublasSrotmg &mdash; scikits.cuda v0.042 documentation</title>
+    <title>scikits.cuda.cublas.cublasSrotmg &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda v0.042 documentation" href="../index.html" />
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="../index.html" />
     <link rel="up" title="CUBLAS Routines" href="../reference_cublas.html" />
     <link rel="next" title="scikits.cuda.cublas.cublasSscal" href="scikits.cuda.cublas.cublasSscal.html" />
     <link rel="prev" title="scikits.cuda.cublas.cublasSrotm" href="scikits.cuda.cublas.cublasSrotm.html" /> 
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSrotm.html" title="scikits.cuda.cublas.cublasSrotm"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" accesskey="U">CUBLAS Routines</a> &raquo;</li> 
       </ul>
@@ -54,10 +54,49 @@
 <h1>scikits.cuda.cublas.cublasSrotmg<a class="headerlink" href="#scikits-cuda-cublas-cublassrotmg" title="Permalink to this headline">¶</a></h1>
 <dl class="staticmethod">
 <dt id="scikits.cuda.cublas.cublasSrotmg">
-<em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSrotmg</tt><big>(</big><em>host_sd1</em>, <em>host_sd2</em>, <em>host_sx1</em>, <em>host_sy1</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotmg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct a real modified Givens rotation.</p>
+<em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSrotmg</tt><big>(</big><em>d1</em>, <em>d2</em>, <em>x1</em>, <em>y1</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotmg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a single-precision real modified Givens rotation matrix.</p>
+<p>Constructs the single-precision real modified Givens rotation matrix
+<cite>h = [[h11, h12], [h21, h22]]</cite> that zeros out the second entry of
+the vector <cite>[[sqrt(d1)*x1], [sqrt(d2)*x2]]</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>d1</strong> : numpy.float32</p>
+<blockquote>
+<div><p>single-precision real value.</p>
+</div></blockquote>
+<p><strong>d2</strong> : numpy.float32</p>
+<blockquote>
+<div><p>single-precision real value.</p>
+</div></blockquote>
+<p><strong>x1</strong> : numpy.float32</p>
+<blockquote>
+<div><p>single-precision real value.</p>
+</div></blockquote>
+<p><strong>x2</strong> : numpy.float32</p>
+<blockquote>
+<div><p>single-precision real value.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>sparam</strong> : numpy.ndarray</p>
+<blockquote class="last">
+<div><p>sparam[0] contains the <cite>flag</cite> described below;
+sparam[1:5] contains the values <cite>[h00, h10, h01, h11]</cite>
+that determine the rotation matrix <cite>h</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Notes</p>
-<p>This function runs on the host, not the GPU device.</p>
+<p>The rotation matrix may assume the following values:</p>
+<p>for <cite>flag</cite> == -1.0, <cite>h</cite> == <cite>[[h00, h01], [h10, h11]]</cite>
+for <cite>flag</cite> == 0.0,  <cite>h</cite> == <cite>[[1.0, h01], [h10, 1.0]]</cite>
+for <cite>flag</cite> == 1.0,  <cite>h</cite> == <cite>[[h00, 1.0], [-1.0, h11]]</cite>
+for <cite>flag</cite> == -2.0, <cite>h</cite> == <cite>[[1.0, 0.0], [0.0, 1.0]]</cite></p>
 </dd></dl>
 
 </div>
@@ -102,14 +141,14 @@
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSrotm.html" title="scikits.cuda.cublas.cublasSrotm"
              >previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" >CUBLAS Routines</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

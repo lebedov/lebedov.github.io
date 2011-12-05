@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.cublas.cublasSrotg &mdash; scikits.cuda v0.042 documentation</title>
+    <title>scikits.cuda.cublas.cublasSrotg &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda v0.042 documentation" href="../index.html" />
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="../index.html" />
     <link rel="up" title="CUBLAS Routines" href="../reference_cublas.html" />
     <link rel="next" title="scikits.cuda.cublas.cublasSrotm" href="scikits.cuda.cublas.cublasSrotm.html" />
     <link rel="prev" title="scikits.cuda.cublas.cublasSrot" href="scikits.cuda.cublas.cublasSrot.html" /> 
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSrot.html" title="scikits.cuda.cublas.cublasSrot"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" accesskey="U">CUBLAS Routines</a> &raquo;</li> 
       </ul>
@@ -54,30 +54,53 @@
 <h1>scikits.cuda.cublas.cublasSrotg<a class="headerlink" href="#scikits-cuda-cublas-cublassrotg" title="Permalink to this headline">¶</a></h1>
 <dl class="staticmethod">
 <dt id="scikits.cuda.cublas.cublasSrotg">
-<em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSrotg</tt><big>(</big><em>host_sa</em>, <em>host_sb</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct a real Givens rotation.</p>
-<p>Constructs the real single-precision Givens rotation matrix <cite>G</cite> =
-<cite>[[sc, ss], [-ss, sc]]</cite>, where <cite>sc**2+ss**2 == 1</cite>.</p>
+<em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSrotg</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a single-precision real Givens rotation matrix.</p>
+<p>Constructs the single-precision real Givens rotation matrix
+<cite>G = [[c, s], [-s, c]]</cite> such that
+<cite>dot(G, [[a], [b]] == [[r], [0]]</cite>, where
+<cite>c**2+s**2 == 1</cite> and <cite>r == a**2+b**2</cite> for real numbers and
+<cite>c**2+(conj(s)*s) == 1</cite> and <cite>r ==
+(a/abs(a))*sqrt(abs(a)**2+abs(b)**2)</cite> for <cite>a != 0</cite> and <cite>r == b</cite>
+for <cite>a == 0</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>sa, sb</strong> : numpy.float32</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a, b</strong> : numpy.float32</p>
 <blockquote>
-<div><p>Values to use when constructing the rotation matrix.</p>
+<div><p>Entries of vector whose second entry should be zeroed
+out by the rotation.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>sc, ss</strong> : numpy.float32</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>r</strong> : numpy.float32</p>
+<blockquote>
+<div><p>Defined above.</p>
+</div></blockquote>
+<p><strong>c</strong> : numpy.float32</p>
+<blockquote>
+<div><p>Cosine component of rotation matrix.</p>
+</div></blockquote>
+<p><strong>s</strong> : numpy.float32</p>
 <blockquote class="last">
-<div><p>Rotation matrix values.</p>
+<div><p>Sine component of rotation matrix.</p>
 </div></blockquote>
 </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Notes</p>
-<p>This function runs on the host, not the GPU device.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">cublasSrotg</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">c</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">b</span><span class="p">]])),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">r</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]]))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -122,14 +145,14 @@
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSrot.html" title="scikits.cuda.cublas.cublasSrot"
              >previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" >CUBLAS Routines</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

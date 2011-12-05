@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.cublas.cublasSaxpy &mdash; scikits.cuda v0.042 documentation</title>
+    <title>scikits.cuda.cublas.cublasSaxpy &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda v0.042 documentation" href="../index.html" />
+    <link rel="top" title="scikits.cuda 0.042 documentation" href="../index.html" />
     <link rel="up" title="CUBLAS Routines" href="../reference_cublas.html" />
     <link rel="next" title="scikits.cuda.cublas.cublasScopy" href="scikits.cuda.cublas.cublasScopy.html" />
     <link rel="prev" title="scikits.cuda.cublas.cublasSasum" href="scikits.cuda.cublas.cublasSasum.html" /> 
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSasum.html" title="scikits.cuda.cublas.cublasSasum"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" accesskey="U">CUBLAS Routines</a> &raquo;</li> 
       </ul>
@@ -55,20 +55,20 @@
 <dl class="staticmethod">
 <dt id="scikits.cuda.cublas.cublasSaxpy">
 <em class="property">static </em><tt class="descclassname">cublas.</tt><tt class="descname">cublasSaxpy</tt><big>(</big><em>n</em>, <em>alpha</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSaxpy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Real vector addition.</p>
-<p>Computes the sum of a single-precision vector scaled by a
-single-precision scalar and another single-precision vector.</p>
+<dd><p>Vector addition (single-precision real).</p>
+<p>Computes the sum of a single-precision real vector scaled by a
+single-precision real scalar and another single-precision real vector.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
 <blockquote>
 <div><p>Number of elements in input vectors.</p>
 </div></blockquote>
 <p><strong>alpha</strong> : numpy.float32</p>
 <blockquote>
-<div><p>Single-precision scalar.</p>
+<div><p>Scalar.</p>
 </div></blockquote>
 <p><strong>x</strong> : ctypes.c_void_p</p>
 <blockquote>
@@ -96,7 +96,7 @@ single-precision scalar and another single-precision vector.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -150,14 +150,14 @@ single-precision scalar and another single-precision vector.</p>
         <li class="right" >
           <a href="scikits.cuda.cublas.cublasSasum.html" title="scikits.cuda.cublas.cublasSasum"
              >previous</a> |</li>
-        <li><a href="../index.html">scikits.cuda v0.042 documentation</a> &raquo;</li>
+        <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
           <li><a href="../reference_cublas.html" >CUBLAS Routines</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009-2011, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
 </html>

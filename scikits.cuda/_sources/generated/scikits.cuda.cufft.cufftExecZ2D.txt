@@ -1,0 +1,6 @@
+scikits.cuda.cufft.cufftExecZ2D
+===============================
+
+.. currentmodule:: scikits.cuda.cufft
+
+.. autofunction:: cufftExecZ2D
