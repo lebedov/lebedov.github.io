@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasGetStream
+===================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasGetStream

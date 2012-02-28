@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasDestroy
+=================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasDestroy
