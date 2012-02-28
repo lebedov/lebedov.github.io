@@ -1,6 +1,6 @@
 scikits.cuda.fft.fft
 ====================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.fft
 
-.. automethod:: fft.fft
+.. autofunction:: fft

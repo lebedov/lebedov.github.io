@@ -49,6 +49,16 @@
             
   <div class="section" id="installation-instructions">
 <h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-installation">
+<h2>Quick Installation<a class="headerlink" href="#quick-installation" title="Permalink to this headline">¶</a></h2>
+<p>If you have <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a> installed, you should be
+able to install the latest stable release of <tt class="docutils literal"><span class="pre">scikits.cuda</span></tt> by running the
+following:</p>
+<div class="highlight-python"><pre>pip install scikits.cuda</pre>
+</div>
+<p>All dependencies should be automatically downloaded and installed if they are
+not already on your system.</p>
+</div>
 <div class="section" id="obtaining-the-latest-software">
 <h2>Obtaining the Latest Software<a class="headerlink" href="#obtaining-the-latest-software" title="Permalink to this headline">¶</a></h2>
 <p>The latest stable and development versions of <tt class="docutils literal"><span class="pre">scikits.cuda</span></tt> can be downloaded from
@@ -56,8 +66,8 @@
 <p>Online documentation for <tt class="docutils literal"><span class="pre">scikits.cuda</span></tt> is available at
 <a class="reference external" href="http://lebedov.github.com/scikits.cuda/">http://lebedov.github.com/scikits.cuda/</a></p>
 </div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-dependencies">
+<h2>Installation Dependencies<a class="headerlink" href="#installation-dependencies" title="Permalink to this headline">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">scikits.cuda</span></tt> requires that the following software packages be
 installed:</p>
 <ul class="simple">
@@ -74,17 +84,17 @@ parts of <tt class="docutils literal"><span class="pre">scikits.cuda</span></tt>
 <li><a class="reference external" href="http://www.scipy.org">SciPy</a> 0.8.0 or later.</li>
 </ul>
 <p>Some of the linear algebra functionality relies on the CULA toolkit; the single
-precision of the toolkit is free of charge, but requires registration. Depending
-on the version of CULA installed, some functions may not be available:</p>
+precision release of the toolkit is free of charge, but requires registration.
+Depending on the version of CULA installed, some functions may not be available:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.culatools.com/get-cula/">CULA</a> 2.0 or later.</li>
 </ul>
 <p>To build the documentation, the following packages are also required:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://docutils.sourceforge.net">Docutils</a> 0.5 or later.</li>
-<li><a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a> 1.0.1 or later.</li>
 <li><a class="reference external" href="http://jinja.pocoo.org">Jinja2</a> 2.2 or later.</li>
 <li><a class="reference external" href="http://pygments.org">Pygments</a> 0.8 or later.</li>
+<li><a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a> 1.0.1 or later.</li>
 </ul>
 <p>The software has been tested on Linux; it should also work on other
 platforms supported by the above packages.</p>
@@ -92,7 +102,7 @@ platforms supported by the above packages.</p>
 <div class="section" id="building-and-installation">
 <h2>Building and Installation<a class="headerlink" href="#building-and-installation" title="Permalink to this headline">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">scikits.cuda</span></tt> searches for CUDA libraries in the system library
-search path. You may have to modify this path (e.g., by adding the
+search path when imported. You may have to modify this path (e.g., by adding the
 path to the CUDA libraries to /etc/ld.so.conf or to the
 LD_LIBRARY_PATH environmental variable on Linux) if the libraries are
 not being found.</p>
@@ -102,18 +112,17 @@ release and run:</p>
 </div>
 <p>from within the main directory in the release. To rebuild the
 documentation, run:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
-</pre></div>
+<div class="highlight-python"><pre>python setup.py build_docs</pre>
 </div>
-<p>from within the <tt class="docutils literal"><span class="pre">doc/</span></tt> subdirectory and follow the directions.</p>
 </div>
 <div class="section" id="running-the-unit-tests">
 <h2>Running the Unit Tests<a class="headerlink" href="#running-the-unit-tests" title="Permalink to this headline">¶</a></h2>
-<p>To run all of the package unit tests, run:</p>
+<p>To run all of the package unit tests, download and unpack the package source
+tarball and run:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">nosetests</span>
 </pre></div>
 </div>
-<p>from within the main directory in the release. Tests for individual
+<p>from within the main directory in the archive. Tests for individual
 modules (found in the <tt class="docutils literal"><span class="pre">tests/</span></tt> subdirectory) can also be run
 directly.</p>
 </div>
@@ -134,8 +143,9 @@ the high-level functions also contain doctests that describe their usage.</p>
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference internal" href="#">Installation Instructions</a><ul>
+<li><a class="reference internal" href="#quick-installation">Quick Installation</a></li>
 <li><a class="reference internal" href="#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installation-dependencies">Installation Dependencies</a></li>
 <li><a class="reference internal" href="#building-and-installation">Building and Installation</a></li>
 <li><a class="reference internal" href="#running-the-unit-tests">Running the Unit Tests</a></li>
 <li><a class="reference internal" href="#getting-started">Getting Started</a></li>
@@ -181,7 +191,7 @@ the high-level functions also contain doctests that describe their usage.</p>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009-2011, Lev Givon.
+      &copy; Copyright 2009-2012, Lev Givon.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>

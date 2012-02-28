@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceDposv
 =================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cula
 
-.. automethod:: cula.culaDeviceDposv
+.. autofunction:: culaDeviceDposv

@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasScnrm2
 ================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasScnrm2
+.. autofunction:: cublasScnrm2

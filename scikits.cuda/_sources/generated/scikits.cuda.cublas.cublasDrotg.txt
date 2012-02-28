@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDrotg
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasDrotg
+.. autofunction:: cublasDrotg

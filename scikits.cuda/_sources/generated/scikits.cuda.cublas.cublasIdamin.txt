@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasIdamin
 ================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasIdamin
+.. autofunction:: cublasIdamin

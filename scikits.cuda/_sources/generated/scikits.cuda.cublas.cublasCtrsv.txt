@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasCtrsv
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasCtrsv
+.. autofunction:: cublasCtrsv

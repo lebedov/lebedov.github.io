@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasStbmv
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasStbmv
+.. autofunction:: cublasStbmv

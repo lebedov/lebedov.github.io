@@ -1,6 +1,6 @@
 scikits.cuda.integrate.trapz2d
 ==============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.integrate
 
-.. automethod:: integrate.trapz2d
+.. autofunction:: trapz2d

@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDaxpy
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasDaxpy
+.. autofunction:: cublasDaxpy

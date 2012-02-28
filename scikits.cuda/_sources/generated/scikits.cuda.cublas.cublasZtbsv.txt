@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasZtbsv
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasZtbsv
+.. autofunction:: cublasZtbsv

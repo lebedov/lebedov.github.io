@@ -1,6 +1,6 @@
 scikits.cuda.special.sici
 =========================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.special
 
-.. automethod:: special.sici
+.. autofunction:: sici

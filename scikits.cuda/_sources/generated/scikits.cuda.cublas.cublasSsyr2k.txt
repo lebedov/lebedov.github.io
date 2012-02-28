@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasSsyr2k
 ================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasSsyr2k
+.. autofunction:: cublasSsyr2k

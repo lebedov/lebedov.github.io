@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaDeviceDgesv
 =================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cula
 
-.. automethod:: cula.culaDeviceDgesv
+.. autofunction:: culaDeviceDgesv

@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasSswap
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasSswap
+.. autofunction:: cublasSswap

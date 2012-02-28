@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasDasum
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasDasum
+.. autofunction:: cublasDasum

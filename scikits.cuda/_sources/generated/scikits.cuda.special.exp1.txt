@@ -1,6 +1,6 @@
 scikits.cuda.special.exp1
 =========================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.special
 
-.. automethod:: special.exp1
+.. autofunction:: exp1

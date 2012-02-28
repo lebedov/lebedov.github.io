@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasIzamax
 ================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasIzamax
+.. autofunction:: cublasIzamax

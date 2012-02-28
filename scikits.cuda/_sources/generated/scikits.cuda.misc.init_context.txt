@@ -1,6 +1,6 @@
 scikits.cuda.misc.init_context
 ==============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.misc
 
-.. automethod:: misc.init_context
+.. autofunction:: init_context

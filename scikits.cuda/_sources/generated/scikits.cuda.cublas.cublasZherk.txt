@@ -1,6 +1,6 @@
 scikits.cuda.cublas.cublasZherk
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cublas
 
-.. automethod:: cublas.cublasZherk
+.. autofunction:: cublasZherk

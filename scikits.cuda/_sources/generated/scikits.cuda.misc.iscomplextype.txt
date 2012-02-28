@@ -1,6 +1,6 @@
 scikits.cuda.misc.iscomplextype
 ===============================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.misc
 
-.. automethod:: misc.iscomplextype
+.. autofunction:: iscomplextype

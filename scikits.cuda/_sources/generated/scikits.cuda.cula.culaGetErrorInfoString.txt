@@ -1,6 +1,6 @@
 scikits.cuda.cula.culaGetErrorInfoString
 ========================================
 
-.. currentmodule:: scikits.cuda
+.. currentmodule:: scikits.cuda.cula
 
-.. automethod:: cula.culaGetErrorInfoString
+.. autofunction:: culaGetErrorInfoString
