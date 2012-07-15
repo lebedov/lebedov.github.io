@@ -55,7 +55,7 @@ h3 {
 /* images */
 img {
 	background: #fff;
-   border: 1px solid #E5E5E5;
+        border: 1px solid #E5E5E5;
 	padding: 5px;
 }
 img.float-right { margin: 5px 0px 10px 10px;  }
@@ -213,7 +213,7 @@ input.button {
 #header {
 	position: relative;
 	height: 131px;
-	background: #caced1 url(images/header.jpg) no-repeat center top;
+	background: #caced1 url(images/header-seas.jpg) no-repeat center top;
 	padding: 0;	
 	color: #fff;	
 }
