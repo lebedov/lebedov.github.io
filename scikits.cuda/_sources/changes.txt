@@ -12,6 +12,10 @@ Release 0.042 - ()
 * Fix issues with pycuda installations done via easy_install/pip. 
 * Add support for specifying streams when creating FFT plans.
 * Successfully find CULA R13a libraries.
+* Perform post-fft scaling in-place.
+* Fix broken Python 2.6 compatibility (#19).
+* Download distribute for package installation if it isn't available.
+* Prevent absence of CULA from causing import errors (enh. by Jacob Frelinger)
 
 Release 0.041 - (May 22, 2011)
 ------------------------------

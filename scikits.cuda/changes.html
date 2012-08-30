@@ -55,6 +55,10 @@
 <li>Fix issues with pycuda installations done via easy_install/pip.</li>
 <li>Add support for specifying streams when creating FFT plans.</li>
 <li>Successfully find CULA R13a libraries.</li>
+<li>Perform post-fft scaling in-place.</li>
+<li>Fix broken Python 2.6 compatibility (#19).</li>
+<li>Download distribute for package installation if it isn&#8217;t available.</li>
+<li>Prevent absence of CULA from causing import errors (enh. by Jacob Frelinger)</li>
 </ul>
 </div>
 <div class="section" id="release-0-041-may-22-2011">
@@ -162,7 +166,7 @@
     </div>
     <div class="footer">
       &copy; Copyright 2009-2012, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
