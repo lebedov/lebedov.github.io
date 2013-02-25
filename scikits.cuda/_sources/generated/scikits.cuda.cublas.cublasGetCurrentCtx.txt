@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasGetCurrentCtx
+=======================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasGetCurrentCtx

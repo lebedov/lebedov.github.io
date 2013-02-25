@@ -54,7 +54,7 @@
 <h1>scikits.cuda.linalg.dot<a class="headerlink" href="#scikits-cuda-linalg-dot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.linalg.dot">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">dot</tt><big>(</big><em>x_gpu</em>, <em>y_gpu</em>, <em>transa='N'</em>, <em>transb='N'</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.dot" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">dot</tt><big>(</big><em>x_gpu</em>, <em>y_gpu</em>, <em>transa='N'</em>, <em>transb='N'</em>, <em>handle=None</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dot product of two arrays.</p>
 <p>For 1D arrays, this function computes the inner product. For 2D
 arrays of shapes <cite>(m, k)</cite> and <cite>(k, n)</cite>, it computes the matrix
@@ -80,6 +80,11 @@ If &#8216;C&#8217;, compute the product of the Hermitian of <cite>x_gpu</cite>.<
 <blockquote>
 <div><p>If &#8216;T&#8217;, compute the product of the transpose of <cite>y_gpu</cite>.
 If &#8216;C&#8217;, compute the product of the Hermitian of <cite>y_gpu</cite>.</p>
+</div></blockquote>
+<p><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context. If no context is specified, the default handle from
+<cite>scikits.misc._global_cublas_handle</cite> is used.</p>
 </div></blockquote>
 </td>
 </tr>

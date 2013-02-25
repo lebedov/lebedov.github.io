@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.cublas.cublasGetError &mdash; scikits.cuda 0.042 documentation</title>
+    <title>scikits.cuda.cublas.cublasGetVersion &mdash; scikits.cuda 0.042 documentation</title>
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="scikits.cuda 0.042 documentation" href="../index.html" />
     <link rel="up" title="CUBLAS Routines" href="../reference_cublas.html" />
-    <link rel="next" title="scikits.cuda.cublas.cublasGetStream" href="scikits.cuda.cublas.cublasGetStream.html" />
-    <link rel="prev" title="scikits.cuda.cublas.cublasDestroy" href="scikits.cuda.cublas.cublasDestroy.html" /> 
+    <link rel="next" title="scikits.cuda.cublas.cublasSetStream" href="scikits.cuda.cublas.cublasSetStream.html" />
+    <link rel="prev" title="scikits.cuda.cublas.cublasGetStream" href="scikits.cuda.cublas.cublasGetStream.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="scikits.cuda.cublas.cublasGetStream.html" title="scikits.cuda.cublas.cublasGetStream"
+          <a href="scikits.cuda.cublas.cublasSetStream.html" title="scikits.cuda.cublas.cublasSetStream"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.cublas.cublasDestroy.html" title="scikits.cuda.cublas.cublasDestroy"
+          <a href="scikits.cuda.cublas.cublasGetStream.html" title="scikits.cuda.cublas.cublasGetStream"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>
@@ -50,30 +50,31 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="scikits-cuda-cublas-cublasgeterror">
-<h1>scikits.cuda.cublas.cublasGetError<a class="headerlink" href="#scikits-cuda-cublas-cublasgeterror" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="scikits-cuda-cublas-cublasgetversion">
+<h1>scikits.cuda.cublas.cublasGetVersion<a class="headerlink" href="#scikits-cuda-cublas-cublasgetversion" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="scikits.cuda.cublas.cublasGetError">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasGetError</tt><big>(</big><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasGetError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve and reset CUBLAS error code.</p>
-<p>Retrieves the current CUBLAS error code and resets it in
-preparation for the next CUBLAS operation.</p>
+<dt id="scikits.cuda.cublas.cublasGetVersion">
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasGetVersion</tt><big>(</big><em>handle</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasGetVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get CUBLAS version.</p>
+<p>Returns version number of installed CUBLAS libraries.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>e</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>version</strong> : int</p>
 <blockquote class="last">
-<div><p>Error code.</p>
+<div><p>CUBLAS version.</p>
 </div></blockquote>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="admonition-see-also admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><tt class="xref py py-obj docutils literal"><span class="pre">cublasExceptions</span></tt></p>
-</div>
 </dd></dl>
 
 </div>
@@ -86,7 +87,7 @@ preparation for the next CUBLAS operation.</p>
         <div class="sphinxsidebarwrapper">
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="../_sources/generated/scikits.cuda.cublas.cublasGetError.txt"
+              <li><a href="../_sources/generated/scikits.cuda.cublas.cublasGetVersion.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -113,10 +114,10 @@ preparation for the next CUBLAS operation.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="scikits.cuda.cublas.cublasGetStream.html" title="scikits.cuda.cublas.cublasGetStream"
+          <a href="scikits.cuda.cublas.cublasSetStream.html" title="scikits.cuda.cublas.cublasSetStream"
              >next</a> |</li>
         <li class="right" >
-          <a href="scikits.cuda.cublas.cublasDestroy.html" title="scikits.cuda.cublas.cublasDestroy"
+          <a href="scikits.cuda.cublas.cublasGetStream.html" title="scikits.cuda.cublas.cublasGetStream"
              >previous</a> |</li>
         <li><a href="../index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
           <li><a href="../reference.html" >Reference</a> &raquo;</li>

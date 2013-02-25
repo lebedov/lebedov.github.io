@@ -54,7 +54,7 @@
 <h1>scikits.cuda.cublas.cublasSrotm<a class="headerlink" href="#scikits-cuda-cublas-cublassrotm" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasSrotm">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSrotm</tt><big>(</big><em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em>, <em>sparam</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotm" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSrotm</tt><big>(</big><em>handle</em>, <em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em>, <em>sparam</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a single-precision real modified Givens rotation.</p>
 <p>Applies the single-precision real modified Givens rotation matrix <cite>h</cite>
 to the 2 x <cite>n</cite> matrix <cite>[[x.T], [y.T]]</cite>.</p>
@@ -62,7 +62,11 @@ to the 2 x <cite>n</cite> matrix <cite>[[x.T], [y.T]]</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+<p><strong>n</strong> : int</p>
 <blockquote>
 <div><p>Number of elements in input vectors.</p>
 </div></blockquote>

@@ -54,7 +54,7 @@
 <h1>scikits.cuda.cublas.cublasZdotu<a class="headerlink" href="#scikits-cuda-cublas-cublaszdotu" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasZdotu">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasZdotu</tt><big>(</big><em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasZdotu" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasZdotu</tt><big>(</big><em>handle</em>, <em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasZdotu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Vector dot product (double-precision complex)</p>
 <p>Computes the dot product of two double-precision complex vectors.
 cublasCdotc and cublasZdotc use the conjugate of the first vector
@@ -63,7 +63,11 @@ when computing the dot product.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+<p><strong>n</strong> : int</p>
 <blockquote>
 <div><p>Number of elements in input vectors.</p>
 </div></blockquote>
@@ -103,7 +107,9 @@ when computing the dot product.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">cublasCreate</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">cublasZdotu</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDestroy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> 
 <span class="go">True</span>
 </pre></div>

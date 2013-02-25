@@ -68,20 +68,17 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDestroy.html#scikits.cuda.cublas.cublasDestroy" title="scikits.cuda.cublas.cublasDestroy"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDestroy</span></tt></a></td>
 <td>Release CUBLAS resources.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasGetError.html#scikits.cuda.cublas.cublasGetError" title="scikits.cuda.cublas.cublasGetError"><tt class="xref py py-obj docutils literal"><span class="pre">cublasGetError</span></tt></a></td>
-<td>Retrieve and reset CUBLAS error code.</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasGetCurrentCtx.html#scikits.cuda.cublas.cublasGetCurrentCtx" title="scikits.cuda.cublas.cublasGetCurrentCtx"><tt class="xref py py-obj docutils literal"><span class="pre">cublasGetCurrentCtx</span></tt></a></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasGetStream.html#scikits.cuda.cublas.cublasGetStream" title="scikits.cuda.cublas.cublasGetStream"><tt class="xref py py-obj docutils literal"><span class="pre">cublasGetStream</span></tt></a></td>
 <td>Set current CUBLAS library stream.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasInit.html#scikits.cuda.cublas.cublasInit" title="scikits.cuda.cublas.cublasInit"><tt class="xref py py-obj docutils literal"><span class="pre">cublasInit</span></tt></a></td>
-<td>Initialize CUBLAS.</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasGetVersion.html#scikits.cuda.cublas.cublasGetVersion" title="scikits.cuda.cublas.cublasGetVersion"><tt class="xref py py-obj docutils literal"><span class="pre">cublasGetVersion</span></tt></a></td>
+<td>Get CUBLAS version.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSetStream.html#scikits.cuda.cublas.cublasSetStream" title="scikits.cuda.cublas.cublasSetStream"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSetStream</span></tt></a></td>
 <td>Set current CUBLAS library stream.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasShutdown.html#scikits.cuda.cublas.cublasShutdown" title="scikits.cuda.cublas.cublasShutdown"><tt class="xref py py-obj docutils literal"><span class="pre">cublasShutdown</span></tt></a></td>
-<td>Shut down CUBLAS.</td>
 </tr>
 </tbody>
 </table>
@@ -604,6 +601,40 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="single-precision-blas-like-extension-routines">
+<h3>Single-Precision BLAS-like Extension Routines<a class="headerlink" href="#single-precision-blas-like-extension-routines" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSdgmm.html#scikits.cuda.cublas.cublasSdgmm" title="scikits.cuda.cublas.cublasSdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSdgmm</span></tt></a></td>
+<td>Matrix-diagonal matrix product for real general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasCdgmm.html#scikits.cuda.cublas.cublasCdgmm" title="scikits.cuda.cublas.cublasCdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasCdgmm</span></tt></a></td>
+<td>Matrix-diagonal matrix product for complex general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-blas-like-extension-routines">
+<h3>Double-Precision BLAS-like Extension Routines<a class="headerlink" href="#double-precision-blas-like-extension-routines" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDdgmm.html#scikits.cuda.cublas.cublasDdgmm" title="scikits.cuda.cublas.cublasDdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDdgmm</span></tt></a></td>
+<td>Matrix-diagonal matrix product for real general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasZdgmm.html#scikits.cuda.cublas.cublasZdgmm" title="scikits.cuda.cublas.cublasZdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasZdgmm</span></tt></a></td>
+<td>Matrix-diagonal matrix product for complex general matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -636,6 +667,12 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#double-precision-blas3-routines">Double Precision BLAS3 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-blas-like-extension-routines">Single-Precision BLAS-like Extension Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-blas-like-extension-routines">Double-Precision BLAS-like Extension Routines</a><ul>
 </ul>
 </li>
 </ul>

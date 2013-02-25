@@ -54,7 +54,7 @@
 <h1>scikits.cuda.cublas.cublasCrotg<a class="headerlink" href="#scikits-cuda-cublas-cublascrotg" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasCrotg">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasCrotg</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasCrotg" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasCrotg</tt><big>(</big><em>handle</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasCrotg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a single-precision complex Givens rotation matrix.</p>
 <p>Constructs the single-precision complex Givens rotation matrix
 <cite>G = [[c, s], [-s, c]]</cite> such that
@@ -67,7 +67,11 @@ for <cite>a == 0</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a, b</strong> : numpy.complex64</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+<p><strong>a, b</strong> : numpy.complex64</p>
 <blockquote>
 <div><p>Entries of vector whose second entry should be zeroed
 out by the rotation.</p>
@@ -96,7 +100,9 @@ out by the rotation.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">+</span><span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">+</span><span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">cublasCrotg</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">cublasCreate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">cublasCrotg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDestroy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">c</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="p">],</span> <span class="p">[</span><span class="n">b</span><span class="p">]])),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">r</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]]))</span>
 <span class="go">True</span>
 </pre></div>

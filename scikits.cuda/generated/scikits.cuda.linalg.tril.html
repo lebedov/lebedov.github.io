@@ -54,7 +54,7 @@
 <h1>scikits.cuda.linalg.tril<a class="headerlink" href="#scikits-cuda-linalg-tril" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.linalg.tril">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">tril</tt><big>(</big><em>a_gpu</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.tril" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">tril</tt><big>(</big><em>a_gpu</em>, <em>overwrite=True</em>, <em>handle=None</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.tril" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower triangle of a matrix.</p>
 <p>Return the lower triangle of a square matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -69,6 +69,11 @@
 <blockquote>
 <div><p>If true (default), zero out the upper triangle of the matrix.
 If false, return the result in a newly allocated matrix.</p>
+</div></blockquote>
+<p><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context. If no context is specified, the default handle from
+<cite>scikits.misc._global_cublas_handle</cite> is used.</p>
 </div></blockquote>
 </td>
 </tr>

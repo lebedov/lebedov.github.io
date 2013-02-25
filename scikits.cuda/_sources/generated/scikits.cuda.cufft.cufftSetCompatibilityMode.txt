@@ -1,0 +1,6 @@
+scikits.cuda.cufft.cufftSetCompatibilityMode
+============================================
+
+.. currentmodule:: scikits.cuda.cufft
+
+.. autofunction:: cufftSetCompatibilityMode

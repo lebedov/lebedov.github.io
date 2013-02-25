@@ -54,7 +54,7 @@
 <h1>scikits.cuda.fft.Plan<a class="headerlink" href="#scikits-cuda-fft-plan" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="scikits.cuda.fft.Plan">
-<em class="property">class </em><tt class="descclassname">scikits.cuda.fft.</tt><tt class="descname">Plan</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em>, <em>stream=None</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">scikits.cuda.fft.</tt><tt class="descname">Plan</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em>, <em>stream=None</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan" title="Permalink to this definition">¶</a></dt>
 <dd><p>CUFFT plan class.</p>
 <p>This class represents an FFT plan for CUFFT.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -78,9 +78,13 @@
 <div><p>Number of FFTs to configure in parallel (default is 1).</p>
 </div></blockquote>
 <p><strong>stream</strong> : pycuda.driver.Stream</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Stream with which to associate the plan. If no stream is specified,
 the default stream is used.</p>
+</div></blockquote>
+<p><strong>mode</strong> : int</p>
+<blockquote class="last">
+<div><p>FFTW compatibility mode.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -88,7 +92,7 @@ the default stream is used.</p>
 </table>
 <dl class="method">
 <dt id="scikits.cuda.fft.Plan.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em>, <em>stream=None</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>shape</em>, <em>in_dtype</em>, <em>out_dtype</em>, <em>batch=1</em>, <em>stream=None</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#scikits.cuda.fft.Plan.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>

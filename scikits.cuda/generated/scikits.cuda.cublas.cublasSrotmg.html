@@ -54,7 +54,7 @@
 <h1>scikits.cuda.cublas.cublasSrotmg<a class="headerlink" href="#scikits-cuda-cublas-cublassrotmg" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasSrotmg">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSrotmg</tt><big>(</big><em>d1</em>, <em>d2</em>, <em>x1</em>, <em>y1</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotmg" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSrotmg</tt><big>(</big><em>handle</em>, <em>d1</em>, <em>d2</em>, <em>x1</em>, <em>y1</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSrotmg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a single-precision real modified Givens rotation matrix.</p>
 <p>Constructs the single-precision real modified Givens rotation matrix
 <cite>h = [[h11, h12], [h21, h22]]</cite> that zeros out the second entry of
@@ -63,7 +63,11 @@ the vector <cite>[[sqrt(d1)*x1], [sqrt(d2)*x2]]</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>d1</strong> : numpy.float32</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+<p><strong>d1</strong> : numpy.float32</p>
 <blockquote>
 <div><p>single-precision real value.</p>
 </div></blockquote>

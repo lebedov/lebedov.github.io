@@ -54,7 +54,7 @@
 <h1>scikits.cuda.linalg.mdot<a class="headerlink" href="#scikits-cuda-linalg-mdot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.linalg.mdot">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">mdot</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.mdot" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">mdot</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.mdot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Product of several matrices.</p>
 <p>Computes the matrix product of several arrays of shapes.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -64,6 +64,11 @@
 <tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a_gpu, b_gpu, ...</strong> : pycuda.gpuarray.GPUArray</p>
 <blockquote>
 <div><p>Arrays to multiply.</p>
+</div></blockquote>
+<p><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context. If no context is specified, the default handle from
+<cite>scikits.misc._global_cublas_handle</cite> is used.</p>
 </div></blockquote>
 </td>
 </tr>

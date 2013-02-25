@@ -54,7 +54,7 @@
 <h1>scikits.cuda.integrate.trapz2d<a class="headerlink" href="#scikits-cuda-integrate-trapz2d" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.integrate.trapz2d">
-<tt class="descclassname">scikits.cuda.integrate.</tt><tt class="descname">trapz2d</tt><big>(</big><em>x_gpu</em>, <em>dx=1.0</em>, <em>dy=1.0</em><big>)</big><a class="headerlink" href="#scikits.cuda.integrate.trapz2d" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.integrate.</tt><tt class="descname">trapz2d</tt><big>(</big><em>x_gpu</em>, <em>dx=1.0</em>, <em>dy=1.0</em>, <em>handle=None</em><big>)</big><a class="headerlink" href="#scikits.cuda.integrate.trapz2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>2D trapezoidal integration.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -71,6 +71,11 @@
 <p><strong>dy</strong> : float</p>
 <blockquote>
 <div><p>Y-axis spacing</p>
+</div></blockquote>
+<p><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context. If no context is specified, the default handle from
+<cite>scikits.misc._global_cublas_handle</cite> is used.</p>
 </div></blockquote>
 </td>
 </tr>

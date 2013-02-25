@@ -54,7 +54,7 @@
 <h1>scikits.cuda.cublas.cublasSswap<a class="headerlink" href="#scikits-cuda-cublas-cublassswap" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasSswap">
-<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSswap</tt><big>(</big><em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSswap" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasSswap</tt><big>(</big><em>handle</em>, <em>n</em>, <em>x</em>, <em>incx</em>, <em>y</em>, <em>incy</em><big>)</big><a class="headerlink" href="#scikits.cuda.cublas.cublasSswap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Swap single-precision real vectors.</p>
 <p>Swaps the contents of one single-precision real vector with those
 of another single-precision real vector.</p>
@@ -62,7 +62,11 @@ of another single-precision real vector.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>n</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context.</p>
+</div></blockquote>
+<p><strong>n</strong> : int</p>
 <blockquote>
 <div><p>Number of elements in input vectors.</p>
 </div></blockquote>
@@ -96,7 +100,9 @@ of another single-precision real vector.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">cublasCreate</span><span class="p">()</span> 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cublasSswap</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDestroy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">x</span><span class="p">)</span>
