@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaGetCublasMinimumVersion
+=============================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaGetCublasMinimumVersion

@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaGetCudaDriverVersion
+==========================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaGetCudaDriverVersion

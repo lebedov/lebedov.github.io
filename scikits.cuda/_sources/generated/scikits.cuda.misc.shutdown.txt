@@ -1,0 +1,6 @@
+scikits.cuda.misc.shutdown
+==========================
+
+.. currentmodule:: scikits.cuda.misc
+
+.. autofunction:: shutdown

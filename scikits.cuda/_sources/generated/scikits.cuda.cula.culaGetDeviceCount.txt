@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaGetDeviceCount
+====================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaGetDeviceCount

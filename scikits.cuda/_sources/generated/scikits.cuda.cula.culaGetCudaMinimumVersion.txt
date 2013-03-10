@@ -1,0 +1,6 @@
+scikits.cuda.cula.culaGetCudaMinimumVersion
+===========================================
+
+.. currentmodule:: scikits.cuda.cula
+
+.. autofunction:: culaGetCudaMinimumVersion

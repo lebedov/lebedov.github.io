@@ -1,0 +1,6 @@
+scikits.cuda.misc.zeros_like
+============================
+
+.. currentmodule:: scikits.cuda.misc
+
+.. autofunction:: zeros_like
