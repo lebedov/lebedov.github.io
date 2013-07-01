@@ -16,7 +16,7 @@
 
 body {
 	background: #caced1;
-	font: 70%/1.5em Verdana, Tahoma, arial, sans-serif;
+	font: 85%/1.5em Ubuntu, Helvetica, arial, sans-serif;
 	color: #202020;
 	text-align: center;
 	margin: 15px 0;
@@ -36,7 +36,7 @@ a:hover {
 }
 
 /* headers */
-h1, h2, h3 { font-family: 'Trebuchet MS', Tahoma, Sans-serif;  }
+h1, h2, h3 { font-family: Ubuntu, Helvetica, Arial, sans-serif;  }
 h1 {
 	font-size: 180%;	
 	font-weight: normal;	
@@ -220,7 +220,7 @@ input.button {
 #header h1#logo-text a {
 	position: absolute;
 	margin: 0; padding: 0;
-	font: bolder 50px 'Trebuchet MS', Arial, Sans-serif;
+	font: 55px Ubuntu, Helvetica, Arial, sans-serif;
 	letter-spacing: -3px;
 	color: #fff;
 	text-transform: none;
@@ -233,7 +233,7 @@ input.button {
 #header p#slogan {
 	position: absolute;
 	margin: 0; padding: 0;
-	font: bold 20px 'Trebuchet MS', Arial, Sans-serif;
+	font: 20px Ubuntu, Helvetica, Arial, sans-serif;
 	text-transform: none;
 	color: #FFF;
 	
@@ -245,7 +245,7 @@ input.button {
 #header #header-links {
 	position: absolute;
 	color: #C6DDEE;
-	font: bold 14px"Trebuchet MS", Arial, Tahoma, Sans-serif;
+	font: bold 14px Ubuntu, Helvetica, Arial, sans-serif;
 	top: 20px; right: 20px;	
 }
 #header #header-links a {	
@@ -261,7 +261,7 @@ input.button {
 	clear: both;	
 	margin: 0 auto; padding: 0;
 	background: #81C524 url(images/menu.jpg) no-repeat;	
-	font: bold 16px/40px "trebuchet MS", Arial, Tahoma, Sans-serif;
+	font: bold 16px/40px Ubuntu, Helvetica, Arial, sans-serif;
 	height: 40px;
 	width: 790px;	
 }
@@ -297,7 +297,7 @@ input.button {
 	background: url(images/box.jpg) no-repeat; 	
 }
 #main h2 {
-	font: normal 180% 'Trebuchet MS', Tahoma, Arial, Sans-serif;
+	font: normal 180% Ubuntu, Helvetica, Arial, sans-serif;
 	padding: 0; 	
 	margin-bottom: 0;		
 	color: #2666c3;
@@ -325,7 +325,7 @@ input.button {
 }	
 #sidebar h2 {
 	margin: 15px 5px 10px 5px;
-	font: bold 1.4em 'Trebuchet MS', Tahoma, Sans-serif;
+	font: bold 1.4em Ubuntu, Helvetica, Arial, sans-serif;
 	color: #555;	
 }
 #sidebar p {
