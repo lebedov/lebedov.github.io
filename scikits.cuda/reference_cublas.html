@@ -1,19 +1,21 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CUBLAS Routines &mdash; scikits.cuda 0.042 documentation</title>
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <title>CUBLAS Routines &mdash; scikits.cuda 0.043 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
-        VERSION:     '0.042',
-        COLLAPSE_MODINDEX: false,
+        URL_ROOT:    './',
+        VERSION:     '0.043',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,10 +23,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="scikits.cuda 0.042 documentation" href="index.html" />
-    <link rel="up" title="Reference" href="reference.html" />
-    <link rel="next" title="scikits.cuda.cublas.cublasCheckStatus" href="generated/scikits.cuda.cublas.cublasCheckStatus.html" />
-    <link rel="prev" title="Reference" href="reference.html" /> 
+    <link rel="top" title="scikits.cuda 0.043 documentation" href="index.html" />
+    <link rel="up" title="Reference" href="reference.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,10 +39,69 @@
         <li class="right" >
           <a href="reference.html" title="Reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
+        <li><a href="index.html">scikits.cuda 0.043 documentation</a> &raquo;</li>
           <li><a href="reference.html" accesskey="U">Reference</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div> 
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CUBLAS Routines</a><ul>
+<li><a class="reference internal" href="#helper-routines">Helper Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#wrapper-routines">Wrapper Routines</a><ul>
+<li><a class="reference internal" href="#single-precision-blas1-routines">Single Precision BLAS1 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-blas1-routines">Double Precision BLAS1 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-blas2-routines">Single Precision BLAS2 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-blas2-routines">Double Precision BLAS2 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-blas3-routines">Single Precision BLAS3 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-blas3-routines">Double Precision BLAS3 Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-blas-like-extension-routines">Single-Precision BLAS-like Extension Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-blas-like-extension-routines">Double-Precision BLAS-like Extension Routines</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/reference_cublas.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div> 
 
     <div class="document">
       <div class="documentwrapper">
@@ -612,8 +671,23 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSdgmm.html#scikits.cuda.cublas.cublasSdgmm" title="scikits.cuda.cublas.cublasSdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSdgmm</span></tt></a></td>
 <td>Matrix-diagonal matrix product for real general matrix.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSgeam.html#scikits.cuda.cublas.cublasSgeam" title="scikits.cuda.cublas.cublasSgeam"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSgeam</span></tt></a></td>
+<td>Real matrix-matrix addition/transposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSgemmBatched.html#scikits.cuda.cublas.cublasSgemmBatched" title="scikits.cuda.cublas.cublasSgemmBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSgemmBatched</span></tt></a></td>
+<td>Matrix-matrix product for arrays of real general matrices.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasStrsmBatched.html#scikits.cuda.cublas.cublasStrsmBatched" title="scikits.cuda.cublas.cublasStrsmBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasStrsmBatched</span></tt></a></td>
+<td>This function solves an array of triangular linear systems with multiple right-hand-sides.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasSgetrfBatched.html#scikits.cuda.cublas.cublasSgetrfBatched" title="scikits.cuda.cublas.cublasSgetrfBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasSgetrfBatched</span></tt></a></td>
+<td>This function performs the LU factorization of an array of n x n matrices.</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasCdgmm.html#scikits.cuda.cublas.cublasCdgmm" title="scikits.cuda.cublas.cublasCdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasCdgmm</span></tt></a></td>
 <td>Matrix-diagonal matrix product for complex general matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasCgeam.html#scikits.cuda.cublas.cublasCgeam" title="scikits.cuda.cublas.cublasCgeam"><tt class="xref py py-obj docutils literal"><span class="pre">cublasCgeam</span></tt></a></td>
+<td>Complex matrix-matrix addition/transposition.</td>
 </tr>
 </tbody>
 </table>
@@ -629,8 +703,23 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDdgmm.html#scikits.cuda.cublas.cublasDdgmm" title="scikits.cuda.cublas.cublasDdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDdgmm</span></tt></a></td>
 <td>Matrix-diagonal matrix product for real general matrix.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDgeam.html#scikits.cuda.cublas.cublasDgeam" title="scikits.cuda.cublas.cublasDgeam"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDgeam</span></tt></a></td>
+<td>Real matrix-matrix addition/transposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDgemmBatched.html#scikits.cuda.cublas.cublasDgemmBatched" title="scikits.cuda.cublas.cublasDgemmBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDgemmBatched</span></tt></a></td>
+<td>Matrix-matrix product for arrays of real general matrices.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDtrsmBatched.html#scikits.cuda.cublas.cublasDtrsmBatched" title="scikits.cuda.cublas.cublasDtrsmBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDtrsmBatched</span></tt></a></td>
+<td>This function solves an array of triangular linear systems with multiple right-hand-sides.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasDgetrfBatched.html#scikits.cuda.cublas.cublasDgetrfBatched" title="scikits.cuda.cublas.cublasDgetrfBatched"><tt class="xref py py-obj docutils literal"><span class="pre">cublasDgetrfBatched</span></tt></a></td>
+<td>This function performs the LU factorization of an array of n x n matrices.</td>
+</tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasZdgmm.html#scikits.cuda.cublas.cublasZdgmm" title="scikits.cuda.cublas.cublasZdgmm"><tt class="xref py py-obj docutils literal"><span class="pre">cublasZdgmm</span></tt></a></td>
 <td>Matrix-diagonal matrix product for complex general matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.cublas.cublasZgeam.html#scikits.cuda.cublas.cublasZgeam" title="scikits.cuda.cublas.cublasZgeam"><tt class="xref py py-obj docutils literal"><span class="pre">cublasZgeam</span></tt></a></td>
+<td>Complex matrix-matrix addition/transposition.</td>
 </tr>
 </tbody>
 </table>
@@ -640,65 +729,6 @@
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference internal" href="#">CUBLAS Routines</a><ul>
-<li><a class="reference internal" href="#helper-routines">Helper Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#wrapper-routines">Wrapper Routines</a><ul>
-<li><a class="reference internal" href="#single-precision-blas1-routines">Single Precision BLAS1 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#double-precision-blas1-routines">Double Precision BLAS1 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#single-precision-blas2-routines">Single Precision BLAS2 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#double-precision-blas2-routines">Double Precision BLAS2 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#single-precision-blas3-routines">Single Precision BLAS3 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#double-precision-blas3-routines">Double Precision BLAS3 Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#single-precision-blas-like-extension-routines">Single-Precision BLAS-like Extension Routines</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#double-precision-blas-like-extension-routines">Double-Precision BLAS-like Extension Routines</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/reference_cublas.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -715,13 +745,13 @@
         <li class="right" >
           <a href="reference.html" title="Reference"
              >previous</a> |</li>
-        <li><a href="index.html">scikits.cuda 0.042 documentation</a> &raquo;</li>
+        <li><a href="index.html">scikits.cuda 0.043 documentation</a> &raquo;</li>
           <li><a href="reference.html" >Reference</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009-2013, Lev Givon.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2009-2013, Lev Givon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>
