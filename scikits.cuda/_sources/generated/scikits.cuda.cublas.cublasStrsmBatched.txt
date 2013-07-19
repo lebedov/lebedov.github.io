@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasStrsmBatched
+======================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasStrsmBatched

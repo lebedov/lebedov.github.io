@@ -1,0 +1,6 @@
+scikits.cuda.cublas.cublasDgetrfBatched
+=======================================
+
+.. currentmodule:: scikits.cuda.cublas
+
+.. autofunction:: cublasDgetrfBatched
