@@ -1,0 +1,6 @@
+scikits.cuda.pcula.pculaDtrsm
+=============================
+
+.. currentmodule:: scikits.cuda.pcula
+
+.. autofunction:: pculaDtrsm

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Multi-GPU CULA Routines &mdash; scikits.cuda 0.043 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.043',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikits.cuda 0.043 documentation" href="index.html" />
+    <link rel="up" title="Reference" href="reference.html" />
+    <link rel="next" title="scikits.cuda.pcula.pculaConfigInit" href="generated/scikits.cuda.pcula.pculaConfigInit.html" />
+    <link rel="prev" title="scikits.cuda.cula.culaDeviceZpotrf" href="generated/scikits.cuda.cula.culaDeviceZpotrf.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="index.html">scikits.cuda</a>
+        <span class="navbar-text pull-left"><b>0.043</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
+  <a href="index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#quick-installation">Quick Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-dependencies">Installation Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#platform-support">Platform Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#building-and-installation">Building and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#running-the-unit-tests">Running the Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#high-level-routines">High-Level Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#other-routines">Other Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors &amp; Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-043-under-development">Release 0.043 - (under development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-042-march-10-2013">Release 0.042 - (March 10, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-041-may-22-2011">Release 0.041 - (May 22, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-04-may-11-2011">Release 0.04 - (May 11, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-03-november-22-2010">Release 0.03 - (November 22, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-02-september-21-2010">Release 0.02 - (September 21, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#release-0-01-september-17-2010">Release 0.01 - (September 17, 2010)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">Multi-GPU CULA Routines</a><ul>
+<li><a class="reference internal" href="#framework-routines">Framework Routines</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#blas-routines">BLAS Routines</a><ul>
+<li><a class="reference internal" href="#single-precision-real">Single Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#single-precision-complex">Single Precision Complex</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-real">Double Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-precision-complex">Double Precision Complex</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lapack-routines">LAPACK Routines</a><ul>
+<li><a class="reference internal" href="#id1">Single Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Single Precision Complex</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">Double Precision Real</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">Double Precision Complex</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            
+            
+              
+  <li><a href="generated/scikits.cuda.cula.culaDeviceZpotrf.html"
+         title="previous chapter">&laquo; Previous</a></li>
+  <li><a href="generated/scikits.cuda.pcula.pculaConfigInit.html"
+         title="next chapter">Next &raquo;</a></li>
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-search pull-right" action="search.html" method="get">
+  <input type="text" name="q" class="search-query" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  
+  <div class="section" id="multi-gpu-cula-routines">
+<h1>Multi-GPU CULA Routines<a class="headerlink" href="#multi-gpu-cula-routines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="framework-routines">
+<h2>Framework Routines<a class="headerlink" href="#framework-routines" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaConfigInit.html#scikits.cuda.pcula.pculaConfigInit" title="scikits.cuda.pcula.pculaConfigInit"><tt class="xref py py-obj docutils literal"><span class="pre">pculaConfigInit</span></tt></a></td>
+<td>Initialize pCULA configuration structure to sensible defaults.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="blas-routines">
+<h2>BLAS Routines<a class="headerlink" href="#blas-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-precision-real">
+<h3>Single Precision Real<a class="headerlink" href="#single-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSgemm.html#scikits.cuda.pcula.pculaSgemm" title="scikits.cuda.pcula.pculaSgemm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaStrsm.html#scikits.cuda.pcula.pculaStrsm" title="scikits.cuda.pcula.pculaStrsm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaStrsm</span></tt></a></td>
+<td>Triangular system solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="single-precision-complex">
+<h3>Single Precision Complex<a class="headerlink" href="#single-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCgemm.html#scikits.cuda.pcula.pculaCgemm" title="scikits.cuda.pcula.pculaCgemm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCtrsm.html#scikits.cuda.pcula.pculaCtrsm" title="scikits.cuda.pcula.pculaCtrsm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCtrsm</span></tt></a></td>
+<td>Triangular system solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-real">
+<h3>Double Precision Real<a class="headerlink" href="#double-precision-real" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDgemm.html#scikits.cuda.pcula.pculaDgemm" title="scikits.cuda.pcula.pculaDgemm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDtrsm.html#scikits.cuda.pcula.pculaDtrsm" title="scikits.cuda.pcula.pculaDtrsm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDtrsm</span></tt></a></td>
+<td>Triangular system solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="double-precision-complex">
+<h3>Double Precision Complex<a class="headerlink" href="#double-precision-complex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZgemm.html#scikits.cuda.pcula.pculaZgemm" title="scikits.cuda.pcula.pculaZgemm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZgemm</span></tt></a></td>
+<td>Matrix-matrix product for general matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZtrsm.html#scikits.cuda.pcula.pculaZtrsm" title="scikits.cuda.pcula.pculaZtrsm"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZtrsm</span></tt></a></td>
+<td>Triangular system solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="lapack-routines">
+<h2>LAPACK Routines<a class="headerlink" href="#lapack-routines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Single Precision Real<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSgesv.html#scikits.cuda.pcula.pculaSgesv" title="scikits.cuda.pcula.pculaSgesv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSgesv</span></tt></a></td>
+<td>General system solve using LU decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSgetrf.html#scikits.cuda.pcula.pculaSgetrf" title="scikits.cuda.pcula.pculaSgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSgetrf</span></tt></a></td>
+<td>LU decomposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSgetrs.html#scikits.cuda.pcula.pculaSgetrs" title="scikits.cuda.pcula.pculaSgetrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSgetrs</span></tt></a></td>
+<td>LU solve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSposv.html#scikits.cuda.pcula.pculaSposv" title="scikits.cuda.pcula.pculaSposv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSposv</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSpotrf.html#scikits.cuda.pcula.pculaSpotrf" title="scikits.cuda.pcula.pculaSpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSpotrf</span></tt></a></td>
+<td>Cholesky decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaSpotrs.html#scikits.cuda.pcula.pculaSpotrs" title="scikits.cuda.pcula.pculaSpotrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaSpotrs</span></tt></a></td>
+<td>Cholesky solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h3>Single Precision Complex<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCgesv.html#scikits.cuda.pcula.pculaCgesv" title="scikits.cuda.pcula.pculaCgesv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCgesv</span></tt></a></td>
+<td>General system solve using LU decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCgetrf.html#scikits.cuda.pcula.pculaCgetrf" title="scikits.cuda.pcula.pculaCgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCgetrf</span></tt></a></td>
+<td>LU decomposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCgetrs.html#scikits.cuda.pcula.pculaCgetrs" title="scikits.cuda.pcula.pculaCgetrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCgetrs</span></tt></a></td>
+<td>LU solve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCposv.html#scikits.cuda.pcula.pculaCposv" title="scikits.cuda.pcula.pculaCposv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCposv</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCpotrf.html#scikits.cuda.pcula.pculaCpotrf" title="scikits.cuda.pcula.pculaCpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCpotrf</span></tt></a></td>
+<td>Cholesky decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaCpotrs.html#scikits.cuda.pcula.pculaCpotrs" title="scikits.cuda.pcula.pculaCpotrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaCpotrs</span></tt></a></td>
+<td>Cholesky solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>Double Precision Real<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDgesv.html#scikits.cuda.pcula.pculaDgesv" title="scikits.cuda.pcula.pculaDgesv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDgesv</span></tt></a></td>
+<td>General system solve using LU decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDgetrf.html#scikits.cuda.pcula.pculaDgetrf" title="scikits.cuda.pcula.pculaDgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDgetrf</span></tt></a></td>
+<td>LU decomposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDgetrs.html#scikits.cuda.pcula.pculaDgetrs" title="scikits.cuda.pcula.pculaDgetrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDgetrs</span></tt></a></td>
+<td>LU solve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDposv.html#scikits.cuda.pcula.pculaDposv" title="scikits.cuda.pcula.pculaDposv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDposv</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDpotrf.html#scikits.cuda.pcula.pculaDpotrf" title="scikits.cuda.pcula.pculaDpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDpotrf</span></tt></a></td>
+<td>Cholesky decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaDpotrs.html#scikits.cuda.pcula.pculaDpotrs" title="scikits.cuda.pcula.pculaDpotrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaDpotrs</span></tt></a></td>
+<td>Cholesky solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>Double Precision Complex<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZgesv.html#scikits.cuda.pcula.pculaZgesv" title="scikits.cuda.pcula.pculaZgesv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZgesv</span></tt></a></td>
+<td>General system solve using LU decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZgetrf.html#scikits.cuda.pcula.pculaZgetrf" title="scikits.cuda.pcula.pculaZgetrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZgetrf</span></tt></a></td>
+<td>LU decomposition.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZgetrs.html#scikits.cuda.pcula.pculaZgetrs" title="scikits.cuda.pcula.pculaZgetrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZgetrs</span></tt></a></td>
+<td>LU solve.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZposv.html#scikits.cuda.pcula.pculaZposv" title="scikits.cuda.pcula.pculaZposv"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZposv</span></tt></a></td>
+<td>QR factorization.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZpotrf.html#scikits.cuda.pcula.pculaZpotrf" title="scikits.cuda.pcula.pculaZpotrf"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZpotrf</span></tt></a></td>
+<td>Cholesky decomposition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scikits.cuda.pcula.pculaZpotrs.html#scikits.cuda.pcula.pculaZpotrs" title="scikits.cuda.pcula.pculaZpotrs"><tt class="xref py py-obj docutils literal"><span class="pre">pculaZpotrs</span></tt></a></td>
+<td>Cholesky solve.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2013, Lev Givon.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

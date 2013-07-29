@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.misc.cumsum &mdash; scikits.cuda 0.043 documentation</title>
+    <title>scikits.cuda.pcula.pculaDposv &mdash; scikits.cuda 0.043 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -31,9 +31,9 @@
     <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="scikits.cuda 0.043 documentation" href="../index.html" />
-    <link rel="up" title="Miscellaneous Routines" href="../reference_misc.html" />
-    <link rel="next" title="scikits.cuda.misc.diff" href="scikits.cuda.misc.diff.html" />
-    <link rel="prev" title="scikits.cuda.misc.zeros_like" href="scikits.cuda.misc.zeros_like.html" />
+    <link rel="up" title="Multi-GPU CULA Routines" href="../reference_pcula.html" />
+    <link rel="next" title="scikits.cuda.pcula.pculaDpotrf" href="scikits.cuda.pcula.pculaDpotrf.html" />
+    <link rel="prev" title="scikits.cuda.pcula.pculaDgetrs" href="scikits.cuda.pcula.pculaDgetrs.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -76,9 +76,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference.html#high-level-routines">High-Level Routines</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../reference.html#other-routines">Other Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference.html#other-routines">Other Routines</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors &amp; Acknowledgments</a></li>
@@ -99,16 +99,16 @@
               <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
-<li><a class="reference internal" href="#">scikits.cuda.misc.cumsum</a></li>
+<li><a class="reference internal" href="#">scikits.cuda.pcula.pculaDposv</a></li>
 </ul>
 </ul>
 </li>
             
             
               
-  <li><a href="scikits.cuda.misc.zeros_like.html"
+  <li><a href="scikits.cuda.pcula.pculaDgetrs.html"
          title="previous chapter">&laquo; Previous</a></li>
-  <li><a href="scikits.cuda.misc.diff.html"
+  <li><a href="scikits.cuda.pcula.pculaDpotrf.html"
          title="next chapter">Next &raquo;</a></li>
             
             
@@ -129,43 +129,12 @@
 
 <div class="container">
   
-  <div class="section" id="scikits-cuda-misc-cumsum">
-<h1>scikits.cuda.misc.cumsum<a class="headerlink" href="#scikits-cuda-misc-cumsum" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="scikits-cuda-pcula-pculadposv">
+<h1>scikits.cuda.pcula.pculaDposv<a class="headerlink" href="#scikits-cuda-pcula-pculadposv" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="scikits.cuda.misc.cumsum">
-<tt class="descclassname">scikits.cuda.misc.</tt><tt class="descname">cumsum</tt><big>(</big><em>x_gpu</em><big>)</big><a class="headerlink" href="#scikits.cuda.misc.cumsum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cumulative sum.</p>
-<p>Return the cumulative sum of the elements in the specified array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>x_gpu</strong> : pycuda.gpuarray.GPUArray</p>
-<blockquote>
-<div><p>Input array.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>c_gpu</strong> : pycuda.gpuarray.GPUArray</p>
-<blockquote class="last">
-<div><p>Output array containing cumulative sum of <cite>x_gpu</cite>.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>Higher dimensional arrays are implicitly flattened row-wise by this function.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">misc</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c_gpu</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">c_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
-<span class="go">True</span>
-</pre></div>
-</div>
+<dt id="scikits.cuda.pcula.pculaDposv">
+<tt class="descclassname">scikits.cuda.pcula.</tt><tt class="descname">pculaDposv</tt><big>(</big><em>config</em>, <em>uplo</em>, <em>n</em>, <em>nrhs</em>, <em>a</em>, <em>lda</em>, <em>b</em>, <em>ldb</em><big>)</big><a class="headerlink" href="#scikits.cuda.pcula.pculaDposv" title="Permalink to this definition">¶</a></dt>
+<dd><p>QR factorization.</p>
 </dd></dl>
 
 </div>

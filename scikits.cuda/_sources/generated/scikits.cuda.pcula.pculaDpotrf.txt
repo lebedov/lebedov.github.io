@@ -1,0 +1,6 @@
+scikits.cuda.pcula.pculaDpotrf
+==============================
+
+.. currentmodule:: scikits.cuda.pcula
+
+.. autofunction:: pculaDpotrf

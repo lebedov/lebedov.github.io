@@ -1,0 +1,6 @@
+scikits.cuda.pcula.pculaDgetrf
+==============================
+
+.. currentmodule:: scikits.cuda.pcula
+
+.. autofunction:: pculaDgetrf

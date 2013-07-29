@@ -143,7 +143,10 @@
 <li>Add more wrappers for CUBLAS 5 functions (enh. by Teodor Moldovan)</li>
 <li>Add support for CULA Dense Free R17 (enh. by Alex Rubinsteyn)</li>
 <li>Memoize elementwise kernel used by ifft scaling (#37).</li>
-<li>Speed up maxabs function using reduction and kernel memoization.</li>
+<li>Speed up misc.maxabs using reduction and kernel memoization.</li>
+<li>Speed up misc.cumsum using scan and kernel memoization.</li>
+<li>Speed up linalg.conj using elementwise kernel and memoization.</li>
+<li>Add wrappers for experimental multi-GPU CULA routines in CULA Dense R14+.</li>
 </ul>
 </div>
 <div class="section" id="release-0-042-march-10-2013">

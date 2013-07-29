@@ -1,0 +1,6 @@
+scikits.cuda.pcula.pculaZgesv
+=============================
+
+.. currentmodule:: scikits.cuda.pcula
+
+.. autofunction:: pculaZgesv

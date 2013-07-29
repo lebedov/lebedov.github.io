@@ -1,0 +1,6 @@
+scikits.cuda.pcula.pculaZgemm
+=============================
+
+.. currentmodule:: scikits.cuda.pcula
+
+.. autofunction:: pculaZgemm
