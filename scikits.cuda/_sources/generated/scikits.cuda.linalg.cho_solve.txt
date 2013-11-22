@@ -1,0 +1,6 @@
+scikits.cuda.linalg.cho_solve
+=============================
+
+.. currentmodule:: scikits.cuda.linalg
+
+.. autofunction:: cho_solve

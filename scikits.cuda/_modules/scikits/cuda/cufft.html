@@ -1,0 +1,432 @@
+
+
+  
+  
+ 
+  
+ 
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.cufft &mdash; scikits.cuda 0.043 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.043',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikits.cuda 0.043 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">scikits.cuda</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#quick-installation">Quick Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installation-dependencies">Installation Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#platform-support">Platform Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#building-and-installation">Building and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#running-the-unit-tests">Running the Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#high-level-routines">High-Level Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#other-routines">Other Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors &amp; Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-043-under-development">Release 0.043 - (under development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-042-march-10-2013">Release 0.042 - (March 10, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-041-may-22-2011">Release 0.041 - (May 22, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-04-may-11-2011">Release 0.04 - (May 11, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-03-november-22-2010">Release 0.03 - (November 22, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-02-september-21-2010">Release 0.02 - (September 21, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-01-september-17-2010">Release 0.01 - (September 17, 2010)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for scikits.cuda.cufft</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Python interface to CUFFT functions.</span>
+
+<span class="sd">Note: this module does not explicitly depend on PyCUDA.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">ctypes</span><span class="o">,</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;linux2&#39;</span><span class="p">:</span>
+    <span class="n">_libcufft_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;libcufft.so&#39;</span><span class="p">,</span> <span class="s">&#39;libcufft.so.3&#39;</span><span class="p">,</span> <span class="s">&#39;libcufft.so.4&#39;</span><span class="p">]</span>
+<span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;darwin&#39;</span><span class="p">:</span>
+    <span class="n">_libcufft_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;libcufft.dylib&#39;</span><span class="p">]</span>
+<span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;Windows&#39;</span><span class="p">:</span>
+    <span class="n">_libcufft_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;cufft.lib&#39;</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;unsupported platform&#39;</span><span class="p">)</span>
+
+<span class="c"># Print understandable error message when library cannot be found:</span>
+<span class="n">_libcufft</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">for</span> <span class="n">_libcufft_libname</span> <span class="ow">in</span> <span class="n">_libcufft_libname_list</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_libcufft</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="n">_libcufft_libname</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">if</span> <span class="n">_libcufft</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s">&#39;cufft library not found&#39;</span><span class="p">)</span>
+
+<span class="c"># General CUFFT error:</span>
+<span class="k">class</span> <span class="nc">cufftError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CUFFT error&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="c"># Exceptions corresponding to different CUFFT errors:</span>
+<span class="k">class</span> <span class="nc">cufftInvalidPlan</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CUFFT was passed an invalid plan handle.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftAllocFailed</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CUFFT failed to allocate GPU memory.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftInvalidType</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The user requested an unsupported type.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftInvalidValue</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The user specified a bad memory pointer.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftInternalError</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Internal driver error.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftExecFailed</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CUFFT failed to execute an FFT on the GPU.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftSetupFailed</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The CUFFT library failed to initialize.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftInvalidSize</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The user specified an unsupported FFT size.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">cufftUnalignedData</span><span class="p">(</span><span class="n">cufftError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Input or output does not satisfy texture alignment requirements.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="n">cufftExceptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x1</span><span class="p">:</span> <span class="n">cufftInvalidPlan</span><span class="p">,</span>
+    <span class="mh">0x2</span><span class="p">:</span> <span class="n">cufftAllocFailed</span><span class="p">,</span>
+    <span class="mh">0x3</span><span class="p">:</span> <span class="n">cufftInvalidType</span><span class="p">,</span>
+    <span class="mh">0x4</span><span class="p">:</span> <span class="n">cufftInvalidValue</span><span class="p">,</span>
+    <span class="mh">0x5</span><span class="p">:</span> <span class="n">cufftInternalError</span><span class="p">,</span>
+    <span class="mh">0x6</span><span class="p">:</span> <span class="n">cufftExecFailed</span><span class="p">,</span>
+    <span class="mh">0x7</span><span class="p">:</span> <span class="n">cufftSetupFailed</span><span class="p">,</span>
+    <span class="mh">0x8</span><span class="p">:</span> <span class="n">cufftInvalidSize</span><span class="p">,</span>
+    <span class="mh">0x9</span><span class="p">:</span> <span class="n">cufftUnalignedData</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="cufftCheckStatus"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftCheckStatus.html#scikits.cuda.cufft.cufftCheckStatus">[docs]</a><span class="k">def</span> <span class="nf">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raise an exception if the specified CUBLAS status is an error.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">cufftExceptions</span><span class="p">[</span><span class="n">status</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">cufftError</span>
+
+
+<span class="c"># Data transformation types:</span></div>
+<span class="n">CUFFT_R2C</span> <span class="o">=</span> <span class="mh">0x2a</span>
+<span class="n">CUFFT_C2R</span> <span class="o">=</span> <span class="mh">0x2c</span>
+<span class="n">CUFFT_C2C</span> <span class="o">=</span> <span class="mh">0x29</span>
+<span class="n">CUFFT_D2Z</span> <span class="o">=</span> <span class="mh">0x6a</span>
+<span class="n">CUFFT_Z2D</span> <span class="o">=</span> <span class="mh">0x6c</span>
+<span class="n">CUFFT_Z2Z</span> <span class="o">=</span> <span class="mh">0x69</span>
+
+<span class="c"># Transformation directions:</span>
+<span class="n">CUFFT_FORWARD</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">CUFFT_INVERSE</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c"># FFTW compatibility modes:</span>
+<span class="n">CUFFT_COMPATIBILITY_NATIVE</span> <span class="o">=</span> <span class="mh">0x00</span>
+<span class="n">CUFFT_COMPATIBILITY_FFTW_PADDING</span> <span class="o">=</span> <span class="mh">0x01</span>
+<span class="n">CUFFT_COMPATIBILITY_FFTW_ASYMMETRIC</span> <span class="o">=</span> <span class="mh">0x02</span>
+<span class="n">CUFFT_COMPATIBILITY_FFTW_ALL</span> <span class="o">=</span> <span class="mh">0x03</span>
+
+<span class="c"># FFT functions implemented by CUFFT:</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan1d</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan1d</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftPlan1d"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftPlan1d.html#scikits.cuda.cufft.cufftPlan1d">[docs]</a><span class="k">def</span> <span class="nf">cufftPlan1d</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">fft_type</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create 1D FFT plan configuration.&quot;&quot;&quot;</span>
+
+    <span class="n">plan</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan1d</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">plan</span><span class="p">),</span> <span class="n">nx</span><span class="p">,</span> <span class="n">fft_type</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plan</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan2d</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan2d</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftPlan2d"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftPlan2d.html#scikits.cuda.cufft.cufftPlan2d">[docs]</a><span class="k">def</span> <span class="nf">cufftPlan2d</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">fft_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create 2D FFT plan configuration.&quot;&quot;&quot;</span>
+
+    <span class="n">plan</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan2d</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">plan</span><span class="p">),</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span>
+                                   <span class="n">fft_type</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plan</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan3d</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan3d</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                  <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftPlan3d"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftPlan3d.html#scikits.cuda.cufft.cufftPlan3d">[docs]</a><span class="k">def</span> <span class="nf">cufftPlan3d</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="n">fft_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create 3D FFT plan configuration.&quot;&quot;&quot;</span>
+
+    <span class="n">plan</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlan3d</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">plan</span><span class="p">),</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span>
+                                   <span class="n">fft_type</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plan</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlanMany</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlanMany</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                                    <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>                                    
+<div class="viewcode-block" id="cufftPlanMany"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftPlanMany.html#scikits.cuda.cufft.cufftPlanMany">[docs]</a><span class="k">def</span> <span class="nf">cufftPlanMany</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> 
+                  <span class="n">inembed</span><span class="p">,</span> <span class="n">istride</span><span class="p">,</span> <span class="n">idist</span><span class="p">,</span> 
+                  <span class="n">onembed</span><span class="p">,</span> <span class="n">ostride</span><span class="p">,</span> <span class="n">odist</span><span class="p">,</span> <span class="n">fft_type</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create batched FFT plan configuration.&quot;&quot;&quot;</span>
+
+    <span class="n">plan</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftPlanMany</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">plan</span><span class="p">),</span> <span class="n">rank</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                                     <span class="n">inembed</span><span class="p">,</span> <span class="n">istride</span><span class="p">,</span> <span class="n">idist</span><span class="p">,</span> 
+                                     <span class="n">onembed</span><span class="p">,</span> <span class="n">ostride</span><span class="p">,</span> <span class="n">odist</span><span class="p">,</span> 
+                                     <span class="n">fft_type</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plan</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftDestroy</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftDestroy</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftDestroy"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftDestroy.html#scikits.cuda.cufft.cufftDestroy">[docs]</a><span class="k">def</span> <span class="nf">cufftDestroy</span><span class="p">(</span><span class="n">plan</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Destroy FFT plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftDestroy</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetCompatibilityMode</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetCompatibilityMode</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                                <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftSetCompatibilityMode"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftSetCompatibilityMode.html#scikits.cuda.cufft.cufftSetCompatibilityMode">[docs]</a><span class="k">def</span> <span class="nf">cufftSetCompatibilityMode</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set FFTW compatibility mode.&quot;&quot;&quot;</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetCompatibilityMode</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2C</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2C</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecC2C"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecC2C.html#scikits.cuda.cufft.cufftExecC2C">[docs]</a><span class="k">def</span> <span class="nf">cufftExecC2C</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute single precision complex-to-complex transform plan as</span>
+<span class="sd">    specified by `direction`.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2C</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">,</span>
+                                    <span class="n">direction</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecR2C</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecR2C</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecR2C"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecR2C.html#scikits.cuda.cufft.cufftExecR2C">[docs]</a><span class="k">def</span> <span class="nf">cufftExecR2C</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute single precision real-to-complex forward transform plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecR2C</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2R</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2R</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecC2R"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecC2R.html#scikits.cuda.cufft.cufftExecC2R">[docs]</a><span class="k">def</span> <span class="nf">cufftExecC2R</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute single precision complex-to-real reverse transform plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecC2R</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2Z</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2Z</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecZ2Z"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecZ2Z.html#scikits.cuda.cufft.cufftExecZ2Z">[docs]</a><span class="k">def</span> <span class="nf">cufftExecZ2Z</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute double precision complex-to-complex transform plan as</span>
+<span class="sd">    specified by `direction`.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2Z</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">,</span>
+                                    <span class="n">direction</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecD2Z</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecD2Z</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecD2Z"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecD2Z.html#scikits.cuda.cufft.cufftExecD2Z">[docs]</a><span class="k">def</span> <span class="nf">cufftExecD2Z</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute double precision real-to-complex forward transform plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecD2Z</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2D</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2D</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                                   <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftExecZ2D"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftExecZ2D.html#scikits.cuda.cufft.cufftExecZ2D">[docs]</a><span class="k">def</span> <span class="nf">cufftExecZ2D</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute double precision complex-to-real transform plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftExecZ2D</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">idata</span><span class="p">,</span> <span class="n">odata</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</div>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetStream</span><span class="o">.</span><span class="n">restype</span> <span class="o">=</span> <span class="nb">int</span>
+<span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetStream</span><span class="o">.</span><span class="n">argtypes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span>
+                                     <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">]</span>
+<div class="viewcode-block" id="cufftSetStream"><a class="viewcode-back" href="../../../generated/scikits.cuda.cufft.cufftSetStream.html#scikits.cuda.cufft.cufftSetStream">[docs]</a><span class="k">def</span> <span class="nf">cufftSetStream</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Associate a CUDA stream with a CUFFT plan.&quot;&quot;&quot;</span>
+    
+    <span class="n">status</span> <span class="o">=</span> <span class="n">_libcufft</span><span class="o">.</span><span class="n">cufftSetStream</span><span class="p">(</span><span class="n">plan</span><span class="p">,</span> <span class="n">stream</span><span class="p">)</span>
+    <span class="n">cufftCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2013, Lev Givon.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

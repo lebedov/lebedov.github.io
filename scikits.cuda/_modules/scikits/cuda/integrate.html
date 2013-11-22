@@ -1,0 +1,472 @@
+
+
+  
+  
+ 
+  
+ 
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.integrate &mdash; scikits.cuda 0.043 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.043',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikits.cuda 0.043 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">scikits.cuda</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#quick-installation">Quick Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installation-dependencies">Installation Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#platform-support">Platform Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#building-and-installation">Building and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#running-the-unit-tests">Running the Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#high-level-routines">High-Level Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#other-routines">Other Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors &amp; Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-043-under-development">Release 0.043 - (under development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-042-march-10-2013">Release 0.042 - (March 10, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-041-may-22-2011">Release 0.041 - (May 22, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-04-may-11-2011">Release 0.04 - (May 11, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-03-november-22-2010">Release 0.03 - (November 22, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-02-september-21-2010">Release 0.02 - (September 21, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-01-september-17-2010">Release 0.01 - (September 17, 2010)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for scikits.cuda.integrate</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PyCUDA-based integration functions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">pycuda.compiler</span> <span class="kn">import</span> <span class="n">SourceModule</span>
+<span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">import</span> <span class="nn">cublas</span>
+<span class="kn">import</span> <span class="nn">misc</span>
+
+<span class="kn">from</span> <span class="nn">misc</span> <span class="kn">import</span> <span class="n">init</span>
+
+<span class="n">gen_trapz_mult_template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">#include &lt;pycuda-complex.hpp&gt;</span>
+
+<span class="s">#if ${use_double}</span>
+<span class="s">#if ${use_complex}</span>
+<span class="s">#define TYPE pycuda::complex&lt;double&gt;</span>
+<span class="s">#else</span>
+<span class="s">#define TYPE double</span>
+<span class="s">#endif</span>
+<span class="s">#else</span>
+<span class="s">#if ${use_complex}</span>
+<span class="s">#define TYPE pycuda::complex&lt;float&gt;</span>
+<span class="s">#else</span>
+<span class="s">#define TYPE float</span>
+<span class="s">#endif</span>
+<span class="s">#endif</span>
+
+<span class="s">__global__ void gen_trapz_mult(TYPE *mult, unsigned int N) {</span>
+<span class="s">    unsigned int idx = blockIdx.y*blockDim.x*gridDim.x+</span>
+<span class="s">                       blockIdx.x*blockDim.x+threadIdx.x;</span>
+
+<span class="s">    if (idx &lt; N) {</span>
+<span class="s">        if ((idx == 0) || (idx == N-1)) {                      </span>
+<span class="s">            mult[idx] = TYPE(0.5);</span>
+<span class="s">        } else {</span>
+<span class="s">            mult[idx] = TYPE(1.0);</span>
+<span class="s">        }</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gen_trapz_mult</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">mult_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate multiplication array for 1D trapezoidal integration.</span>
+
+<span class="sd">    Generates an array whose dot product with some array of equal</span>
+<span class="sd">    length is equivalent to the definite integral of the latter</span>
+<span class="sd">    computed using trapezoidal integration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N : int</span>
+<span class="sd">        Length of array.</span>
+<span class="sd">    mult_type : float type</span>
+<span class="sd">        Floating point type to use when generating the array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Generated array.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">mult_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unrecognized type&#39;</span><span class="p">)</span>
+    
+    <span class="n">use_double</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mult_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
+    <span class="n">use_complex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mult_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
+
+    <span class="c"># Allocate output matrix:</span>
+    <span class="n">mult_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">mult_type</span><span class="p">)</span>
+
+    <span class="c"># Get block/grid sizes:</span>
+    <span class="n">dev</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">get_current_device</span><span class="p">()</span>
+    <span class="n">block_dim</span><span class="p">,</span> <span class="n">grid_dim</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">select_block_grid_sizes</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c"># Set this to False when debugging to make sure the compiled kernel is</span>
+    <span class="c"># not cached:</span>
+    <span class="n">cache_dir</span><span class="o">=</span><span class="bp">None</span>
+    <span class="n">gen_trapz_mult_mod</span> <span class="o">=</span> \
+                       <span class="n">SourceModule</span><span class="p">(</span><span class="n">gen_trapz_mult_template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">use_double</span><span class="o">=</span><span class="n">use_double</span><span class="p">,</span>
+                                                                       <span class="n">use_complex</span><span class="o">=</span><span class="n">use_complex</span><span class="p">),</span>
+                                    <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">)</span>
+
+    <span class="n">gen_trapz_mult</span> <span class="o">=</span> <span class="n">gen_trapz_mult_mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s">&quot;gen_trapz_mult&quot;</span><span class="p">)</span>    
+    <span class="n">gen_trapz_mult</span><span class="p">(</span><span class="n">mult_gpu</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">(</span><span class="n">N</span><span class="p">),</span>
+                   <span class="n">block</span><span class="o">=</span><span class="n">block_dim</span><span class="p">,</span>
+                   <span class="n">grid</span><span class="o">=</span><span class="n">grid_dim</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">mult_gpu</span>
+
+<div class="viewcode-block" id="trapz"><a class="viewcode-back" href="../../../generated/scikits.cuda.integrate.trapz.html#scikits.cuda.integrate.trapz">[docs]</a><span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    1D trapezoidal integration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input array to integrate.</span>
+<span class="sd">    dx : scalar</span>
+<span class="sd">        Spacing.</span>
+<span class="sd">    handle : int</span>
+<span class="sd">        CUBLAS context. If no context is specified, the default handle from</span>
+<span class="sd">        `scikits.misc._global_cublas_handle` is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : float</span>
+<span class="sd">        Definite integral as approximated by the trapezoidal rule.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import integrate</span>
+<span class="sd">    &gt;&gt;&gt; integrate.init()</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(10), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; z = integrate.trapz(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(np.trapz(x), z)</span>
+<span class="sd">    True</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">_global_cublas_handle</span>
+        
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input array must be 1D&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">dx</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;dx must be real&#39;</span><span class="p">)</span>
+
+    <span class="n">float_type</span> <span class="o">=</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
+    <span class="k">if</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasCdotu</span>        
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasSdot</span>
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasZdotu</span>
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasDdot</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported input type&#39;</span><span class="p">)</span>
+
+    <span class="n">trapz_mult_gpu</span> <span class="o">=</span> <span class="n">gen_trapz_mult</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">float_type</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cublas_func</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="n">trapz_mult_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">float_type</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">result</span>
+</div>
+<span class="n">gen_trapz2d_mult_template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">#include &lt;pycuda-complex.hpp&gt;</span>
+
+<span class="s">#if ${use_double}</span>
+<span class="s">#if ${use_complex}</span>
+<span class="s">#define TYPE pycuda::complex&lt;double&gt;</span>
+<span class="s">#else</span>
+<span class="s">#define TYPE double</span>
+<span class="s">#endif</span>
+<span class="s">#else</span>
+<span class="s">#if ${use_complex}</span>
+<span class="s">#define TYPE pycuda::complex&lt;float&gt;</span>
+<span class="s">#else</span>
+<span class="s">#define TYPE float</span>
+<span class="s">#endif</span>
+<span class="s">#endif</span>
+
+<span class="s">// Ny: number of rows</span>
+<span class="s">// Nx: number of columns</span>
+<span class="s">__global__ void gen_trapz2d_mult(TYPE *mult,</span>
+<span class="s">                                 unsigned int Ny, unsigned int Nx) {</span>
+<span class="s">    unsigned int idx = blockIdx.y*blockDim.x*gridDim.x+</span>
+<span class="s">                       blockIdx.x*blockDim.x+threadIdx.x;</span>
+
+<span class="s">    if (idx &lt; Nx*Ny) {</span>
+<span class="s">        if (idx == 0 || idx == Nx-1 || idx == Nx*(Ny-1) || idx == Nx*Ny-1)</span>
+<span class="s">            mult[idx] = TYPE(0.25);</span>
+<span class="s">        else if ((idx &gt; 0 &amp;&amp; idx &lt; Nx-1) || (idx % Nx == 0) ||</span>
+<span class="s">                (((idx + 1) % Nx) == 0) || (idx &gt; Nx*(Ny-1) &amp;&amp; idx &lt; Nx*Ny-1))</span>
+<span class="s">            mult[idx] = TYPE(0.5);</span>
+<span class="s">        else </span>
+<span class="s">            mult[idx] = TYPE(1.0);</span>
+<span class="s">    }</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gen_trapz2d_mult</span><span class="p">(</span><span class="n">mat_shape</span><span class="p">,</span> <span class="n">mult_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate multiplication matrix for 2D trapezoidal integration.</span>
+
+<span class="sd">    Generates a matrix whose dot product with some other matrix of</span>
+<span class="sd">    equal length (when flattened) is equivalent to the definite double</span>
+<span class="sd">    integral of the latter computed using trapezoidal integration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mat_shape : tuple</span>
+<span class="sd">        Shape of matrix.</span>
+<span class="sd">    mult_type : float type</span>
+<span class="sd">        Floating point type to use when generating the array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Generated matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">mult_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unrecognized type&#39;</span><span class="p">)</span>
+    
+    <span class="n">use_double</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mult_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
+    <span class="n">use_complex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mult_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
+
+    <span class="c"># Allocate output matrix:</span>
+    <span class="n">Ny</span><span class="p">,</span> <span class="n">Nx</span> <span class="o">=</span> <span class="n">mat_shape</span>
+    <span class="n">mult_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">mat_shape</span><span class="p">,</span> <span class="n">mult_type</span><span class="p">)</span>
+
+    <span class="c"># Get block/grid sizes:</span>
+    <span class="n">dev</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">get_current_device</span><span class="p">()</span>
+    <span class="n">block_dim</span><span class="p">,</span> <span class="n">grid_dim</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">select_block_grid_sizes</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">mat_shape</span><span class="p">)</span>
+    
+    <span class="c"># Set this to False when debugging to make sure the compiled kernel is</span>
+    <span class="c"># not cached:</span>
+    <span class="n">cache_dir</span><span class="o">=</span><span class="bp">None</span>
+    <span class="n">gen_trapz2d_mult_mod</span> <span class="o">=</span> \
+                         <span class="n">SourceModule</span><span class="p">(</span><span class="n">gen_trapz2d_mult_template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">use_double</span><span class="o">=</span><span class="n">use_double</span><span class="p">,</span>
+                                                                           <span class="n">use_complex</span><span class="o">=</span><span class="n">use_complex</span><span class="p">),</span>
+                                      <span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">)</span>
+
+    <span class="n">gen_trapz2d_mult</span> <span class="o">=</span> <span class="n">gen_trapz2d_mult_mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s">&quot;gen_trapz2d_mult&quot;</span><span class="p">)</span>    
+    <span class="n">gen_trapz2d_mult</span><span class="p">(</span><span class="n">mult_gpu</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">(</span><span class="n">Ny</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span>
+                     <span class="n">block</span><span class="o">=</span><span class="n">block_dim</span><span class="p">,</span>
+                     <span class="n">grid</span><span class="o">=</span><span class="n">grid_dim</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">mult_gpu</span>
+
+<div class="viewcode-block" id="trapz2d"><a class="viewcode-back" href="../../../generated/scikits.cuda.integrate.trapz2d.html#scikits.cuda.integrate.trapz2d">[docs]</a><span class="k">def</span> <span class="nf">trapz2d</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    2D trapezoidal integration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input matrix to integrate.</span>
+<span class="sd">    dx : float</span>
+<span class="sd">        X-axis spacing.</span>
+<span class="sd">    dy : float</span>
+<span class="sd">        Y-axis spacing</span>
+<span class="sd">    handle : int</span>
+<span class="sd">        CUBLAS context. If no context is specified, the default handle from</span>
+<span class="sd">        `scikits.misc._global_cublas_handle` is used.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : float</span>
+<span class="sd">        Definite double integral as approximated by the trapezoidal rule.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import integrate</span>
+<span class="sd">    &gt;&gt;&gt; integrate.init()</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(10, 10), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; z = integrate.trapz2d(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(np.trapz(np.trapz(x)), z)</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">_global_cublas_handle</span>
+        
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input array must be 2D&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">dy</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;dx and dy must be real&#39;</span><span class="p">)</span>
+
+    <span class="n">float_type</span> <span class="o">=</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
+    <span class="k">if</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasCdotu</span>        
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasSdot</span>
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasZdotu</span>
+    <span class="k">elif</span> <span class="n">float_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasDdot</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported input type&#39;</span><span class="p">)</span>
+                                            
+    <span class="n">trapz_mult_gpu</span> <span class="o">=</span> <span class="n">gen_trapz2d_mult</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">float_type</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cublas_func</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="n">trapz_mult_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">float_type</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="n">float_type</span><span class="p">(</span><span class="n">dy</span><span class="p">)</span><span class="o">*</span><span class="n">result</span>
+</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2013, Lev Givon.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

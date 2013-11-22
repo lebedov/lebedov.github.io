@@ -1,3 +1,12 @@
+
+
+  
+  
+ 
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -9,10 +18,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -28,12 +35,12 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="scikits.cuda 0.043 documentation" href="../index.html" />
     <link rel="up" title="Linear Algebra Routines" href="../reference_linalg.html" />
     <link rel="next" title="scikits.cuda.linalg.diag" href="scikits.cuda.linalg.diag.html" />
-    <link rel="prev" title="scikits.cuda.linalg.tril" href="scikits.cuda.linalg.tril.html" />
+    <link rel="prev" title="scikits.cuda.linalg.cho_solve" href="scikits.cuda.linalg.cho_solve.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -42,29 +49,30 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="../index.html">scikits.cuda</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+      </div>
 
-        <a class="brand" href="../index.html">scikits.cuda</a>
-        <span class="navbar-text pull-left"><b>0.043</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a href="../index.html"
      class="dropdown-toggle"
      data-toggle="dropdown">Contents <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul class="current">
+    ><ul>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Instructions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#quick-installation">Quick Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
@@ -75,9 +83,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../install.html#getting-started">Getting Started</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../reference.html#high-level-routines">High-Level Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference.html#high-level-routines">High-Level Routines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference.html#other-routines">Other Routines</a></li>
 </ul>
 </li>
@@ -96,44 +104,53 @@
 </ul>
 </ul>
 </li>
-              <li class="dropdown">
+              
+                <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"><ul>
 <li><a class="reference internal" href="#">scikits.cuda.linalg.conj</a></li>
 </ul>
 </ul>
 </li>
+              
             
             
               
-  <li><a href="scikits.cuda.linalg.tril.html"
+                
+  <li><a href="scikits.cuda.linalg.cho_solve.html"
          title="previous chapter">&laquo; Previous</a></li>
   <li><a href="scikits.cuda.linalg.diag.html"
          title="next chapter">Next &raquo;</a></li>
+              
+            
+            
             
             
           </ul>
 
           
             
-<form class="navbar-search pull-right" action="../search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
 <div class="container">
-  
+  <div class="row">
+    <div class="col-md-12">
+      
   <div class="section" id="scikits-cuda-linalg-conj">
 <h1>scikits.cuda.linalg.conj<a class="headerlink" href="#scikits-cuda-linalg-conj" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="scikits.cuda.linalg.conj">
-<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">conj</tt><big>(</big><em>x_gpu</em>, <em>overwrite=True</em><big>)</big><a class="headerlink" href="#scikits.cuda.linalg.conj" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">scikits.cuda.linalg.</tt><tt class="descname">conj</tt><big>(</big><em>x_gpu</em>, <em>overwrite=True</em><big>)</big><a class="reference internal" href="../_modules/scikits/cuda/linalg.html#conj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scikits.cuda.linalg.conj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Complex conjugate.</p>
 <p>Compute the complex conjugate of the array in device memory.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -169,8 +186,8 @@ returned matrix is the same as the input array.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="o">+</span><span class="mi">1j</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">2j</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">3j</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="mi">4j</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="o">+</span><span class="mi">5j</span><span class="p">,</span> <span class="mi">6</span><span class="o">-</span><span class="mi">6j</span><span class="p">,</span> <span class="mi">7</span><span class="o">+</span><span class="mi">7j</span><span class="p">,</span> <span class="mi">8</span><span class="o">-</span><span class="mi">8j</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">linalg</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_gpu</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">y_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -179,6 +196,9 @@ returned matrix is the same as the input array.</p>
 </div>
 
 
+    </div>
+      
+  </div>
 </div>
 <footer class="footer">
   <div class="container">
@@ -188,7 +208,7 @@ returned matrix is the same as the input array.</p>
     </p>
     <p>
         &copy; Copyright 2009-2013, Lev Givon.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>

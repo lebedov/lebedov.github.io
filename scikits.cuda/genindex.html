@@ -1,4 +1,14 @@
 
+
+
+
+  
+  
+ 
+  
+ 
+
+
 <!DOCTYPE html>
 
 
@@ -10,14 +20,12 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '0.043',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -29,7 +37,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="scikits.cuda 0.043 documentation" href="index.html" />
 <meta charset='utf-8'>
@@ -40,22 +48,23 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="index.html">scikits.cuda</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+      </div>
 
-        <a class="brand" href="index.html">scikits.cuda</a>
-        <span class="navbar-text pull-left"><b>0.043</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a href="index.html"
@@ -94,35 +103,41 @@
 </ul>
 </ul>
 </li>
-              <li class="dropdown">
+              
+                <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"></ul>
 </li>
-            
-            
-
-   
               
             
-
+            
+              
+                
+              
+            
+            
+            
             
           </ul>
 
           
             
-<form class="navbar-search pull-right" action="search.html" method="get">
-  <input type="text" name="q" class="search-query" placeholder="Search" />
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
   <input type="hidden" name="check_keywords" value="yes" />
   <input type="hidden" name="area" value="default" />
 </form>
           
         </div>
-      </div>
     </div>
   </div>
 
 <div class="container">
-  
+  <div class="row">
+    <div class="col-md-12">
+      
 
 <h1 id="index">Index</h1>
 
@@ -156,6 +171,14 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="generated/scikits.cuda.linalg.cho_factor.html#scikits.cuda.linalg.cho_factor">cho_factor() (in module scikits.cuda.linalg)</a>
+  </dt>
+
+      
+  <dt><a href="generated/scikits.cuda.linalg.cho_solve.html#scikits.cuda.linalg.cho_solve">cho_solve() (in module scikits.cuda.linalg)</a>
+  </dt>
+
       
   <dt><a href="generated/scikits.cuda.linalg.conj.html#scikits.cuda.linalg.conj">conj() (in module scikits.cuda.linalg)</a>
   </dt>
@@ -676,12 +699,12 @@
   <dt><a href="generated/scikits.cuda.cublas.cublasStrmm.html#scikits.cuda.cublas.cublasStrmm">cublasStrmm() (in module scikits.cuda.cublas)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="generated/scikits.cuda.cublas.cublasStrmv.html#scikits.cuda.cublas.cublasStrmv">cublasStrmv() (in module scikits.cuda.cublas)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="generated/scikits.cuda.cublas.cublasStrsm.html#scikits.cuda.cublas.cublasStrsm">cublasStrsm() (in module scikits.cuda.cublas)</a>
   </dt>
@@ -1589,6 +1612,9 @@
 
 
 
+    </div>
+      
+  </div>
 </div>
 <footer class="footer">
   <div class="container">
@@ -1598,7 +1624,7 @@
     </p>
     <p>
         &copy; Copyright 2009-2013, Lev Givon.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>

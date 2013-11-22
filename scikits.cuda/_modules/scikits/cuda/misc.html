@@ -1,0 +1,807 @@
+
+
+  
+  
+ 
+  
+ 
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>scikits.cuda.misc &mdash; scikits.cuda 0.043 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.043',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikits.cuda 0.043 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">scikits.cuda</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a href="../../../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#quick-installation">Quick Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#obtaining-the-latest-software">Obtaining the Latest Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#installation-dependencies">Installation Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#platform-support">Platform Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#building-and-installation">Building and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#running-the-unit-tests">Running the Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#getting-started">Getting Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#library-wrapper-routines">Library Wrapper Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#high-level-routines">High-Level Routines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference.html#other-routines">Other Routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors &amp; Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changes.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-043-under-development">Release 0.043 - (under development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-042-march-10-2013">Release 0.042 - (March 10, 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-041-may-22-2011">Release 0.041 - (May 22, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-04-may-11-2011">Release 0.04 - (May 11, 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-03-november-22-2010">Release 0.03 - (November 22, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-02-september-21-2010">Release 0.02 - (September 21, 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-01-september-17-2010">Release 0.01 - (September 17, 2010)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <h1>Source code for scikits.cuda.misc</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Miscellaneous PyCUDA functions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">import</span> <span class="nn">atexit</span>
+
+<span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="kn">as</span> <span class="nn">drv</span>
+<span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
+<span class="kn">import</span> <span class="nn">pycuda.elementwise</span> <span class="kn">as</span> <span class="nn">elementwise</span>
+<span class="kn">import</span> <span class="nn">pycuda.reduction</span> <span class="kn">as</span> <span class="nn">reduction</span>
+<span class="kn">import</span> <span class="nn">pycuda.scan</span> <span class="kn">as</span> <span class="nn">scan</span>
+<span class="kn">import</span> <span class="nn">pycuda.tools</span> <span class="kn">as</span> <span class="nn">tools</span>
+<span class="kn">from</span> <span class="nn">pycuda.compiler</span> <span class="kn">import</span> <span class="n">SourceModule</span>
+<span class="kn">from</span> <span class="nn">pytools</span> <span class="kn">import</span> <span class="n">memoize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">cuda</span>
+<span class="kn">import</span> <span class="nn">cublas</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">cula</span>
+    <span class="n">_has_cula</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+    <span class="n">_has_cula</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">isdoubletype</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span> <span class="ow">or</span> \
+               <span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span> <span class="k">else</span> <span class="bp">False</span>
+<span class="n">isdoubletype</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">Check whether a type has double precision.</span>
+
+<span class="s">Parameters</span>
+<span class="s">----------</span>
+<span class="s">t : numpy float type</span>
+<span class="s">    Type to test.</span>
+
+<span class="s">Returns</span>
+<span class="s">-------</span>
+<span class="s">result : bool</span>
+<span class="s">    Result.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+
+<span class="n">iscomplextype</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span> <span class="ow">or</span> \
+                <span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span> <span class="k">else</span> <span class="bp">False</span>
+<span class="n">iscomplextype</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">Check whether a type is complex.</span>
+
+<span class="s">Parameters</span>
+<span class="s">----------</span>
+<span class="s">t : numpy float type</span>
+<span class="s">    Type to test.</span>
+
+<span class="s">Returns</span>
+<span class="s">-------</span>
+<span class="s">result : bool</span>
+<span class="s">    Result.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="init_device"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.init_device.html#scikits.cuda.misc.init_device">[docs]</a><span class="k">def</span> <span class="nf">init_device</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize a GPU device.</span>
+
+<span class="sd">    Initialize a specified GPU device rather than the default device</span>
+<span class="sd">    found by `pycuda.autoinit`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        Device number.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dev : pycuda.driver.Device</span>
+<span class="sd">        Initialized device.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">drv</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">dev</span> <span class="o">=</span> <span class="n">drv</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dev</span>
+</div>
+<div class="viewcode-block" id="init_context"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.init_context.html#scikits.cuda.misc.init_context">[docs]</a><span class="k">def</span> <span class="nf">init_context</span><span class="p">(</span><span class="n">dev</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a context that will be cleaned up properly.</span>
+
+<span class="sd">    Create a context on the specified device and register its pop()</span>
+<span class="sd">    method with atexit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dev : pycuda.driver.Device</span>
+<span class="sd">        GPU device.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ctx : pycuda.driver.Context</span>
+<span class="sd">        Created context.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">make_context</span><span class="p">()</span>
+    <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">pop</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ctx</span>
+</div>
+<div class="viewcode-block" id="done_context"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.done_context.html#scikits.cuda.misc.done_context">[docs]</a><span class="k">def</span> <span class="nf">done_context</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detach from a context cleanly.</span>
+
+<span class="sd">    Detach from a context and remove its pop() from atexit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ctx : pycuda.driver.Context</span>
+<span class="sd">        Context from which to detach.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atexit</span><span class="o">.</span><span class="n">_exithandlers</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">atexit</span><span class="o">.</span><span class="n">_exithandlers</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">ctx</span><span class="o">.</span><span class="n">pop</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">atexit</span><span class="o">.</span><span class="n">_exithandlers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">break</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+</div>
+<span class="k">global</span> <span class="n">_global_cublas_handle</span>
+<span class="n">_global_cublas_handle</span> <span class="o">=</span> <span class="bp">None</span>
+<div class="viewcode-block" id="init"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.init.html#scikits.cuda.misc.init">[docs]</a><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize libraries used by scikits.cuda.</span>
+
+<span class="sd">    Initialize the CUBLAS and CULA libraries used by high-level functions</span>
+<span class="sd">    provided by scikits.cuda.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function does not initialize PyCUDA; it uses whatever device</span>
+<span class="sd">    and context were initialized in the current host thread.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># CUBLAS uses whatever device is being used by the host thread:</span>
+    <span class="k">global</span> <span class="n">_global_cublas_handle</span>
+    <span class="n">_global_cublas_handle</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasCreate</span><span class="p">()</span>
+
+    <span class="c"># culaSelectDevice() need not (and, in fact, cannot) be called</span>
+    <span class="c"># here because the host thread has already been bound to a GPU</span>
+    <span class="c"># device:</span>
+    <span class="k">if</span> <span class="n">_has_cula</span><span class="p">:</span>
+        <span class="n">cula</span><span class="o">.</span><span class="n">culaInitialize</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="shutdown"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.shutdown.html#scikits.cuda.misc.shutdown">[docs]</a><span class="k">def</span> <span class="nf">shutdown</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shutdown libraries used by scikits.cuda.</span>
+
+<span class="sd">    Shutdown the CUBLAS and CULA libraries used by high-level functions provided</span>
+<span class="sd">    by scikits.cuda.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function does not shutdown PyCUDA.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">global</span> <span class="n">_global_cublas_handle</span>
+    <span class="n">cublasDestroy</span><span class="p">(</span><span class="n">_global_cublas_handle</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">_has_cula</span><span class="p">:</span>
+        <span class="n">cula</span><span class="o">.</span><span class="n">culaShutdown</span><span class="p">()</span>
+
+    <span class="n">_global_cublas_handle</span> <span class="o">=</span> <span class="bp">None</span>
+</div>
+<span class="nd">@memoize</span>
+<div class="viewcode-block" id="get_compute_capability"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.get_compute_capability.html#scikits.cuda.misc.get_compute_capability">[docs]</a><span class="k">def</span> <span class="nf">get_compute_capability</span><span class="p">(</span><span class="n">dev</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the compute capability of the specified device.</span>
+
+<span class="sd">    Retrieve the compute capability of the specified CUDA device and</span>
+<span class="sd">    return it as a floating point value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    d : pycuda.driver.Device</span>
+<span class="sd">        Device object to examine.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    c : float</span>
+<span class="sd">        Compute capability.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+                                 <span class="n">dev</span><span class="o">.</span><span class="n">compute_capability</span><span class="p">()],</span> <span class="s">&#39;.&#39;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="get_current_device"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.get_current_device.html#scikits.cuda.misc.get_current_device">[docs]</a><span class="k">def</span> <span class="nf">get_current_device</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the device in use by the current context.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    d : pycuda.driver.Device</span>
+<span class="sd">        Device in use by current context.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">drv</span><span class="o">.</span><span class="n">Device</span><span class="p">(</span><span class="n">cuda</span><span class="o">.</span><span class="n">cudaGetDevice</span><span class="p">())</span>
+</div>
+<span class="nd">@memoize</span>
+<div class="viewcode-block" id="get_dev_attrs"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.get_dev_attrs.html#scikits.cuda.misc.get_dev_attrs">[docs]</a><span class="k">def</span> <span class="nf">get_dev_attrs</span><span class="p">(</span><span class="n">dev</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get select CUDA device attributes.</span>
+
+<span class="sd">    Retrieve select attributes of the specified CUDA device that</span>
+<span class="sd">    relate to maximum thread block and grid sizes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    d : pycuda.driver.Device</span>
+<span class="sd">        Device object to examine.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    attrs : list</span>
+<span class="sd">        List containing [MAX_THREADS_PER_BLOCK,</span>
+<span class="sd">        (MAX_BLOCK_DIM_X, MAX_BLOCK_DIM_Y, MAX_BLOCK_DIM_Z),</span>
+<span class="sd">        (MAX_GRID_DIM_X, MAX_GRID_DIM_Y)]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">attrs</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">get_attributes</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_THREADS_PER_BLOCK</span><span class="p">],</span>
+            <span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_BLOCK_DIM_X</span><span class="p">],</span>
+             <span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_BLOCK_DIM_Y</span><span class="p">],</span>
+             <span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_BLOCK_DIM_Z</span><span class="p">]),</span>
+            <span class="p">(</span><span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_GRID_DIM_X</span><span class="p">],</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">drv</span><span class="o">.</span><span class="n">device_attribute</span><span class="o">.</span><span class="n">MAX_GRID_DIM_Y</span><span class="p">])]</span>
+</div>
+<span class="nd">@memoize</span>
+<div class="viewcode-block" id="select_block_grid_sizes"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.select_block_grid_sizes.html#scikits.cuda.misc.select_block_grid_sizes">[docs]</a><span class="k">def</span> <span class="nf">select_block_grid_sizes</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">,</span> <span class="n">threads_per_block</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine CUDA block and grid dimensions given device constraints.</span>
+
+<span class="sd">    Determine the CUDA block and grid dimensions allowed by a GPU</span>
+<span class="sd">    device that are sufficient for processing every element of an</span>
+<span class="sd">    array in a separate thread.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    d : pycuda.driver.Device</span>
+<span class="sd">        Device object to be used.</span>
+<span class="sd">    data_shape : tuple</span>
+<span class="sd">        Shape of input data array. Must be of length 2.</span>
+<span class="sd">    threads_per_block : int, optional</span>
+<span class="sd">        Number of threads to execute in each block. If this is None,</span>
+<span class="sd">        the maximum number of threads per block allowed by device `d`</span>
+<span class="sd">        is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    block_dim : tuple</span>
+<span class="sd">        X, Y, and Z dimensions of minimal required thread block.</span>
+<span class="sd">    grid_dim : tuple</span>
+<span class="sd">        X and Y dimensions of minimal required block grid.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Using the scheme in this function, all of the threads in the grid can be enumerated</span>
+<span class="sd">    as `i = blockIdx.y*max_threads_per_block*max_blocks_per_grid+</span>
+<span class="sd">    blockIdx.x*max_threads_per_block+threadIdx.x`.</span>
+
+<span class="sd">    For 2D shapes, the subscripts of the element `data[a, b]` where `data.shape == (A, B)`</span>
+<span class="sd">    can be computed as</span>
+<span class="sd">    `a = i/B`</span>
+<span class="sd">    `b = mod(i,B)`.</span>
+
+<span class="sd">    For 3D shapes, the subscripts of the element `data[a, b, c]` where</span>
+<span class="sd">    `data.shape == (A, B, C)` can be computed as</span>
+<span class="sd">    `a = i/(B*C)`</span>
+<span class="sd">    `b = mod(i, B*C)/C`</span>
+<span class="sd">    `c = mod(mod(i, B*C), C)`.</span>
+
+<span class="sd">    For 4D shapes, the subscripts of the element `data[a, b, c, d]`</span>
+<span class="sd">    where `data.shape == (A, B, C, D)` can be computed as</span>
+<span class="sd">    `a = i/(B*C*D)`</span>
+<span class="sd">    `b = mod(i, B*C*D)/(C*D)`</span>
+<span class="sd">    `c = mod(mod(i, B*C*D)%(C*D))/D`</span>
+<span class="sd">    `d = mod(mod(mod(i, B*C*D)%(C*D)), D)`</span>
+
+<span class="sd">    It is advisable that the number of threads per block be a multiple</span>
+<span class="sd">    of the warp size to fully utilize a device&#39;s computing resources.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># Sanity checks:</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">data_shape</span><span class="p">):</span>
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">data_shape</span><span class="p">,)</span>
+
+    <span class="c"># Number of elements to process; we need to cast the result of</span>
+    <span class="c"># np.prod to a Python int to prevent PyCUDA&#39;s kernel execution</span>
+    <span class="c"># framework from getting confused when</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">data_shape</span><span class="p">))</span>
+
+    <span class="c"># Get device constraints:</span>
+    <span class="n">max_threads_per_block</span><span class="p">,</span> <span class="n">max_block_dim</span><span class="p">,</span> <span class="n">max_grid_dim</span> <span class="o">=</span> <span class="n">get_dev_attrs</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">threads_per_block</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">max_threads_per_block</span> <span class="o">=</span> <span class="n">threads_per_block</span>
+
+    <span class="c"># Assume that the maximum number of threads per block is no larger</span>
+    <span class="c"># than the maximum X and Y dimension of a thread block:</span>
+    <span class="k">assert</span> <span class="n">max_threads_per_block</span> <span class="o">&lt;=</span> <span class="n">max_block_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">max_threads_per_block</span> <span class="o">&lt;=</span> <span class="n">max_block_dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c"># Actual number of thread blocks needed:</span>
+    <span class="n">blocks_needed</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="n">max_threads_per_block</span><span class="o">+</span><span class="mi">1</span>
+    
+    <span class="c"># Assume that the maximum X dimension of a grid</span>
+    <span class="c"># is always at least as large as the maximum Y dimension:</span>
+    <span class="k">assert</span> <span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">blocks_needed</span> <span class="o">&lt;</span> <span class="n">max_block_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">grid_x</span> <span class="o">=</span> <span class="n">blocks_needed</span>
+        <span class="n">grid_y</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">blocks_needed</span> <span class="o">&lt;</span> <span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">grid_x</span> <span class="o">=</span> <span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">grid_y</span> <span class="o">=</span> <span class="n">blocks_needed</span><span class="o">/</span><span class="n">max_grid_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;array size too large&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">max_threads_per_block</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="zeros"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.zeros.html#scikits.cuda.misc.zeros">[docs]</a><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="o">=</span><span class="n">drv</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of the given shape and dtype filled with zeros.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Array shape.</span>
+<span class="sd">    dtype : data-type</span>
+<span class="sd">        Data type for the array.</span>
+<span class="sd">    allocator : callable</span>
+<span class="sd">        Returns an object that represents the memory allocated for</span>
+<span class="sd">        the requested array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array of zeros with the given shape and dtype.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function exists to work around the following numpy bug that</span>
+<span class="sd">    prevents pycuda.gpuarray.zeros() from working properly with</span>
+<span class="sd">    complex types in pycuda 2011.1.2:</span>
+<span class="sd">    http://projects.scipy.org/numpy/ticket/1898</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">GPUArray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</div>
+<div class="viewcode-block" id="zeros_like"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.zeros_like.html#scikits.cuda.misc.zeros_like">[docs]</a><span class="k">def</span> <span class="nf">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of zeros with the same shape and type as a given</span>
+<span class="sd">    array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : array_like</span>
+<span class="sd">        The shape and data type of `a` determine the corresponding</span>
+<span class="sd">        attributes of the returned array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array of zeros with the shape and dtype of `a`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">GPUArray</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">drv</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</div>
+<div class="viewcode-block" id="ones"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.ones.html#scikits.cuda.misc.ones">[docs]</a><span class="k">def</span> <span class="nf">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="o">=</span><span class="n">drv</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of the given shape and dtype filled with ones.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Array shape.</span>
+<span class="sd">    dtype : data-type</span>
+<span class="sd">        Data type for the array.</span>
+<span class="sd">    allocator : callable</span>
+<span class="sd">        Returns an object that represents the memory allocated for</span>
+<span class="sd">        the requested array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array of ones with the given shape and dtype.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">GPUArray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</div>
+<div class="viewcode-block" id="ones_like"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.ones_like.html#scikits.cuda.misc.ones_like">[docs]</a><span class="k">def</span> <span class="nf">ones_like</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of ones with the same shape and type as a given array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    other : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array whose shape and dtype are to be used to allocate a new array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array of ones with the shape and dtype of `other`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">GPUArray</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                            <span class="n">other</span><span class="o">.</span><span class="n">allocator</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</div>
+<div class="viewcode-block" id="inf"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.inf.html#scikits.cuda.misc.inf">[docs]</a><span class="k">def</span> <span class="nf">inf</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="o">=</span><span class="n">drv</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of the given shape and dtype filled with infs.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Array shape.</span>
+<span class="sd">    dtype : data-type</span>
+<span class="sd">        Data type for the array.</span>
+<span class="sd">    allocator : callable</span>
+<span class="sd">        Returns an object that represents the memory allocated for</span>
+<span class="sd">        the requested array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array of infs with the given shape and dtype.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">GPUArray</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">allocator</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</div>
+<div class="viewcode-block" id="maxabs"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.maxabs.html#scikits.cuda.misc.maxabs">[docs]</a><span class="k">def</span> <span class="nf">maxabs</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get maximum absolute value.</span>
+
+<span class="sd">    Find maximum absolute value in the specified array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    m_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Array containing maximum absolute value in `x_gpu`.        </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import misc</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(np.array([-1, 2, -3], np.float32))</span>
+<span class="sd">    &gt;&gt;&gt; m_gpu = misc.maxabs(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(m_gpu.get(), 3.0)</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">maxabs</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">ctype</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">dtype_to_ctype</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">use_double</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>        
+        <span class="n">ret_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span> <span class="k">if</span> <span class="n">use_double</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">reduction</span><span class="o">.</span><span class="n">ReductionKernel</span><span class="p">(</span><span class="n">ret_type</span><span class="p">,</span> <span class="n">neutral</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">,</span>
+                                           <span class="n">reduce_expr</span><span class="o">=</span><span class="s">&quot;max(a,b)&quot;</span><span class="p">,</span> 
+                                           <span class="n">map_expr</span><span class="o">=</span><span class="s">&quot;abs(x[i])&quot;</span><span class="p">,</span>
+                                           <span class="n">arguments</span><span class="o">=</span><span class="s">&quot;{ctype} *x&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctype</span><span class="o">=</span><span class="n">ctype</span><span class="p">))</span>
+        <span class="n">maxabs</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span></div>
+<span class="n">maxabs</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="cumsum"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.cumsum.html#scikits.cuda.misc.cumsum">[docs]</a><span class="k">def</span> <span class="nf">cumsum</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cumulative sum.</span>
+
+<span class="sd">    Return the cumulative sum of the elements in the specified array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    c_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Output array containing cumulative sum of `x_gpu`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Higher dimensional arrays are implicitly flattened row-wise by this function.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import misc</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(np.random.rand(5).astype(np.float32))</span>
+<span class="sd">    &gt;&gt;&gt; c_gpu = misc.cumsum(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(c_gpu.get(), np.cumsum(x_gpu.get()))</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">cumsum</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">InclusiveScanKernel</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s">&quot;a+b&quot;</span><span class="p">)</span>
+        <span class="n">cumsum</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span></div>
+<span class="n">cumsum</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="diff"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.diff.html#scikits.cuda.misc.diff">[docs]</a><span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the discrete difference.</span>
+
+<span class="sd">    Calculates the first order difference between the successive</span>
+<span class="sd">    entries of a vector.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input vector.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Discrete difference.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.driver as drv</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import misc</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(5), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; y_gpu = misc.diff(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(np.diff(x), y_gpu.get())</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">y_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">ctype</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">dtype_to_ctype</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="n">elementwise</span><span class="o">.</span><span class="n">ElementwiseKernel</span><span class="p">(</span><span class="s">&quot;{ctype} *a, {ctype} *b&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctype</span><span class="o">=</span><span class="n">ctype</span><span class="p">),</span>
+                                             <span class="s">&quot;b[i] = a[i+1]-a[i]&quot;</span><span class="p">)</span>
+        <span class="n">diff</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="n">func</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">y_gpu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y_gpu</span></div>
+<span class="n">diff</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+        
+<span class="c"># List of available numerical types provided by numpy:</span>
+<span class="n">num_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">typeDict</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> \
+             <span class="n">np</span><span class="o">.</span><span class="n">typecodes</span><span class="p">[</span><span class="s">&#39;AllInteger&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">typecodes</span><span class="p">[</span><span class="s">&#39;AllFloat&#39;</span><span class="p">]]</span>
+
+<span class="c"># Numbers of bytes occupied by each numerical type:</span>
+<span class="n">num_nbytes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">num_types</span><span class="p">)</span>
+
+<div class="viewcode-block" id="set_realloc"><a class="viewcode-back" href="../../../generated/scikits.cuda.misc.set_realloc.html#scikits.cuda.misc.set_realloc">[docs]</a><span class="k">def</span> <span class="nf">set_realloc</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transfer data into a GPUArray instance.</span>
+
+<span class="sd">    Copies the contents of a numpy array into a GPUArray instance. If</span>
+<span class="sd">    the array has a different type or dimensions than the instance,</span>
+<span class="sd">    the GPU memory used by the instance is reallocated and the</span>
+<span class="sd">    instance updated appropriately.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        GPUArray instance to modify.</span>
+<span class="sd">    data : numpy.ndarray</span>
+<span class="sd">        Array of data to transfer to the GPU.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import misc</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(5), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(10, 1), np.float64)</span>
+<span class="sd">    &gt;&gt;&gt; set_realloc(x_gpu, x)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(x, x_gpu.get())</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># Only reallocate if absolutely necessary:</span>
+    <span class="k">if</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span> <span class="ow">or</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span> <span class="ow">or</span> \
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">strides</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">strides</span> <span class="ow">or</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+
+        <span class="c"># Free old memory:</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="o">.</span><span class="n">free</span><span class="p">()</span>
+
+        <span class="c"># Allocate new memory:</span>
+        <span class="n">nbytes</span> <span class="o">=</span> <span class="n">num_nbytes</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">]</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span> <span class="o">=</span> <span class="n">drv</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">(</span><span class="n">nbytes</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+        <span class="c"># Set array attributes:</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">strides</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">strides</span>
+        <span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
+
+    <span class="c"># Update the GPU memory:</span>
+    <span class="n">x_gpu</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    </div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2009-2013, Lev Givon.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
