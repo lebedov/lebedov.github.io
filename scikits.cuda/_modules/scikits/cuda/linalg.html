@@ -1,12 +1,3 @@
-
-
-  
-  
- 
-  
- 
-
-
 <!DOCTYPE html>
 
 
@@ -18,7 +9,7 @@
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.0.0/united/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -329,6 +320,182 @@
         <span class="k">return</span> <span class="n">s_gpu</span><span class="p">,</span> <span class="n">u_gpu</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">s_gpu</span>
+
+</div>
+<div class="viewcode-block" id="cho_factor"><a class="viewcode-back" href="../../../generated/scikits.cuda.linalg.cho_factor.html#scikits.cuda.linalg.cho_factor">[docs]</a><span class="k">def</span> <span class="nf">cho_factor</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">uplo</span><span class="o">=</span><span class="s">&#39;L&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cholesky factorisation</span>
+
+<span class="sd">    Performs an in-place cholesky factorisation on the matrix `a`</span>
+<span class="sd">    such that `a = x*x.T` or `x.T*x`, if the lower=&#39;L&#39; or upper=&#39;U&#39;</span>
+<span class="sd">    triangle of `a` is used, respectively.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input matrix of shape `(m, m)` to decompose.</span>
+<span class="sd">    uplo: use the upper=&#39;U&#39; or lower=&#39;L&#39; (default) triangle of &#39;a&#39;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    a: pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Cholesky factorised matrix</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Double precision is only supported if the standard version of the</span>
+<span class="sd">    CULA Dense toolkit is installed.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.linalg</span>
+<span class="sd">    &gt;&gt;&gt; import linalg</span>
+<span class="sd">    &gt;&gt;&gt; linalg.init()</span>
+<span class="sd">    &gt;&gt;&gt; a = np.array([[3.0,0.0],[0.0,7.0]])</span>
+<span class="sd">    &gt;&gt;&gt; a = np.asarray(a, np.float64)</span>
+<span class="sd">    &gt;&gt;&gt; a_gpu = gpuarray.to_gpu(a)</span>
+<span class="sd">    &gt;&gt;&gt; cho_factor(a_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(a_gpu.get(), scipy.linalg.cho_factor(a)[0])</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_has_cula</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NotImplementError</span><span class="p">(</span><span class="s">&#39;CULA not installed&#39;</span><span class="p">)</span>
+
+    <span class="n">data_type</span> <span class="o">=</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
+    <span class="n">real_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+    <span class="k">if</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula_toolkit</span> <span class="o">==</span> <span class="s">&#39;standard&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceCpotrf</span>
+        <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceSpotrf</span>
+        <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceZpotrf</span>
+        <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceDpotrf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported type&#39;</span><span class="p">)</span>
+        <span class="n">real_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Cholesky factorisation not included in CULA Dense Free version&#39;</span><span class="p">)</span>
+
+    <span class="c"># Since CUDA assumes that arrays are stored in column-major</span>
+    <span class="c"># format, the input matrix is assumed to be transposed:</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">!=</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Matrix must be symmetric positive-definite&#39;</span><span class="p">)</span>
+
+    <span class="c"># Set the leading dimension of the input matrix:</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+    <span class="n">status</span> <span class="o">=</span> <span class="n">cula_func</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">),</span> <span class="n">lda</span><span class="p">)</span>
+
+    <span class="n">cula</span><span class="o">.</span><span class="n">culaCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+    <span class="c"># Free internal CULA memory:</span>
+    <span class="n">cula</span><span class="o">.</span><span class="n">culaFreeBuffers</span><span class="p">()</span>
+
+    <span class="c"># In-place operation. No return matrix. Result is stored in the input matrix.</span>
+
+</div>
+<div class="viewcode-block" id="cho_solve"><a class="viewcode-back" href="../../../generated/scikits.cuda.linalg.cho_solve.html#scikits.cuda.linalg.cho_solve">[docs]</a><span class="k">def</span> <span class="nf">cho_solve</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">b_gpu</span><span class="p">,</span> <span class="n">uplo</span><span class="o">=</span><span class="s">&#39;L&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cholesky solver</span>
+
+<span class="sd">    Solve a system of equations via cholesky factorization,</span>
+<span class="sd">    i.e. `a*x = b`.</span>
+<span class="sd">    Overwrites `b` to give `inv(a)*b`, and overwrites the chosen triangle</span>
+<span class="sd">    of `a` with factorized triangle</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input matrix of shape `(m, m)` to decompose.</span>
+<span class="sd">    b : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input matrix of shape `(m, 1)` to decompose.</span>
+<span class="sd">    uplo: chr</span>
+<span class="sd">        use the upper=&#39;U&#39; or lower=&#39;L&#39; (default) triangle of `a`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    a: pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Cholesky factorised matrix</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Double precision is only supported if the standard version of the</span>
+<span class="sd">    CULA Dense toolkit is installed.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.linalg</span>
+<span class="sd">    &gt;&gt;&gt; import linalg</span>
+<span class="sd">    &gt;&gt;&gt; linalg.init()</span>
+<span class="sd">    &gt;&gt;&gt; a = np.array([[3.0,0.0],[0.0,7.0]])</span>
+<span class="sd">    &gt;&gt;&gt; a = np.asarray(a, np.float64)</span>
+<span class="sd">    &gt;&gt;&gt; a_gpu = gpuarray.to_gpu(a)</span>
+<span class="sd">    &gt;&gt;&gt; b = np.array([11.,19.])</span>
+<span class="sd">    &gt;&gt;&gt; b = np.asarray(b, np.float64)</span>
+<span class="sd">    &gt;&gt;&gt; b_gpu  = gpuarray.to_gpu(b)</span>
+<span class="sd">    &gt;&gt;&gt; cho_solve(a_gpu,b_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(b_gpu.get(), scipy.linalg.cho_solve(scipy.linalg.cho_factor(a), b))</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_has_cula</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NotImplementError</span><span class="p">(</span><span class="s">&#39;CULA not installed&#39;</span><span class="p">)</span>
+
+    <span class="n">data_type</span> <span class="o">=</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
+    <span class="n">real_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+    <span class="k">if</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula_toolkit</span> <span class="o">==</span> <span class="s">&#39;standard&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceCposv</span>
+        <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceSposv</span>
+        <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceZposv</span>
+        <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="n">cula_func</span> <span class="o">=</span> <span class="n">cula</span><span class="o">.</span><span class="n">_libcula</span><span class="o">.</span><span class="n">culaDeviceDposv</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported type&#39;</span><span class="p">)</span>
+        <span class="n">real_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Cholesky factorisation not included in CULA Dense Free version&#39;</span><span class="p">)</span>
+
+    <span class="c"># Since CUDA assumes that arrays are stored in column-major</span>
+    <span class="c"># format, the input matrix is assumed to be transposed:</span>
+    <span class="n">na</span><span class="p">,</span> <span class="n">ma</span> <span class="o">=</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="p">(</span><span class="n">na</span> <span class="o">==</span> <span class="n">ma</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">na</span><span class="o">!=</span><span class="n">ma</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Matrix must be symmetric positive-definite&#39;</span><span class="p">)</span>
+
+    <span class="c"># Set the leading dimension of the input matrix:</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ma</span><span class="p">)</span>
+    <span class="n">ldb</span> <span class="o">=</span> <span class="n">lda</span>
+
+    <span class="c"># Assuming we are only solving for a vector. Hence, nrhs = 1</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">cula_func</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span> <span class="n">na</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">),</span> <span class="n">lda</span><span class="p">,</span> 
+                       <span class="nb">int</span><span class="p">(</span><span class="n">b_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">),</span> <span class="n">ldb</span><span class="p">)</span>
+
+    <span class="n">cula</span><span class="o">.</span><span class="n">culaCheckStatus</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+    <span class="c"># Free internal CULA memory:</span>
+    <span class="n">cula</span><span class="o">.</span><span class="n">culaFreeBuffers</span><span class="p">()</span>
+
+    <span class="c"># In-place operation. No return matrix. Result is stored in the input matrix</span>
+    <span class="c"># and in the input vector.</span>
+
 </div>
 <div class="viewcode-block" id="dot"><a class="viewcode-back" href="../../../generated/scikits.cuda.linalg.dot.html#scikits.cuda.linalg.dot">[docs]</a><span class="k">def</span> <span class="nf">dot</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">y_gpu</span><span class="p">,</span> <span class="n">transa</span><span class="o">=</span><span class="s">&#39;N&#39;</span><span class="p">,</span> <span class="n">transb</span><span class="o">=</span><span class="s">&#39;N&#39;</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -865,8 +1032,8 @@
 <span class="sd">    &gt;&gt;&gt; linalg.init()</span>
 <span class="sd">    &gt;&gt;&gt; x = np.array([[1+1j, 2-2j, 3+3j, 4-4j], [5+5j, 6-6j, 7+7j, 8-8j]], np.complex64)</span>
 <span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
-<span class="sd">    &gt;&gt;&gt; linalg.conj(x_gpu)</span>
-<span class="sd">    &gt;&gt;&gt; np.all(x == np.conj(x_gpu.get()))</span>
+<span class="sd">    &gt;&gt;&gt; y_gpu = linalg.conj(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.all(x == np.conj(y_gpu.get()))</span>
 <span class="sd">    True</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -922,21 +1089,31 @@
 
 <div class="viewcode-block" id="diag"><a class="viewcode-back" href="../../../generated/scikits.cuda.linalg.diag.html#scikits.cuda.linalg.diag">[docs]</a><span class="k">def</span> <span class="nf">diag</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Construct a diagonal matrix.</span>
+<span class="sd">    Construct a diagonal matrix if input array is one-dimensional,</span>
+<span class="sd">    or extracts diagonal entries of a two-dimensional array.</span>
 
+<span class="sd">    --- If input-array is one-dimensional: </span>
 <span class="sd">    Constructs a matrix in device memory whose diagonal elements</span>
 <span class="sd">    correspond to the elements in the specified array; all</span>
 <span class="sd">    non-diagonal elements are set to 0.</span>
+<span class="sd">    </span>
+<span class="sd">    --- If input-array is two-dimensional: </span>
+<span class="sd">    Constructs an array in device memory whose elements</span>
+<span class="sd">    correspond to the elements along the main-diagonal of the specified </span>
+<span class="sd">    array.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    v_obj : pycuda.gpuarray.GPUArray</span>
-<span class="sd">        Input array of length `n`.</span>
+<span class="sd">            Input array of shape `(n,m)`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    d_gpu : pycuda.gpuarray.GPUArray</span>
-<span class="sd">        Diagonal matrix of dimensions `[n, n]`.</span>
+<span class="sd">            ---If v_obj has shape `(n,1)`, output is </span>
+<span class="sd">               diagonal matrix of dimensions `[n, n]`.</span>
+<span class="sd">            ---If v_obj has shape `(n,m)`, output is </span>
+<span class="sd">               array of length `min(n,m)`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -956,6 +1133,11 @@
 <span class="sd">    &gt;&gt;&gt; d_gpu = linalg.diag(v_gpu)</span>
 <span class="sd">    &gt;&gt;&gt; np.all(d_gpu.get() == np.diag(v))</span>
 <span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; v = np.array([[1., 2., 3.],[4., 5., 6.]], np.float64)</span>
+<span class="sd">    &gt;&gt;&gt; v_gpu = gpuarray.to_gpu(v)</span>
+<span class="sd">    &gt;&gt;&gt; d_gpu = linalg.diag(v_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; d_gpu</span>
+<span class="sd">    array([ 1.,  5.])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -963,8 +1145,21 @@
                            <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unrecognized type&#39;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input array cannot be multidimensional&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="c"># Since CUDA assumes that arrays are stored in column-major</span>
+        <span class="c"># format, the input matrix is assumed to be transposed:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">v_gpu</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">square</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span>
+
+        <span class="c"># Allocate the output array</span>
+        <span class="n">d_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">v_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+
+        <span class="n">diag_kernel</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">ElementwiseKernel</span><span class="p">(</span><span class="s">&quot;double *x, double *y, int z&quot;</span><span class="p">,</span> <span class="s">&quot;y[i] = x[(z+1)*i]&quot;</span><span class="p">,</span> <span class="s">&quot;diakernel&quot;</span><span class="p">)</span>
+        <span class="n">diag_kernel</span><span class="p">(</span><span class="n">v_gpu</span><span class="p">,</span><span class="n">d_gpu</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">d_gpu</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input array cannot have greater than 2-dimensions&#39;</span><span class="p">)</span>
 
     <span class="n">use_double</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
     <span class="n">use_complex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">])</span>
@@ -1030,6 +1225,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    N : int</span>
 <span class="sd">        Number of rows or columns in the output matrix.</span>
+<span class="sd">    dtype : type</span>
+<span class="sd">        Matrix data type.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1049,8 +1246,8 @@
 <span class="sd">    &gt;&gt;&gt; e_gpu = linalg.eye(N)</span>
 <span class="sd">    &gt;&gt;&gt; np.all(e_gpu.get() == np.eye(N))</span>
 <span class="sd">    True</span>
-<span class="sd">    &gt;&gt;&gt; e_gpu = linalg.eye(v_gpu, np.complex64)</span>
-<span class="sd">    &gt;&gt;&gt; np.all(e_gpu.get() == np.eye(N, np.complex64))</span>
+<span class="sd">    &gt;&gt;&gt; e_gpu = linalg.eye(N, np.complex64)</span>
+<span class="sd">    &gt;&gt;&gt; np.all(e_gpu.get() == np.eye(N, dtype=np.complex64))</span>
 <span class="sd">    True</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1424,6 +1621,118 @@
                  <span class="n">grid</span><span class="o">=</span><span class="n">grid_dim</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">z_gpu</span>
 </div>
+<div class="viewcode-block" id="norm"><a class="viewcode-back" href="../../../generated/scikits.cuda.linalg.norm.html#scikits.cuda.linalg.norm">[docs]</a><span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">x_gpu</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Euclidean norm (2-norm) of real vector.</span>
+
+<span class="sd">    Computes the Euclidean norm of an array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input array.</span>
+<span class="sd">    handle : int</span>
+<span class="sd">        CUBLAS context. If no context is specified, the default handle from</span>
+<span class="sd">        `scikits.misc._global_cublas_handle` is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nrm : real</span>
+<span class="sd">        Euclidean norm of `x`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import linalg</span>
+<span class="sd">    &gt;&gt;&gt; linalg.init()</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(4, 4), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; nrm = linalg.norm(x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(nrm, np.linalg.norm(x))</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(np.array([3+4j, 12-84j]))</span>
+<span class="sd">    &gt;&gt;&gt; linalg.norm(x_gpu)</span>
+<span class="sd">    85.0</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">_global_cublas_handle</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">x_gpu</span> <span class="o">=</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+    <span class="c"># Compute inner product for 1D arrays:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">):</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasScnrm2</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasSnrm2</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">):</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasDznrm2</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">):</span>
+        <span class="n">cublas_func</span> <span class="o">=</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasDnrm2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported input type&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cublas_func</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
+</div>
+<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">x_gpu</span><span class="p">,</span> <span class="n">alpha_real</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Scale a vector by a factor alpha.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alpha : scalar</span>
+<span class="sd">        Scale parameter</span>
+<span class="sd">    x_gpu : pycuda.gpuarray.GPUArray</span>
+<span class="sd">        Input array.</span>
+<span class="sd">    alpha_real : bool</span>
+<span class="sd">        If `True` and `x_gpu` is complex, then one of the specialized versions </span>
+<span class="sd">        `cublasCsscal` or `cublasZdscal` is used which might improve</span>
+<span class="sd">        performance for large arrays.  (By default, `alpha` is coerced to</span>
+<span class="sd">        the corresponding complex type.) </span>
+<span class="sd">    handle : int</span>
+<span class="sd">        CUBLAS context. If no context is specified, the default handle from</span>
+<span class="sd">        `scikits.misc._global_cublas_handle` is used.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.autoinit</span>
+<span class="sd">    &gt;&gt;&gt; import pycuda.gpuarray as gpuarray</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import linalg</span>
+<span class="sd">    &gt;&gt;&gt; linalg.init()</span>
+<span class="sd">    &gt;&gt;&gt; x = np.asarray(np.random.rand(4, 4), np.float32)</span>
+<span class="sd">    &gt;&gt;&gt; x_gpu = gpuarray.to_gpu(x)</span>
+<span class="sd">    &gt;&gt;&gt; alpha = 2.4</span>
+<span class="sd">    &gt;&gt;&gt; linalg.scale(alpha, x_gpu)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(x_gpu.get(), alpha*x)</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">handle</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">_global_cublas_handle</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">x_gpu</span> <span class="o">=</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+    <span class="n">cublas_func</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasSscal</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasDscal</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">:</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasCsscal</span> <span class="k">if</span> <span class="n">alpha_real</span> <span class="k">else</span> 
+                      <span class="n">cublas</span><span class="o">.</span><span class="n">cublasCscal</span><span class="p">,</span> 
+        <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span> <span class="n">cublas</span><span class="o">.</span><span class="n">cublasZdscal</span> <span class="k">if</span> <span class="n">alpha_real</span> <span class="k">else</span> 
+                       <span class="n">cublas</span><span class="o">.</span><span class="n">cublasZscal</span> 
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x_gpu</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cublas_func</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cublas_func</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">x_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;unsupported input type&#39;</span><span class="p">)</span>
+
+
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
@@ -1441,7 +1750,7 @@
     </p>
     <p>
         &copy; Copyright 2009-2013, Lev Givon.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.<br/>
     </p>
   </div>
 </footer>

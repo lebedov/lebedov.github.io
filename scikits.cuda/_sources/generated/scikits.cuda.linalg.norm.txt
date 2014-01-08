@@ -1,6 +1,6 @@
-scikits.cuda.linalg.init
+scikits.cuda.linalg.norm
 ========================
 
 .. currentmodule:: scikits.cuda.linalg
 
-.. autofunction:: init
+.. autofunction:: norm
