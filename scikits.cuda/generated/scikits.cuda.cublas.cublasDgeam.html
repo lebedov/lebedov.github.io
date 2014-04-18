@@ -152,7 +152,95 @@
 <dl class="function">
 <dt id="scikits.cuda.cublas.cublasDgeam">
 <tt class="descclassname">scikits.cuda.cublas.</tt><tt class="descname">cublasDgeam</tt><big>(</big><em>handle</em>, <em>transa</em>, <em>transb</em>, <em>m</em>, <em>n</em>, <em>alpha</em>, <em>A</em>, <em>lda</em>, <em>beta</em>, <em>B</em>, <em>ldb</em>, <em>C</em>, <em>ldc</em><big>)</big><a class="reference internal" href="../_modules/scikits/cuda/cublas.html#cublasDgeam"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scikits.cuda.cublas.cublasDgeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Real matrix-matrix addition/transposition.</p>
+<dd><p>Matrix-matrix addition/transposition (double-precision real).</p>
+<p>Computes the sum of two double-precision real scaled and possibly (conjugate)
+transposed matrices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>handle</strong> : int</p>
+<blockquote>
+<div><p>CUBLAS context</p>
+</div></blockquote>
+<p><strong>transa, transb</strong> : char</p>
+<blockquote>
+<div><p>&#8216;t&#8217; if they are transposed, &#8216;c&#8217; if they are conjugate transposed,
+&#8216;n&#8217; if otherwise.</p>
+</div></blockquote>
+<p><strong>m</strong> : int</p>
+<blockquote>
+<div><p>Number of rows in <cite>A</cite> and <cite>C</cite>.</p>
+</div></blockquote>
+<p><strong>n</strong> : int</p>
+<blockquote>
+<div><p>Number of columns in <cite>B</cite> and <cite>C</cite>.</p>
+</div></blockquote>
+<p><strong>alpha</strong> : numpy.float64</p>
+<blockquote>
+<div><p>Constant by which to scale <cite>A</cite>.</p>
+</div></blockquote>
+<p><strong>A</strong> : ctypes.c_void_p</p>
+<blockquote>
+<div><p>Pointer to first matrix operand (<cite>A</cite>).</p>
+</div></blockquote>
+<p><strong>lda</strong> : int</p>
+<blockquote>
+<div><p>Leading dimension of <cite>A</cite>.</p>
+</div></blockquote>
+<p><strong>beta</strong> : numpy.float64</p>
+<blockquote>
+<div><p>Constant by which to scale <cite>B</cite>.</p>
+</div></blockquote>
+<p><strong>B</strong> : ctypes.c_void_p</p>
+<blockquote>
+<div><p>Pointer to second matrix operand (<cite>B</cite>).</p>
+</div></blockquote>
+<p><strong>ldb</strong> : int</p>
+<blockquote>
+<div><p>Leading dimension of <cite>A</cite>.</p>
+</div></blockquote>
+<p><strong>C</strong> : ctypes.c_void_p</p>
+<blockquote>
+<div><p>Pointer to result matrix (<cite>C</cite>).</p>
+</div></blockquote>
+<p><strong>ldc</strong> : int</p>
+<blockquote class="last">
+<div><p>Leading dimension of <cite>C</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="kn">as</span> <span class="nn">gpuarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">beta</span><span class="o">*</span><span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">cublasCreate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDgeam</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta</span><span class="p">,</span> <span class="n">b_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">c_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">c</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="o">+</span><span class="n">beta</span><span class="o">*</span><span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transa</span> <span class="o">=</span> <span class="s">&#39;c&#39;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplexobj</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">else</span> <span class="s">&#39;t&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDgeam</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">transa</span><span class="p">,</span> <span class="s">&#39;n&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">a_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta</span><span class="p">,</span> <span class="n">b_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_gpu</span><span class="o">.</span><span class="n">gpudata</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">c_gpu</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cublasDestroy</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
