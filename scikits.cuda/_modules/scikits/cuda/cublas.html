@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>scikits.cuda.cublas &mdash; scikits.cuda 0.043 documentation</title>
+    <title>scikits.cuda.cublas &mdash; scikits.cuda 0.5.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.043',
+        VERSION:     '0.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="scikits.cuda 0.043 documentation" href="../../../index.html" />
+    <link rel="top" title="scikits.cuda 0.5.0 documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -49,7 +49,7 @@
         </button>
         <a class="navbar-brand" href="../../../index.html">
           scikits.cuda</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.043</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -85,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors &amp; Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changes.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-043-under-development">Release 0.043 - (under development)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-5-0-under-development">Release 0.5.0 - (under development)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-042-march-10-2013">Release 0.042 - (March 10, 2013)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-041-may-22-2011">Release 0.041 - (May 22, 2011)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../changes.html#release-0-04-may-11-2011">Release 0.04 - (May 11, 2011)</a></li>
@@ -148,6 +148,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
@@ -161,7 +162,8 @@
 <span class="kn">import</span> <span class="nn">utils</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;linux2&#39;</span><span class="p">:</span>
-    <span class="n">_libcublas_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;libcublas.so&#39;</span><span class="p">,</span> <span class="s">&#39;libcublas.so.4&#39;</span><span class="p">,</span> <span class="s">&#39;libcublas.so.5&#39;</span><span class="p">]</span>
+    <span class="n">_libcublas_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;libcublas.so&#39;</span><span class="p">,</span> <span class="s">&#39;libcublas.so.4.0&#39;</span><span class="p">,</span>
+                               <span class="s">&#39;libcublas.so.5.0&#39;</span><span class="p">,</span> <span class="s">&#39;libcublas.so.6.0&#39;</span><span class="p">]</span>
 <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;darwin&#39;</span><span class="p">:</span>
     <span class="n">_libcublas_libname_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;libcublas.dylib&#39;</span><span class="p">]</span>
 <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&#39;Windows&#39;</span><span class="p">:</span>
@@ -366,15 +368,16 @@
 <span class="c"># We append zeros to match format of version returned by cublasGetVersion():</span>
 <span class="c"># XXX This approach to obtaining the CUBLAS version number</span>
 <span class="c"># may break Windows/MacOSX compatibility XXX</span></div>
+<span class="n">_cublas_path</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_lib_path</span><span class="p">(</span><span class="s">&#39;cublas&#39;</span><span class="p">)</span>
 <span class="n">_cublas_version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&#39;[\D\.]\.+(\d)&#39;</span><span class="p">,</span>
-                                <span class="n">utils</span><span class="o">.</span><span class="n">get_soname</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">find_lib_path</span><span class="p">(</span><span class="s">&#39;cublas&#39;</span><span class="p">)))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;000&#39;</span><span class="p">)</span>
+                                <span class="n">utils</span><span class="o">.</span><span class="n">get_soname</span><span class="p">(</span><span class="n">_cublas_path</span><span class="p">))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;000&#39;</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">_cublas_version_req</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decorator to replace function with a placeholder that raises an exception</span>
-<span class="sd">    if the installed CUBLAS version is not greater than `v`.     </span>
+<span class="sd">    if the installed CUBLAS version is not greater than `v`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vs</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">v</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>

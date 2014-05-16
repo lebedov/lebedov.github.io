@@ -3,8 +3,9 @@
 Change Log
 ==========
 
-Release 0.043 - (under development)
+Release 0.5.0 - (under development)
 -----------------------------------
+* Switch to PEP 440 version numbering.
 * Improve support for latest NVIDIA GPUs.
 * Add more wrappers for CUBLAS 5 functions (enh. by Teodor Moldovan, Sander Dieleman).
 * Add support for CULA Dense Free R17 (enh. by Alex Rubinsteyn).
@@ -12,11 +13,13 @@ Release 0.043 - (under development)
 * Speed up misc.maxabs using reduction and kernel memoization.
 * Speed up misc.cumsum using scan and kernel memoization.
 * Speed up linalg.conj and misc.diff using elementwise kernel and memoization.
+* Speed up special.{sici,exp1,expi} using elementwise kernel and memoization.
 * Add wrappers for experimental multi-GPU CULA routines in CULA Dense R14+.
 * Use ldconfig to find library paths rather than libdl (#39).
 * Fix win32 platform detection.
 * Add Cholesky factorization/solve routines (enh. by Steve Taylor).
 * Improved MacOSX compatibility (enh. by Michael M. Forbes).
+* Find CUBLAS version even when it is only accessible via LD_LIBRARY_PATH (enh. by Frédéric Bastien).
 
 Release 0.042 - (March 10, 2013)
 --------------------------------
