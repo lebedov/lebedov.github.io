@@ -1,6 +1,0 @@
-scikits.cuda.misc.get_current_device
-====================================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: get_current_device

@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasIcamin
-================================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasIcamin

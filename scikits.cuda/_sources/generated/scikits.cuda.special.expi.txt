@@ -1,6 +1,0 @@
-scikits.cuda.special.expi
-=========================
-
-.. currentmodule:: scikits.cuda.special
-
-.. autofunction:: expi

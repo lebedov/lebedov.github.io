@@ -1,6 +1,0 @@
-scikits.cuda.cufft.cufftSetStream
-=================================
-
-.. currentmodule:: scikits.cuda.cufft
-
-.. autofunction:: cufftSetStream

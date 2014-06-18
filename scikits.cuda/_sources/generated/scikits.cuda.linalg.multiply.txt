@@ -1,6 +1,0 @@
-scikits.cuda.linalg.multiply
-============================
-
-.. currentmodule:: scikits.cuda.linalg
-
-.. autofunction:: multiply

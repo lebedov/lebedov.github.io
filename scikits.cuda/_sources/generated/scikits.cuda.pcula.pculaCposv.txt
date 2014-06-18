@@ -1,6 +1,0 @@
-scikits.cuda.pcula.pculaCposv
-=============================
-
-.. currentmodule:: scikits.cuda.pcula
-
-.. autofunction:: pculaCposv

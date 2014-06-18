@@ -1,6 +1,0 @@
-scikits.cuda.linalg.svd
-=======================
-
-.. currentmodule:: scikits.cuda.linalg
-
-.. autofunction:: svd

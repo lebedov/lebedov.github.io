@@ -1,6 +1,0 @@
-scikits.cuda.misc.diff
-======================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: diff

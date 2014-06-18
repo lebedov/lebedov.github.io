@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasDnrm2
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasDnrm2

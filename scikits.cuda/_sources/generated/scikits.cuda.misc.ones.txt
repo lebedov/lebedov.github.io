@@ -1,6 +1,0 @@
-scikits.cuda.misc.ones
-======================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: ones

@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasCgeam
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasCgeam

@@ -1,6 +1,0 @@
-scikits.cuda.pcula.pculaDpotrs
-==============================
-
-.. currentmodule:: scikits.cuda.pcula
-
-.. autofunction:: pculaDpotrs

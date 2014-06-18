@@ -1,6 +1,0 @@
-scikits.cuda.misc.zeros
-=======================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: zeros

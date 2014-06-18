@@ -1,6 +1,0 @@
-scikits.cuda.cufft.cufftPlanMany
-================================
-
-.. currentmodule:: scikits.cuda.cufft
-
-.. autofunction:: cufftPlanMany

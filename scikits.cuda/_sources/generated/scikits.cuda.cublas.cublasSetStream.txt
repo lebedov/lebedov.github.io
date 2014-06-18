@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasSetStream
-===================================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasSetStream

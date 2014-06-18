@@ -1,6 +1,0 @@
-scikits.cuda.misc.iscomplextype
-===============================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: iscomplextype

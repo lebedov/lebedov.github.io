@@ -1,6 +1,0 @@
-scikits.cuda.pcula.pculaDgesv
-=============================
-
-.. currentmodule:: scikits.cuda.pcula
-
-.. autofunction:: pculaDgesv

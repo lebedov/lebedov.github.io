@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceCgeTransposeConjugateInplace
-========================================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceCgeTransposeConjugateInplace

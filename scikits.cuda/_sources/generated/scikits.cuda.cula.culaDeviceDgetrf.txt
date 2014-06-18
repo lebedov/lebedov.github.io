@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceDgetrf
-==================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceDgetrf

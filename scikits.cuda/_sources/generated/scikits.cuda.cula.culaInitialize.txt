@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaInitialize
-================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaInitialize

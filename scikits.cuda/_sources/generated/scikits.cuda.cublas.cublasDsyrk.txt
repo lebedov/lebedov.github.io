@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasDsyrk
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasDsyrk

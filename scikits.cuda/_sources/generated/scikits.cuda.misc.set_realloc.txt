@@ -1,6 +1,0 @@
-scikits.cuda.misc.set_realloc
-=============================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: set_realloc

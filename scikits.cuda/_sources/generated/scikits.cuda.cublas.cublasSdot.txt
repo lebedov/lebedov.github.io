@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasSdot
-==============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasSdot

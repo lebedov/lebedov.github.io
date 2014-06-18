@@ -1,6 +1,0 @@
-scikits.cuda.pcula.pculaCgetrs
-==============================
-
-.. currentmodule:: scikits.cuda.pcula
-
-.. autofunction:: pculaCgetrs

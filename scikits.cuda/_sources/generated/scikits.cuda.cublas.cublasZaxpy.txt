@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasZaxpy
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasZaxpy

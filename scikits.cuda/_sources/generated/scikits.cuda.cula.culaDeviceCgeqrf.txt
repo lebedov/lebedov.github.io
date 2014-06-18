@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceCgeqrf
-==================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceCgeqrf

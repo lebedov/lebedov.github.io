@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceCgeTranspose
-========================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceCgeTranspose

@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceCgemm
-=================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceCgemm

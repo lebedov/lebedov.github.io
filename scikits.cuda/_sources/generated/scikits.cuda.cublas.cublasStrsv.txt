@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasStrsv
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasStrsv

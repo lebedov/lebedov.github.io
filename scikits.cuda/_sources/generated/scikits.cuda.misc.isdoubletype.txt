@@ -1,6 +1,0 @@
-scikits.cuda.misc.isdoubletype
-==============================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: isdoubletype

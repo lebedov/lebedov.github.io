@@ -1,6 +1,0 @@
-scikits.cuda.linalg.tril
-========================
-
-.. currentmodule:: scikits.cuda.linalg
-
-.. autofunction:: tril

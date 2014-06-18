@@ -1,6 +1,0 @@
-scikits.cuda.misc.inf
-=====================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: inf

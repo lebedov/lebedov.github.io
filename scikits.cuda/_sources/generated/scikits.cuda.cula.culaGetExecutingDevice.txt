@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaGetExecutingDevice
-========================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaGetExecutingDevice

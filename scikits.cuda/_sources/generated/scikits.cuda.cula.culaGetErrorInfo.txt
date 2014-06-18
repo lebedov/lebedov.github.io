@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaGetErrorInfo
-==================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaGetErrorInfo

@@ -1,6 +1,0 @@
-scikits.cuda.pcula.pculaStrsm
-=============================
-
-.. currentmodule:: scikits.cuda.pcula
-
-.. autofunction:: pculaStrsm

@@ -1,6 +1,0 @@
-scikits.cuda.misc.maxabs
-========================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: maxabs

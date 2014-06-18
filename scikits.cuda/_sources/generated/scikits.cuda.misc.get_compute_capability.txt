@@ -1,6 +1,0 @@
-scikits.cuda.misc.get_compute_capability
-========================================
-
-.. currentmodule:: scikits.cuda.misc
-
-.. autofunction:: get_compute_capability

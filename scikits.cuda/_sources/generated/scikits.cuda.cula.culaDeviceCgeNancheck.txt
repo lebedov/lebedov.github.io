@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceCgeNancheck
-=======================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceCgeNancheck

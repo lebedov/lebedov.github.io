@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasGetVersion
-====================================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasGetVersion

@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaGetLastStatus
-===================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaGetLastStatus

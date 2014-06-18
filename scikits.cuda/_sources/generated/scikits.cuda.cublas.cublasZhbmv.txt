@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasZhbmv
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasZhbmv

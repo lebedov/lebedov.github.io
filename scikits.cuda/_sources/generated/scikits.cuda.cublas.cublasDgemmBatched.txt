@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasDgemmBatched
-======================================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasDgemmBatched

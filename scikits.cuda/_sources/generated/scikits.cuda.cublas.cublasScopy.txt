@@ -1,6 +1,0 @@
-scikits.cuda.cublas.cublasScopy
-===============================
-
-.. currentmodule:: scikits.cuda.cublas
-
-.. autofunction:: cublasScopy

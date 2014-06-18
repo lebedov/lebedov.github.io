@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceZpotrf
-==================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceZpotrf

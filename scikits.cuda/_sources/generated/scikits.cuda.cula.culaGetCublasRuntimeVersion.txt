@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaGetCublasRuntimeVersion
-=============================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaGetCublasRuntimeVersion

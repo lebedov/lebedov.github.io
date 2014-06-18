@@ -1,6 +1,0 @@
-scikits.cuda.cufft.cufftDestroy
-===============================
-
-.. currentmodule:: scikits.cuda.cufft
-
-.. autofunction:: cufftDestroy

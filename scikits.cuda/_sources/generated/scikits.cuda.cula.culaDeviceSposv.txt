@@ -1,6 +1,0 @@
-scikits.cuda.cula.culaDeviceSposv
-=================================
-
-.. currentmodule:: scikits.cuda.cula
-
-.. autofunction:: culaDeviceSposv
