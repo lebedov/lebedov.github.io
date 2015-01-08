@@ -60,16 +60,23 @@ b,strong {font-weight:700;}
 #nav ul li a.current{color:#000;}
 
 /* Columns */
-#sidebar{width:33.3%;}
-#main{width:66.6%;}
+#sidebar{width:28%;}
+#sidebar .inner{margin:0px 15px;}
+#sidebar hr { border: 0; height: 1px; margin: 10px 0px 10px 0px;
+background-image: -webkit-linear-gradient(left, rgba(92,90,90,0.75), rgba(92,90,90,0)); 
+background-image: -moz-linear-gradient(left, rgba(92,90,90,0.75), rgba(92,90,90,0)); 
+background-image: -ms-linear-gradient(left, rgba(92,90,90,0.75), rgba(92,90,90,0)); 
+background-image: -o-linear-gradient(left, rgba(92,90,90,0.75), rgba(92,90,90,0));}
+
+#main{width:72%;}
 #duo1{float:left;width:50%;}
 #duo2{float:left;width:50%;}
 #trio1{float:left;width:33.3%;}
 #trio2{float:left;width:33.3%;}
 #trio3{float:right;width:33.3%;}
 .inner{margin:5px 30px;}
-#duo1 .inner{margin:5px 30px;}
-#duo2 .inner{margin:5px 30px;}
+#duo1 .inner{margin:5px 25px 0 15px;}
+#duo2 .inner{margin:5px 0px 0 15px;}
 #trio1 .inner{margin-left:0;}
 #trio2 .inner{margin:0;}
 #trio3 .inner{margin-right:0;}
@@ -173,3 +180,21 @@ Author URI: http://dev7studios.com
 #wrappermobile #content {padding:15px;}
 #wrappermobile #footer{background-color:#f2f2f2;padding:10px 30px;}
 #wrappermobile #footer p{font-size:0.6em;margin:0;padding:0;}
+
+@font-face{font-family:'Open Sans Hebrew Condensed';
+src:url('fonts/OpenSansHebrewCondensed-Regular.eot');
+src:url('fonts/OpenSansHebrewCondensed-Regular.eot?#iefix') format('embedded-opentype');
+src:url('fonts/OpenSansHebrewCondensed-Regular.woff2') format('woff2'); 
+src:url('fonts/OpenSansHebrewCondensed-Regular.woff') format('woff'); 
+src:url('fonts/OpenSansHebrewCondensed-Regular.ttf') format('truetype'); 
+
+font-weight: 300; font-style: normal;}
+.hebrew {font-family: 'Open Sans Hebrew Condensed';}
+
+#pup {position: absolute; z-index: 200; padding: 3px;
+text-align: center; border: 1px solid #777; border-radius: 2px;
+-moz-box-shadow: 5px 5px 5px #C5CCD1; /* FF3.5+ */
+-webkit-box-shadow: 5px 5px 5px #C5CCD1; /* Saf3.0+, Chrome */
+box-shadow: 5px 5px 5px #C5CCD1; /* Opera 10.5, IE 9.0 */
+background-color: white; color: #333;}
+
