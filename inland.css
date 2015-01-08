@@ -181,6 +181,7 @@ Author URI: http://dev7studios.com
 #wrappermobile #footer{background-color:#f2f2f2;padding:10px 30px;}
 #wrappermobile #footer p{font-size:0.6em;margin:0;padding:0;}
 
+/* Extra fonts */
 @font-face{font-family:'Open Sans Hebrew Condensed';
 src:url('fonts/OpenSansHebrewCondensed-Regular.eot');
 src:url('fonts/OpenSansHebrewCondensed-Regular.eot?#iefix') format('embedded-opentype');
@@ -191,10 +192,28 @@ src:url('fonts/OpenSansHebrewCondensed-Regular.ttf') format('truetype');
 font-weight: 300; font-style: normal;}
 .hebrew {font-family: 'Open Sans Hebrew Condensed';}
 
+/* Pop-up box */
 #pup {position: absolute; z-index: 200; padding: 3px;
-text-align: center; border: 1px solid #777; border-radius: 2px;
+text-align: center; border: 1px solid #666; border-radius: 2px;
 -moz-box-shadow: 5px 5px 5px #C5CCD1; /* FF3.5+ */
 -webkit-box-shadow: 5px 5px 5px #C5CCD1; /* Saf3.0+, Chrome */
 box-shadow: 5px 5px 5px #C5CCD1; /* Opera 10.5, IE 9.0 */
 background-color: white; color: #333;}
 
+/* Form-related styles */
+/*#contact{float:right; width:310px;}*/
+#contact{float:left;}
+#contact .button{background-color:#f6f6f7; color:#666; cursor:pointer; 
+   margin: 0px 0px 0px 0px; padding: 0px; float:left;}
+#contact .field{float:left;border:#666 1px solid; width:300px;
+-moz-box-shadow: 5px 5px 5px #C5CCD1; /* FF3.5+ */
+-webkit-box-shadow: 5px 5px 5px #C5CCD1; /* Saf3.0+, Chrome */
+box-shadow: 5px 5px 5px #C5CCD1; /* Opera 10.5, IE 9.0 */}
+#contact .field2{float:left;border:#666 1px solid; padding-bottom:0px; 
+height:137px; width:95%;
+-moz-box-shadow: 5px 5px 5px #C5CCD1; /* FF3.5+ */
+-webkit-box-shadow: 5px 5px 5px #C5CCD1; /* Saf3.0+, Chrome */
+box-shadow: 5px 5px 5px #C5CCD1; /* Opera 10.5, IE 9.0 */
+}
+
+textarea {width:inherit;height:inherit;}
