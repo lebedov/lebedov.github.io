@@ -21,6 +21,8 @@ function validate(theform){
     if(theform.rmail.value.length < 7){
         alert("You must enter a valid email address!");
         return false;
+    }else if(theform.subject.value.length == 0){
+	alert("You must enter a subject!");
     }else if(theform.seltext.value.length == 0){
         alert("Sorry, but you have to write something!");
         return false;
@@ -97,11 +99,11 @@ function validate(theform){
            please submit them through GitHub's issue trackers.</p>
 
         <form action="http://www.columbia.edu/cgi-bin/generic-inbox.pl" method="post">
-          <input type="hidden" name="rmailreq" value="false" />
+          <input type="hidden" name="rmailreq" value="true" />
           <input type="hidden" name="mail_dest" value="lev@columbia.edu" />
-          <input type="hidden" name="ack_link" value="http://www.columbia.edu/~lev/website/received.html" />
+          <input type="hidden" name="ack_link" value="http://www.columbia.edu/~lev/received.html" />
           <label>Email Address</label><br/>
-          <div class="field"><input type="text" name="email" /></div>
+          <div class="field"><input type="text" name="rmail" /></div>
           <div class="clear" style="padding-bottom:5px"></div>
           <label>Subject</label><br/>
           <div class="field"><input type="text" name="subject" /></div>
@@ -109,7 +111,7 @@ function validate(theform){
           <label>Message</label><br/>
           <div class="field2"><textarea name="message"></textarea></div>
           <div class="clear" style="padding-bottom:5px"></div>
-          <div class="button"><input class="button" type="button" value="Submit" onclick="validate(this.form)" /></div>
+          <div class="button"><input class="button" type="submit" value="Submit" onclick="validate(this.form)" /></div>
           <div class="button"><input class="button" type="reset" value="Erase" /></div>
         </form>
       </div>
