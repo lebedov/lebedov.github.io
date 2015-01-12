@@ -65,14 +65,46 @@
   <div id="content" class="clearfix shadow">
     <h2>About My Research</h2>
 
-    <p>My current research focuses on the accurate emulation of brain functions in
-    the fruit fly <i>Drosophila melanogaster</i>. To advance this goal, I am developing 
-    an open software framework called Neurokernel for scalably emulating
-    the fly brain on multiple Graphics Processing Units (GPUs). Neurokernel provides an API 
-    for construction of compatible models of functional modules in the fly brain
-    called <i>Local Processing Units</i>; models independently developed by different
-    researchers can be interconnected via connectivity ports and executed in parallel as part
-    of a whole brain emulation. More information about the Neurokernel project
+    <p>The rapidly increasing availability and power of parallel computational
+    technology raises the tantalizing possibility of constructing and testing
+    computational models of nontrivial portions of the brain. Successful
+    modeling of the entire brain of relatively "simple" organisms such as
+    insects requires more than a general-purpose simulator of general 
+    neuron and synapse models; both the complexity of modeling neural circuits
+    in the brain and the efficient use of parallel computing resources required 
+    to emulate must be taken into consideration.</p> 
+    
+    <p>To address this challenge, my current research focuses on the development
+    of a software framework for developing and testing models of the brain
+    of the fruit fly <i>Drosophila melanogaster</i>.
+    Called Neurokernel, this system serves as an operating system <i>kernel</i> 
+    vis-a-vis models of the fly brain of the fruit fly; just as a traditional
+    computer operating system must be able to <i>allocate computational
+        resources</i> and serve as an <i>extended machine</i> that provides
+    services required by software applications, so too must Neurokernel be able
+    to allocate parallel computational resources and provide the programmability
+    (e.g., software interfaces, data transmission services, 
+    numerical models of constituent neural components, etc.) required to realize
+    models of the fly brain.</p>
+    
+    <p>Reverse engineering the brain of even the simplest organism
+    necessarily requires the combined efforts of multiple experts from a range
+    of disciplines. To explicitly facilitate collaborative development of an
+    accurate fly brain model, Neurokernel</p> 
+    <ul>
+        <li>provides an explicitly open framework for interconnection and
+        parallel execution of independently developed models of different
+        functional modules called <i>Local Processing Units</i> in the fly brain;</li>
+        <li>is implemented in Python, a high-level language that has enjoyed
+        increasing popularity in the computational neuroscience community;
+        and</li>
+        <li>leverages commodity parallel computing technology found in 
+        Graphics Processing Units (GPUs)
+        to empower as many researchers as possible to contribute to the modeling
+        of the fruit fly brain.</li>
+    </ul>
+
+    <p>More information about the Neurokernel project
     (and the latest source code!) is available at the 
     <a href="http://neurokernel.github.io">project web site</a>.
   </div>

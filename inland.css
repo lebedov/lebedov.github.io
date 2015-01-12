@@ -95,6 +95,8 @@ background-image: -o-linear-gradient(left, rgba(92,90,90,0.75), rgba(92,90,90,0)
     -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=5px, OffY=5px, Color='#C5CCD1')"; /* IE8 */
 }
 
+#content ul {margin: 0 0 20px 15px;}
+
 /* Footer */
 #footer{clear:both;background-color:#fafafa;}
 #footer p{color:#777;font-size:12px;margin:0;padding:15px 30px;text-align:center;}
