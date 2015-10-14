@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Lev Givon" />
+    <meta name="keywords" content="Lev Givon" />
+    <meta name="author" content="Lev Givon" />
+    <link 
+    href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Droid+Sans' 
+    rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" media="all" href="inland.css" />
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript" src="js/nhpup_1.1.js"></script>
+    <title>Contact Lev Givon</title>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+
+function validate(theform){
+    if(theform.rmail.value.length < 7){
+        alert("You must enter a valid email address!");
+        return false;
+    }else if(theform.subject.value.length == 0){
+	alert("You must enter a subject!");
+    }else if(theform.seltext.value.length == 0){
+        alert("Sorry, but you have to write something!");
+        return false;
+    }else{
+        theform.submit();
+        return true;
+    }
+}
+
+/* ]]> */
+</script>
+</head>
+
+<body>
+<div id="wrapper960" class="clearfix">
+  <div id="toplinks">
+    <ul class="toplinks_links">
+      <li><a href="http://www.ee.columbia.edu"
+          onmouseover="nhpup.popup('Dept. of Electrical Engineering, Columbia University');">
+          <img src="images/seas-crown-small.png" alt="Columbia EE Department"/></a></li>
+      <li><a href="http://lebedov.github.io"
+          onmouseover="nhpup.popup('Lev\'s GitHub Page');">
+          <img src="images/github-small.png" alt="Lev's GitHub Page"/></a></li>
+      <li><a href="https://www.linkedin.com/in/lebedov"
+          onmouseover="nhpup.popup('Lev\'s LinkedIn Page');">
+          <img src="images/linkedin-small.png" alt="Lev's LinkedIn Page"/></a></li>
+    </ul>
+  </div>
+  
+  <div id="header" class="clearfix shadow">
+    <div id="sitetitle" class="clearfix">
+      <h1><a href="index.html">Lev E. Givon</a></h1>
+    </div>
+    
+    <div id="nav" class="clearfix">
+      <ul>
+	<li><a href="index.html">About Me</a></li>
+	<li><a href="research.html">Research</a></li>
+	<li><a href="publications.html">Publications</a></li>
+	<li><a href="code.html">Code</a></li>
+	<li><a href="art.html">Art</a></li>
+	<li><a class="current" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slider-wrapper">
+    <div id="slider" class="nivoSlider">
+      <img src="images/slider0.jpg" alt=""
+      title="Center for Engineering and Physical Science Research, Columbia University"/>
+      <img src="images/slider1.jpg" alt=""
+      title="Low Library, Columbia University"/>
+      <img src="images/slider2.jpg" alt=""
+      title="Winter snow in Riverside Park, New York City"/>
+      <img src="images/slider3.jpg" alt=""
+      title="BMT West End Line near 9th Avenue Station, Brooklyn, NY"/>
+      <img src="images/slider4.jpg" alt=""
+      title="Autumn foliage in Riverside Park, New York"/>
+      <img src="images/slider5.jpg" alt=""
+      title="Upper West Side, New York City"/>
+    </div>
+  </div>
+
+  <div id="content" class="clearfix shadow">
+    <h2>Contact Me</h2>
+
+    <div id="sidebar" class="left">
+      <img src="images/lev.png" width="200px" height="200px" align="left" class="photo" />
+    </div>
+
+    <div id="main" class="right" align="justify">
+      <div id="contact" align="left">
+        <p>You can contact me directly by sending email to my <a
+            href="mailto:%6C%65%76%40%63%6F%6C%75%6D%62%69%61%2E%65%64%75">Columbia
+           address</a> or by using the following form. If you have questions or 
+           bug reports regarding <a href="http://lebedov.github.io">my software</a>, 
+           please submit them through GitHub's issue trackers.</p>
+
+        <form action="http://www.columbia.edu/cgi-bin/generic-inbox.pl" method="post">
+          <input type="hidden" name="rmailreq" value="true" />
+          <input type="hidden" name="mail_dest" value="lev@columbia.edu" />
+          <input type="hidden" name="ack_link" value="http://www.columbia.edu/~lev/received.html" />
+          <label>Email Address</label><br/>
+          <div class="field"><input type="text" name="rmail" /></div>
+          <div class="clear" style="padding-bottom:5px"></div>
+          <label>Subject</label><br/>
+          <div class="field"><input type="text" name="subject" /></div>
+          <div class="clear" style="padding-bottom:5px"></div>
+          <label>Message</label><br/>
+          <div class="field2"><textarea name="message"></textarea></div>
+          <div class="clear" style="padding-bottom:5px"></div>
+          <div class="button"><input class="button" type="submit" value="Submit" onclick="validate(this.form)" /></div>
+          <div class="button"><input class="button" type="reset" value="Erase" /></div>
+        </form>
+      </div>
+    </div>
+    <div class="clear" style="padding-bottom:25px"></div>
+  </div>
+
+  <div id="footer" class="shadow">
+    <p>&copy; 2015 <a href="contact.html">Lev E. Givon</a> | 
+      <a href="http://andreasviklund.com/templates/inland/">Template design</a> by 
+      <a href="http://andreasviklund.com/">andreasviklund.com</a></p>
+  </div>
+</div>
+
+<script type="text/javascript">
+	$(window).load(function() {
+		$('#slider').nivoSlider();
+	});
+</script>
+</body>
+</html>
