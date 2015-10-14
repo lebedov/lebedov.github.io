@@ -12,28 +12,7 @@
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
     <script type="text/javascript" src="js/nhpup_1.1.js"></script>
-    <title>Contact Lev Givon</title>
-
-<script type="text/javascript">
-/* <![CDATA[ */
-
-function validate(theform){
-    if(theform.rmail.value.length < 7){
-        alert("You must enter a valid email address!");
-        return false;
-    }else if(theform.subject.value.length == 0){
-	alert("You must enter a subject!");
-    }else if(theform.seltext.value.length == 0){
-        alert("Sorry, but you have to write something!");
-        return false;
-    }else{
-        theform.submit();
-        return true;
-    }
-}
-
-/* ]]> */
-</script>
+    <title>Lev Givon's Web Site</title>
 </head>
 
 <body>
@@ -43,7 +22,7 @@ function validate(theform){
       <li><a href="http://www.ee.columbia.edu"
           onmouseover="nhpup.popup('Dept. of Electrical Engineering, Columbia University');">
           <img src="images/seas-crown-small.png" alt="Columbia EE Department"/></a></li>
-      <li><a href="http://lebedov.github.io"
+      <li><a href="https://github.com/lebedov"
           onmouseover="nhpup.popup('Lev\'s GitHub Page');">
           <img src="images/github-small.png" alt="Lev's GitHub Page"/></a></li>
       <li><a href="https://www.linkedin.com/in/lebedov"
@@ -62,9 +41,9 @@ function validate(theform){
 	<li><a href="index.html">About Me</a></li>
 	<li><a href="research.html">Research</a></li>
 	<li><a href="publications.html">Publications</a></li>
-	<li><a href="code.html">Code</a></li>
+	<li><a class="current" href="code.html">Code</a></li>
 	<li><a href="art.html">Art</a></li>
-	<li><a class="current" href="contact.html">Contact</a></li>
+	<li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -87,39 +66,56 @@ function validate(theform){
   </div>
 
   <div id="content" class="clearfix shadow">
-    <h2>Contact Me</h2>
+    <h2>Code</h2>
 
-    <div id="sidebar" class="left">
-      <img src="images/lev.png" width="200px" height="200px" align="left" class="photo" />
+    <p>Source code for my past and current open-source projects can be found below:</p>
+      
+    <div id="duo1" align="left">
+      <ul>
+	<li>Choose browser when opening a URI
+	    (<a href="https://github.com/lebedov/chooser/">code</a>)</li>
+	<li>CUDA SciKit for Python
+	    (<a href="https://github.com/lebedov/scikit-cuda/">code</a>|<a href="http://scikit-cuda.readthedocs.org/">docs</a>)</li>
+	<li>Cypher access to Neo4J via IPython
+	    (<a href="https://github.com/lebedov/icypher/">code</a>)</li>
+	<li>Fancy bash prompt with support for Git, HG, SVN, Virtualenv, and Conda
+	    (<a href="https://github.com/lebedov/git-prompt/">code</a>)</li>
+	<li>IPython local kernel management utility
+	    (<a href="https://github.com/lebedov/ipyk/">code</a>)</li>
+	<li>Magic functions for accessing IPython's rich display system
+	    (<a href="https://github.com/lebedov/idisplay/">code</a>)</li>
+	<li>M/M/s queue simulation Java applet
+	    (<a href="http://www.columbia.edu/~lev/markovapplet.html">applet</a>|<a href="https://github.com/lebedov/markovapplet/">code</a>)</li>
+	<li>National Stock Exchange of India limit order book simulation
+	    (<a href="https://github.com/lebedov/nseindia_lob/">code</a>)</li>
+	<li>Neurokernel Project
+	    (<a href="http://neurokernel.github.io">site</a>|<a href="https://github.com/neurokernel/neurokernel/">code</a>|<a href="http://neurokernel.rtfd.org">docs</a>)</li>
+      </ul>
     </div>
-
-    <div id="main" class="right" align="justify">
-      <div id="contact" align="left">
-        <p>You can contact me directly by sending email to my <a
-            href="mailto:%6C%65%76%40%63%6F%6C%75%6D%62%69%61%2E%65%64%75">Columbia
-           address</a> or by using the following form. If you have questions or 
-           bug reports regarding <a href="http://lebedov.github.io">my software</a>, 
-           please submit them through GitHub's issue trackers.</p>
-
-        <form action="http://www.columbia.edu/cgi-bin/generic-inbox.pl" method="post">
-          <input type="hidden" name="rmailreq" value="true" />
-          <input type="hidden" name="mail_dest" value="lev@columbia.edu" />
-          <input type="hidden" name="ack_link" value="http://www.columbia.edu/~lev/received.html" />
-          <label>Email Address</label><br/>
-          <div class="field"><input type="text" name="rmail" /></div>
-          <div class="clear" style="padding-bottom:5px"></div>
-          <label>Subject</label><br/>
-          <div class="field"><input type="text" name="subject" /></div>
-          <div class="clear" style="padding-bottom:5px"></div>
-          <label>Message</label><br/>
-          <div class="field2"><textarea name="message"></textarea></div>
-          <div class="clear" style="padding-bottom:5px"></div>
-          <div class="button"><input class="button" type="submit" value="Submit" onclick="validate(this.form)" /></div>
-          <div class="button"><input class="button" type="reset" value="Erase" /></div>
-        </form>
-      </div>
+    <div id="duo1" align="left">
+      <ul>
+	<li>PGF/TikZ to image conversion script
+	    (<a href="https://github.com/lebedov/pgf2img/">code</a>)</li>
+	<li>Python bindings for xxHash non-cryptographic hash algorithm
+	    (<a href="https://github.com/lebedov/xxhash/">code</a>)</li>
+	<li>Python interface to CUDA Multi-Process Service
+	    (<a href="https://github.com/lebedov/cudamps/">code</a>)</li>
+	<li>Query OrientDB via IPython
+	    (<a href="https://github.com/lebedov/iorient/">code</a>)</li>
+	<li>Remotely accessible IPython-enabled debugger
+	    (<a href="https://github.com/lebedov/ripdb/">code</a>)</li>
+	<li>Reset IPython namespace and reload specified packages
+	    (<a href="https://github.com/lebedov/duster/">code</a>)</li>
+	<li>Retrieve lists of free HTTP proxies from online sites
+	    (<a href="https://github.com/lebedov/getprox/">code</a>)</li>
+	<li>Serialize Numpy arrays using msgpack
+	    (<a href="https://github.com/lebedov/msgpack_numpy/">code</a>)</li>
+	<li>Time Encoding and Decoding Toolkit for MATLAB
+	    (<a href="https://github.com/bionet/ted.matlab/">code</a>|<a href="http://ted-matlab.rtfd.org">docs</a>)</li>
+	<li>Time Encoding and Decoding Toolkit for Python
+	    (<a href="https://github.com/bionet/ted.python/">code</a>|<a href="http://ted-python.rtfd.org">docs</a>)</li>
+      </ul>
     </div>
-    <div class="clear" style="padding-bottom:25px"></div>
   </div>
 
   <div id="footer" class="shadow">
