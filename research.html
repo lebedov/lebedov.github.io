@@ -66,6 +66,8 @@
   <div id="content" class="clearfix shadow">
     <h2>About My Research</h2>
 
+    <img align="left" style="margin-right:10px;width:100px;height:100px"
+    src="images/neurokernel.png" />
     <p>The rapidly increasing availability and power of parallel computational
     technology raises the tantalizing possibility of constructing and testing
     computational models of nontrivial portions of the brain. Successful
@@ -73,12 +75,20 @@
     insects requires more than a general-purpose simulator of general 
     neuron and synapse models; both the complexity of modeling neural circuits
     in the brain and the efficient use of parallel computing resources required 
-    to emulate must be taken into consideration.</p> 
+    to emulate them must be taken into consideration.</p> 
     
-    <p>To address this challenge, my current research focuses on the development
-    of a software framework for developing and testing models of the brain
-    of the fruit fly <i>Drosophila melanogaster</i>.
-    Called Neurokernel, this system serves as an operating system <i>kernel</i> 
+    <p>Apart from the computing requirements imposed by its structure complexity, 
+    reverse engineering the fly brain must be approached as a collaborative
+    endeavor that a priori involves multiple researchers. To accelerate progress 
+    towards the goal of a successful brain model, there is a need to enable
+    researchers to share their independently developed models of portions of the
+    brain so as to build more comprehensive models.</p>
+    
+    <p>To address these challenge, my current research focuses on the development
+    of an open software platform for collaborative development and execution of 
+    models of the brain of the fruit fly <i>Drosophila melanogaster</i>.
+    This system is called <b>Neurokernel</b> because it serves as an operating 
+    system <i>kernel</i> 
     vis-a-vis models of the fly brain of the fruit fly; just as a traditional
     computer operating system must be able to <i>allocate computational
         resources</i> and serve as an <i>extended machine</i> that provides
@@ -86,12 +96,8 @@
     to allocate parallel computational resources and provide the programmability
     (e.g., software interfaces, data transmission services, 
     numerical models of constituent neural components, etc.) required to realize
-    models of the fly brain.</p>
-    
-    <p>Reverse engineering the brain of even the simplest organism
-    necessarily requires the combined efforts of multiple experts from a range
-    of disciplines. To explicitly facilitate collaborative development of an
-    accurate fly brain model, Neurokernel</p> 
+    models of the fly brain. To explicitly facilitate collaborative 
+    development of an accurate fly brain model, Neurokernel</p> 
     <ul>
         <li>provides an explicitly open framework for interconnection and
         parallel execution of independently developed models of different
