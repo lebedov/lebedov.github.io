@@ -11,7 +11,9 @@
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
     <script type="text/javascript" src="js/nhpup_1.1.js"></script>
     
-    <title>Lev Givon's Art - New Year Greeting I</title>
+    <script type="text/javascript" src="js/github-api.min.js"></script>
+    
+    <title>Lev Givon's Projects</title>
     
 </head>
 
@@ -45,8 +47,8 @@
       <li><a  href="research.html">Research</a></li>
       <li><a  href="publications.html">Publications</a></li>
       <li><a  href="projects.html">Projects</a></li>
-      <li><a  href="snippets.html">Code Snippets</a></li>
-      <li><a class="current" href="art.html">Art</a></li>
+      <li><a class="current" href="snippets.html">Code Snippets</a></li>
+      <li><a  href="art.html">Art</a></li>
       <li><a  href="contact.html">Contact</a></li>
       
       </ul>
@@ -74,27 +76,39 @@
 
   <div id="content" class="clearfix shadow">
     
-    <h2>New Year Greeting I</h2>
-    <div id="sidebar" class="left">
-      <hr />
-        Size: 8" x 10"
-      <hr />
-        Completed: 2000
-      <hr />
+    <h2>Code Snippets</h2>
 
-      <p>I drew this rather large card with the intent to create a
-      reasonably detailed scanned image to duplicate and send to several
-      friends.  I outlined the letters in pencil and inked them in blue and
-      black ink with a dip pen.  The Hebrew words translate to "May you be
-      inscribed for a good year."</p>
-    </div>
+    <p>These snippets of useful/illustrative code are hosted on my
+    <a href="https://gists.github.com/lebedov">GitHub Gists</a> page. Unless otherwise
+    noted, they may be reused under the <a href="https://opensource.org/licenses/BSD-3-Clause">BSD License</a>.</p>
 
-    <div id="main" class="right" align="justify">
-      <div class="inner">
-      <img src="art/new-year-1.jpg" width="400" height="500" class="aligncenter photo" alt="New Year Greeting I" />
-      </div>
-    </div>
-    <div class="clear" style="padding-bottom:25px"></div>
+    <div id="gist-list"></div>
+
+    <script>    
+    var GitHub = require('github-api');
+    const gh = new GitHub();
+    const user = gh.getUser('lebedov');
+    // needed because github-api 3.1.0 doesn't contain a function to pull all gists
+    user._requestAllPages(user.__getScopedUrl('gists'), null, function(err, gists) {
+      var out = "";
+      out += "<div id=\"duo1\" align=\"left\"><div class=\"inner\"><ul>\n";
+      for (i=0; i<Math.ceil(gists.length/2); i++) {
+        var desc = gists[i].description;
+        desc = desc.replace(/\.$/, "");
+        out += ("<li>"+desc+" (<a href=\""+gists[i].html_url+"\">code</a>)\n");
+      }
+      out += "</ul></div></div>\n";
+      out += ("<div id=\"duo1\" align=\"left\"><div class=\"inner\"><ul>\n");
+      for (i=Math.ceil(gists.length/2); i<gists.length; i++) {
+        var desc = gists[i].description;
+        desc = desc.replace(/\.$/, "");
+        out += ("<li>"+desc+" (<a href=\""+gists[i].html_url+"\">code</a>)\n");
+      }
+      out += "</ul></div></div>\n";
+      document.getElementById("gist-list").innerHTML = out;
+    });
+    </script>
+    <noscript><p>Snippet list cannot be displayed when JavaScript is disabled.</p></noscript>
 
   </div>
 
